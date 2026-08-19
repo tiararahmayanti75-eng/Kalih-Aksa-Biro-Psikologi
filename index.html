@@ -1,117 +1,285 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalih Aksa - Biro Psikologi</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            color: #f8fafc; 
-            min-height: 100vh;
-            padding-bottom: 60px;
-        }
-        header { 
-            text-align: center; 
-            padding: 3rem 1rem 1.5rem;
-        }
-        h1 { font-size: 2.5rem; font-weight: 700; color: #38bdf8; margin-bottom: 0.5rem; letter-spacing: 1px; }
-        p.subtitle { color: #cbd5e1; font-size: 1.1rem; }
-        
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
-        
-        /* Glassmorphism Card Style */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            transition: transform 0.3s ease, border 0.3s ease;
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-        }
-        
-        h2 { color: #f1f5f9; margin-bottom: 1rem; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
-        h2 i { color: #38bdf8; }
-        p { color: #94a3b8; line-height: 1.7; }
-        
-        .services-list { list-style: none; margin-top: 1rem; }
-        .services-list li { 
-            padding: 0.75rem 0; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-            color: #e2e8f0; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-        }
-        .services-list li i { color: #4ade80; }
-        .services-list li:last-child { border-bottom: none; }
-        
-        .cta-section { text-align: center; margin-top: 1.5rem; }
-        .btn-wa {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #25d366;
-            color: #fff;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-        }
-        .btn-wa:hover {
-            background: #22c55e;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-        }
-        
-        footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 3rem; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalih Aksa Biro Psikologi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #1a2332;
+      --card-bg: #243044;
+      --accent-color: #38bdf8;
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --success: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header h1 {
+      color: var(--accent-color);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-sub);
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+    }
+
+    /* Grid Layanan Interaktif */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.2rem;
+      border-radius: 10px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+    }
+
+    .service-card i {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 0.8rem;
+    }
+
+    /* Profil Tim */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .team-card {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .team-card i.avatar {
+      font-size: 3.5rem;
+      color: var(--text-sub);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Form Booking */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .btn-submit {
+      background-color: var(--accent-color);
+      color: #0f172a;
+      font-weight: bold;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.9;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--success);
+      color: white;
+      border-radius: 50px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Kalih Aksa Biro Psikologi</h1>
-        <p class="subtitle">Pendamping Professional Kesehatan Mental & Tumbuh Kembang</p>
-    </header>
 
-    <div class="container">
-        <div class="glass-card">
-            <h2><i class="fa-solid fa-heart-pulse"></i> Selamat Datang</h2>
-            <p>Kalih Aksa hadir sebagai ruang aman dan profesional untuk mendampingi kesehatan mental, asesmen psikologi, serta pengembangan potensi diri untuk individu, keluarga, maupun organisasi.</p>
-        </div>
+  <header>
+    <h1>Kalih Aksa Biro Psikologi</h1>
+    <p>Pendamping Profesional Kesehatan Mental & Tumbuh Kembang</p>
+  </header>
 
-        <div class="glass-card">
-            <h2><i class="fa-solid fa-list-check"></i> Layanan Utama</h2>
-            <ul class="services-list">
-                <li><i class="fa-solid fa-circle-check"></i> Konseling Individu, Remaja & Keluarga</li>
-                <li><i class="fa-solid fa-circle-check"></i> Tes Psikologi, Bakat Minat & Asesmen Rekrutmen</li>
-                <li><i class="fa-solid fa-circle-check"></i> Pelatihan, Workshop & Development Program</li>
-            </ul>
-        </div>
-
-        <div class="glass-card cta-section">
-            <h2><i class="fa-solid fa-comments"></i> Konsultasi & Booking Jadwal</h2>
-            <p style="margin-bottom: 1.5rem;">Terhubung langsung dengan tim admin kami untuk informasi jadwal dan sesi konseling.</p>
-            <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20psikologi." target="_blank" class="btn-wa">
-                <i class="fa-brands fa-whatsapp fa-xl"></i> Hubungi via WhatsApp
-            </a>
-        </div>
+  <div class="container">
+    
+    <!-- Tentangnya -->
+    <div class="card">
+      <h2><i class="fa-solid fa-heart-pulse" style="color: var(--accent-color);"></i> Selamat Datang</h2>
+      <p>Kalih Aksa hadir sebagai ruang aman dan profesional untuk mendampingi kesehatan mental, asesmen psikologi, serta pengembangan potensi diri untuk individu, keluarga, maupun organisasi.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Kalih Aksa Biro Psikologi. All rights reserved.</p>
-    </footer>
+    <!-- Layanan Utama -->
+    <div class="card">
+      <h2><i class="fa-solid fa-list-check" style="color: var(--accent-color);"></i> Layanan Utama</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-comments"></i>
+          <h3>Konseling Individu</h3>
+          <p>Sesi privat bersama psikolog untuk pendampingan masalah emosional dan stres.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-brain"></i>
+          <h3>Tes Psikologi</h3>
+          <p>Asesmen minat bakat, IQ, kepribadian, serta kebutuhan rekrutmen kerja.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>Pelatihan & Workshop</h3>
+          <p>Program pengembangan diri dan kesehatan mental untuk instansi/perusahaan.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tim Psikolog -->
+    <div class="card">
+      <h2><i class="fa-solid fa-user-doctor" style="color: var(--accent-color);"></i> Tim Pendamping</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <i class="fa-solid fa-circle-user avatar"></i>
+          <h3>Tim Psikolog Klinis</h3>
+          <p style="color: var(--text-sub); font-size: 0.85rem;">Spesialisasi Remaja & Dewasa</p>
+        </div>
+        <div class="team-card">
+          <i class="fa-solid fa-circle-user avatar"></i>
+          <h3>Tim Psikolog Anak</h3>
+          <p style="color: var(--text-sub); font-size: 0.85rem;">Spesialisasi Tumbuh Kembang</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Pendaftaran Aman -->
+    <div class="card">
+      <h2><i class="fa-solid fa-calendar-check" style="color: var(--accent-color);"></i> Form Reservasi Sesi</h2>
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap / Inisial:</label>
+          <input type="text" id="nama" placeholder="Masukkan nama atau inisial" required>
+        </div>
+        <div class="form-group">
+          <label for="layanan">Pilih Layanan:</label>
+          <select id="layanan">
+            <option>Konseling Individu</option>
+            <option>Tes Psikologi & Bakat</option>
+            <option>Pelatihan / Workshop</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="catatan">Pesan / Catatan Tambahan:</label>
+          <textarea id="catatan" rows="3" placeholder="Tuliskan jadwal yang diinginkan atau pertanyaan awal"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Kirim via WhatsApp</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Tombol WhatsApp Melayang -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Kalih%20Aksa,%20saya%20ingin%20bertanya%20mengenai%20layanan%20psikologi." class="wa-float" target="_blank">
+    <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i>
+    Hubungi Admin
+  </a>
+
+  <script>
+    // Mekanisme Pengiriman Aman langsung mengarah ke WhatsApp Admin tanpa menyimpan data di browser/GitHub
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nama = document.getElementById('nama').value;
+      const layanan = document.getElementById('layanan').value;
+      const catatan = document.getElementById('catatan').value;
+      
+      const noWA = "6281234567890"; // Ganti dengan nomor WhatsApp Admin Kalih Aksa
+      const pesan = `Halo Admin Kalih Aksa, saya ingin reservasi sesi.%0A%0ANama: ${nama}%0ALayanan: ${layanan}%0ACatatan: ${catatan}`;
+      
+      window.open(`https://wa.me/${noWA}?text=${pesan}`, '_blank');
+    });
+  </script>
 </body>
 </html>
