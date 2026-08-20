@@ -5,149 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalih Aksa Biro Psikologi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-color: #1a2332;
-      --card-bg: #243044;
-      --accent-color: #38bdf8;
-      --text-main: #f8fafc;
-      --text-sub: #94a3b8;
-      --success: #22c55e;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding-bottom: 40px;
-    }
-
-    header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-    }
-
-    header h1 {
-      color: var(--accent-color);
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      color: var(--text-sub);
-      font-size: 1.1rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 1.8rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .card h2 {
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.4rem;
-    }
-
-    .grid-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .item-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1.2rem;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
-
-    .item-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-color);
-    }
-
-    details {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 0.8rem;
-      cursor: pointer;
-    }
-
-    summary {
-      font-weight: bold;
-      color: var(--accent-color);
-    }
-
-    details p {
-      margin-top: 0.8rem;
-      color: var(--text-sub);
-      font-size: 0.95rem;
-    }
-
-    .map-responsive {
-      overflow: hidden;
-      padding-bottom: 56.25%;
-      position: relative;
-      height: 0;
-      border-radius: 8px;
-    }
-
-    .map-responsive iframe {
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      border: 0;
-    }
-
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background-color: var(--success);
-      color: white;
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-
-    .btn-wa:hover {
-      background-color: #16a34a;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-sub);
-      font-size: 0.85rem;
-      padding: 1rem 0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -159,26 +17,26 @@
   <div class="container">
     
     <div class="card">
-      <h2><i class="fa-solid fa-heart-pulse" style="color: var(--accent-color);"></i> Selamat Datang</h2>
+      <h2><i class="fa-solid fa-heart-pulse icon-accent"></i> Selamat Datang</h2>
       <p>Kalih Aksa hadir sebagai ruang aman dan profesional untuk mendampingi kesehatan mental, asesmen psikologi, serta pengembangan potensi diri untuk individu, keluarga, maupun organisasi.</p>
     </div>
 
     <div class="card">
-      <h2><i class="fa-solid fa-newspaper" style="color: var(--accent-color);"></i> Edukasi & Artikel</h2>
+      <h2><i class="fa-solid fa-newspaper icon-accent"></i> Edukasi & Artikel</h2>
       <div class="grid-layout">
         <div class="item-card">
           <h3>Mengenal Burnout & Stres Kerja</h3>
-          <p style="color: var(--text-sub); font-size: 0.9rem; margin-top: 0.5rem;">Ketahui tanda-tanda kelelahan mental saat bekerja dan cara menjaga keseimbangan emosi harian.</p>
+          <p class="text-sub-small">Ketahui tanda-tanda kelelahan mental saat bekerja dan cara menjaga keseimbangan emosi harian.</p>
         </div>
         <div class="item-card">
           <h3>Pentingnya Kesehatan Mental Remaja</h3>
-          <p style="color: var(--text-sub); font-size: 0.9rem; margin-top: 0.5rem;">Bagaimana orang tua dapat mendampingi fase krisis identitas dan regulasi emosi pada anak.</p>
+          <p class="text-sub-small">Bagaimana orang tua dapat mendampingi fase krisis identitas dan regulasi emosi pada anak.</p>
         </div>
       </div>
     </div>
 
     <div class="card">
-      <h2><i class="fa-solid fa-circle-question" style="color: var(--accent-color);"></i> Tanya Jawab (FAQ)</h2>
+      <h2><i class="fa-solid fa-circle-question icon-accent"></i> Tanya Jawab (FAQ)</h2>
       
       <details>
         <summary>Bagaimana cara membuat janji konseling?</summary>
@@ -197,18 +55,18 @@
     </div>
 
     <div class="card">
-      <h2><i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Lokasi Layanan</h2>
-      <p style="margin-bottom: 1rem; color: var(--text-sub);">Kunjungi biro psikologi kami untuk konsultasi tatap muka secara langsung:</p>
+      <h2><i class="fa-solid fa-location-dot icon-accent"></i> Lokasi Layanan</h2>
+      <p class="text-sub-mb">Kunjungi biro psikologi kami untuk konsultasi tatap muka secara langsung:</p>
       <div class="map-responsive">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311687103233!3d-6.90344434168019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a0649f3e0974b!2sBandung%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
 
-    <div class="card" style="text-align: center;">
-      <h2><i class="fa-solid fa-comments" style="color: var(--accent-color); justify-content: center;"></i> Konsultasi & Booking</h2>
-      <p style="margin-bottom: 1.5rem; color: var(--text-sub);">Terhubung langsung dengan tim admin kami untuk informasi jadwal dan sesi konseling.</p>
+    <div class="card text-center">
+      <h2 class="justify-center"><i class="fa-solid fa-comments icon-accent"></i> Konsultasi & Booking</h2>
+      <p class="text-sub-mb-lg">Terhubung langsung dengan tim admin kami untuk informasi jadwal dan sesi konseling.</p>
       <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20psikologi." class="btn-wa" target="_blank">
-        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hubungi via WhatsApp
+        <i class="fa-brands fa-whatsapp icon-wa"></i> Hubungi via WhatsApp
       </a>
     </div>
 
@@ -218,5 +76,6 @@
     &copy; 2026 Kalih Aksa Biro Psikologi. All rights reserved.
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

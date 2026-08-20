@@ -1,0 +1,219 @@
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --accent-color: #38bdf8;
+  --accent-hover: #0284c7;
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+  --success: #22c55e;
+  --success-hover: #16a34a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding-bottom: 40px;
+}
+
+header {
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, rgba(15, 23, 42, 0) 100%);
+}
+
+header h1 {
+  color: var(--accent-color);
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  color: var(--text-sub);
+  font-size: 1.1rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.35rem;
+}
+
+.icon-accent {
+  color: var(--accent-color);
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.item-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.4rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  background: rgba(56, 189, 248, 0.04);
+}
+
+details {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.1rem;
+  margin-bottom: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+details[open] {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+summary {
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '\f078';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+details p {
+  margin-top: 0.9rem;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.8rem;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 52%;
+  position: relative;
+  height: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: 0;
+}
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+}
+
+.icon-wa {
+  font-size: 1.3rem;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-sub-small {
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.text-sub-mb {
+  margin-bottom: 1rem;
+  color: var(--text-sub);
+}
+
+.text-sub-mb-lg {
+  margin-bottom: 1.5rem;
+  color: var(--text-sub);
+}
+
+footer {
+  text-align: center;
+  color: var(--text-sub);
+  font-size: 0.85rem;
+  padding: 1.5rem 0 0;
+}
