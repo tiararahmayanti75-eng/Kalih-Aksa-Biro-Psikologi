@@ -9,7 +9,13 @@
 </head>
 <body>
 
+  <!-- Header Navigasi & Toggle Tema -->
   <header>
+    <div class="theme-toggle-container">
+      <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </button>
+    </div>
     <h1>Kalih Aksa Biro Psikologi</h1>
     <p>Pendamping Profesional Kesehatan Mental & Tumbuh Kembang</p>
   </header>
@@ -20,6 +26,38 @@
     <div class="card">
       <h2><i class="fa-solid fa-heart-pulse icon-accent"></i> Selamat Datang</h2>
       <p>Kalih Aksa hadir sebagai ruang aman dan profesional untuk mendampingi kesehatan mental, asesmen psikologi, serta pengembangan potensi diri untuk individu, keluarga, maupun organisasi.</p>
+    </div>
+
+    <!-- Fitur 3: Profil Tim Konselor & Psikolog -->
+    <div class="card">
+      <h2><i class="fa-solid fa-user-doctor icon-accent"></i> Tim Psikolog & Konselor</h2>
+      <p class="text-sub-mb">Didampingi oleh tenaga profesional berpengalaman dan tersertifikasi di bidangnya:</p>
+      <div class="grid-layout">
+        <div class="item-card text-center">
+          <div class="avatar-placeholder">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3>Dr. Anindya Putri, M.Psi.</h3>
+          <p class="badge">Psikolog Klinis Dewasa</p>
+          <p class="text-sub-small">Fokus: Kecemasan, Stres Kerja, Depresi, & Trauma Masa Lalu.</p>
+        </div>
+        <div class="item-card text-center">
+          <div class="avatar-placeholder">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <h3>Bambang Perkasa, M.Psi.</h3>
+          <p class="badge">Psikolog Anak & Remaja</p>
+          <p class="text-sub-small">Fokus: Tumbuh Kembang Anak, Minat Bakat, & Masalah Perilaku.</p>
+        </div>
+        <div class="item-card text-center">
+          <div class="avatar-placeholder">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>Citra Lestari, S.Psi.</h3>
+          <p class="badge">Konselor Pernikahan & Keluarga</p>
+          <p class="text-sub-small">Fokus: Komunikasi Pasangan, Pengasuhan (Parenting), & Konflik Keluarga.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Layanan Kami -->
@@ -45,6 +83,105 @@
           <i class="fa-solid fa-briefcase service-icon"></i>
           <h3>Psikologi Organisasi</h3>
           <p class="text-sub-small">Program kesehatan mental karyawan (*EAP*) dan pelatihan pengembangan tim.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fitur 2: Interactive Quiz / Skrining Stres Mandiri -->
+    <div class="card highlight-card">
+      <h2><i class="fa-solid fa-clipboard-question icon-accent"></i> Skrining Stres Mandiri (Cek Kesejahteraan Mental)</h2>
+      <p class="text-sub-mb">Jawab 3 pertanyaan singkat di bawah untuk mengetahui kondisi tingkat stres kerja/harian Anda secara umum:</p>
+      
+      <form id="quiz-form">
+        <div class="quiz-question">
+          <label>1. Berapa sering Anda merasa kewalahan atau sulit mengontrol emosi dalam seminggu terakhir?</label>
+          <select id="q1" required>
+            <option value="0">Jarang / Tidak Pernah</option>
+            <option value="1">Kadang-kadang (1-2 hari)</option>
+            <option value="2">Sering (3-5 hari)</option>
+            <option value="3">Hampir Setiap Hari</option>
+          </select>
+        </div>
+
+        <div class="quiz-question">
+          <label>2. Apakah Anda mengalami gangguan tidur (insomnia/mudah terbangun) atau kelelahan konstan?</label>
+          <select id="q2" required>
+            <option value="0">Tidak Sama Sekali</option>
+            <option value="1">Sedikit Terganggu</option>
+            <option value="2">Cukup Mengganggu Aktivitas</option>
+            <option value="3">Sangat Mengganggu</option>
+          </select>
+        </div>
+
+        <div class="quiz-question">
+          <label>3. Apakah Anda merasa kehilangan minat pada hal-hal yang biasanya Anda sukai?</label>
+          <select id="q3" required>
+            <option value="0">Tidak</option>
+            <option value="1">Sedikit</option>
+            <option value="2">Ya, Lumayan Terasa</option>
+            <option value="3">Sangat Hilang Minat</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-quiz">Cek Hasil Skrining</button>
+      </form>
+
+      <div id="quiz-result" class="quiz-result hidden">
+        <h3 id="result-title"></h3>
+        <p id="result-desc"></p>
+        <a id="result-wa-btn" href="#" class="btn-wa mt-1" target="_blank">
+          <i class="fa-brands fa-whatsapp icon-wa"></i> Konsultasikan Hasil via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Fitur 4: Estimasi Biaya & Paket Layanan -->
+    <div class="card">
+      <h2><i class="fa-solid fa-tags icon-accent"></i> Estimasi Biaya & Paket Konseling</h2>
+      <p class="text-sub-mb">Pilihan paket konsultasi yang transparan sesuai kebutuhan Anda:</p>
+      <div class="grid-layout">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Sesi Tunggal</h3>
+            <span class="price">Rp 250.000</span>
+            <span class="per-session">/ 60 Menit</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> 1x Sesi Konseling (Online/Offline)</li>
+            <li><i class="fa-solid fa-check"></i> Rahasia Terjamin</li>
+            <li><i class="fa-solid fa-check"></i> Lembar Evaluasi Diri</li>
+          </ul>
+          <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20booking%20Paket%20Sesi%20Tunggal." class="btn-pricing" target="_blank">Pilih Paket</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="featured-badge">Terpopuler</div>
+          <div class="pricing-header">
+            <h3>Paket Intensif (3 Sesi)</h3>
+            <span class="price">Rp 650.000</span>
+            <span class="per-session">/ 3 Sesi x 60 Menit</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> 3x Sesi Konseling Berkelanjutan</li>
+            <li><i class="fa-solid fa-check"></i> Monitoring Progres Emosional</li>
+            <li><i class="fa-solid fa-check"></i> Latihan Regulasi Diri (Worksheet)</li>
+            <li><i class="fa-solid fa-check"></i> Hemat Rp 100.000</li>
+          </ul>
+          <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20booking%20Paket%20Intensif%203%20Sesi." class="btn-pricing btn-featured" target="_blank">Pilih Paket</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Asesmen / Tes Psikologi</h3>
+            <span class="price">Rp 450.000</span>
+            <span class="per-session">/ Paket Tes Kompleks</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> Tes IQ & Minat Bakat</li>
+            <li><i class="fa-solid fa-check"></i> Sesi Feedback Psikolog</li>
+            <li><i class="fa-solid fa-check"></i> Laporan Hasil Resmi (PDF)</li>
+          </ul>
+          <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20bertanya%20mengenai%20Paket%20Tes%20Psikologi." class="btn-pricing" target="_blank">Pilih Paket</a>
         </div>
       </div>
     </div>

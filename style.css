@@ -7,6 +7,20 @@
   --text-sub: #94a3b8;
   --success: #22c55e;
   --success-hover: #16a34a;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* Variables untuk Light Mode */
+body.light-mode {
+  --bg-color: #f1f5f9;
+  --card-bg: #ffffff;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
+  --text-main: #0f172a;
+  --text-sub: #475569;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #f8fafc;
 }
 
 * {
@@ -14,6 +28,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
@@ -27,6 +42,7 @@ header {
   text-align: center;
   padding: 3.5rem 1rem 2.5rem;
   background: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, rgba(15, 23, 42, 0) 100%);
+  position: relative;
 }
 
 header h1 {
@@ -41,6 +57,33 @@ header p {
   font-size: 1.1rem;
 }
 
+/* Light/Dark Toggle Button */
+.theme-toggle-container {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+#theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--accent-color);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -52,13 +95,13 @@ header p {
   border-radius: 16px;
   padding: 2rem;
   margin-bottom: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
@@ -81,11 +124,10 @@ header p {
 }
 
 .item-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
   padding: 1.4rem;
   border-radius: 12px;
-  transition: all 0.3s ease;
 }
 
 .item-card:hover {
@@ -98,6 +140,172 @@ header p {
   font-size: 1.8rem;
   color: var(--accent-color);
   margin-bottom: 0.8rem;
+}
+
+/* Profil Konselor */
+.avatar-placeholder {
+  width: 70px;
+  height: 70px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.8rem;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin: 0.4rem 0 0.8rem;
+}
+
+/* Interactive Quiz */
+.quiz-question {
+  margin-bottom: 1.2rem;
+}
+
+.quiz-question label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.quiz-question select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.btn-quiz {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-quiz:hover {
+  background: var(--accent-hover);
+}
+
+.quiz-result {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid var(--accent-color);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+/* Pricing Cards */
+.pricing-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pricing-card.featured {
+  border-color: var(--accent-color);
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.pricing-header h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-header .price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  display: block;
+}
+
+.pricing-header .per-session {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 1.2rem 0;
+}
+
+.pricing-features li {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricing-features li i {
+  color: var(--success);
+  font-size: 0.8rem;
+}
+
+.btn-pricing {
+  display: block;
+  text-align: center;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-pricing:hover, .btn-featured {
+  background: var(--accent-color);
+  color: white;
 }
 
 /* Section Statistik */
@@ -126,16 +334,15 @@ header p {
 
 details {
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1.1rem;
   margin-bottom: 0.9rem;
-  transition: all 0.2s ease;
 }
 
 details[open] {
   border-color: var(--accent-color);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(56, 189, 248, 0.04);
 }
 
 summary {
@@ -169,7 +376,7 @@ details p {
   margin-top: 0.9rem;
   color: var(--text-sub);
   font-size: 0.95rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
   padding-top: 0.8rem;
 }
 
@@ -179,7 +386,7 @@ details p {
   position: relative;
   height: 0;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .map-responsive iframe {
@@ -209,7 +416,6 @@ details p {
 .btn-wa:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
-  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
 }
 
 .icon-wa {
