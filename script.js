@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Menutup accordion FAQ lain saat salah satu FAQ dibuka (Accordion Effect)
+  // Accordion effect untuk FAQ
   const detailsElements = document.querySelectorAll('details');
 
   detailsElements.forEach((targetDetail) => {

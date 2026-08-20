@@ -75,7 +75,7 @@ header p {
 
 .grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.2rem;
   margin-top: 1rem;
 }
@@ -92,6 +92,36 @@ header p {
   transform: translateY(-5px);
   border-color: var(--accent-color);
   background: rgba(56, 189, 248, 0.04);
+}
+
+.service-icon {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 0.8rem;
+}
+
+/* Section Statistik */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 0.5rem;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-sub);
 }
 
 details {
