@@ -28,7 +28,7 @@
       <p>Kalih Aksa hadir sebagai ruang aman dan profesional untuk mendampingi kesehatan mental, asesmen psikologi, serta pengembangan potensi diri untuk individu, keluarga, maupun organisasi.</p>
     </div>
 
-    <!-- Fitur 3: Profil Tim Konselor & Psikolog -->
+    <!-- Profil Tim Konselor & Psikolog -->
     <div class="card">
       <h2><i class="fa-solid fa-user-doctor icon-accent"></i> Tim Psikolog & Konselor</h2>
       <p class="text-sub-mb">Didampingi oleh tenaga profesional berpengalaman dan tersertifikasi di bidangnya:</p>
@@ -60,36 +60,46 @@
       </div>
     </div>
 
-    <!-- Layanan Kami -->
+    <!-- Fitur: Filter Kategori Layanan -->
     <div class="card">
       <h2><i class="fa-solid fa-hand-holding-heart icon-accent"></i> Layanan Kami</h2>
-      <div class="grid-layout">
-        <div class="item-card">
+      
+      <!-- Filter Buttons -->
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">Semua Layanan</button>
+        <button class="filter-btn" data-filter="dewasa">Dewasa & Individu</button>
+        <button class="filter-btn" data-filter="anak">Anak & Remaja</button>
+        <button class="filter-btn" data-filter="keluarga">Keluarga</button>
+        <button class="filter-btn" data-filter="organisasi">Organisasi/Perusahaan</button>
+      </div>
+
+      <div class="grid-layout" id="services-grid">
+        <div class="item-card service-item" data-category="dewasa">
           <i class="fa-solid fa-user-check service-icon"></i>
           <h3>Konseling Individu</h3>
           <p class="text-sub-small">Pendampingan khusus untuk kecemasan, stres, depresi, dan pengembangan diri.</p>
         </div>
-        <div class="item-card">
+        <div class="item-card service-item" data-category="keluarga">
           <i class="fa-solid fa-people-roof service-icon"></i>
           <h3>Konseling Keluarga & Pasangan</h3>
           <p class="text-sub-small">Membantu mempererat hubungan, komunikasi, dan penyelesaian konflik rumah tangga.</p>
         </div>
-        <div class="item-card">
+        <div class="item-card service-item" data-category="anak">
           <i class="fa-solid fa-brain service-icon"></i>
-          <h3>Asesmen & Tes Psikologi</h3>
-          <p class="text-sub-small">Tes IQ, bakat minat, kepribadian untuk anak, remaja, hingga seleksi kerja.</p>
+          <h3>Asesmen & Tes Psikologi Anak</h3>
+          <p class="text-sub-small">Tes IQ, bakat minat, kesiapan sekolah, dan evaluasi tumbuh kembang anak.</p>
         </div>
-        <div class="item-card">
+        <div class="item-card service-item" data-category="organisasi">
           <i class="fa-solid fa-briefcase service-icon"></i>
-          <h3>Psikologi Organisasi</h3>
-          <p class="text-sub-small">Program kesehatan mental karyawan (*EAP*) dan pelatihan pengembangan tim.</p>
+          <h3>Psikologi Organisasi (EAP)</h3>
+          <p class="text-sub-small">Program kesehatan mental karyawan (*Employee Assistance*) dan pelatihan tim.</p>
         </div>
       </div>
     </div>
 
-    <!-- Fitur 2: Interactive Quiz / Skrining Stres Mandiri -->
+    <!-- Skrining Stres Mandiri -->
     <div class="card highlight-card">
-      <h2><i class="fa-solid fa-clipboard-question icon-accent"></i> Skrining Stres Mandiri (Cek Kesejahteraan Mental)</h2>
+      <h2><i class="fa-solid fa-clipboard-question icon-accent"></i> Skrining Stres Mandiri</h2>
       <p class="text-sub-mb">Jawab 3 pertanyaan singkat di bawah untuk mengetahui kondisi tingkat stres kerja/harian Anda secara umum:</p>
       
       <form id="quiz-form">
@@ -129,13 +139,13 @@
       <div id="quiz-result" class="quiz-result hidden">
         <h3 id="result-title"></h3>
         <p id="result-desc"></p>
-        <a id="result-wa-btn" href="#" class="btn-wa mt-1" target="_blank">
+        <button class="btn-wa mt-1 open-booking-btn" data-package="Hasil Skrining Stres">
           <i class="fa-brands fa-whatsapp icon-wa"></i> Konsultasikan Hasil via WhatsApp
-        </a>
+        </button>
       </div>
     </div>
 
-    <!-- Fitur 4: Estimasi Biaya & Paket Layanan -->
+    <!-- Estimasi Biaya & Paket Layanan -->
     <div class="card">
       <h2><i class="fa-solid fa-tags icon-accent"></i> Estimasi Biaya & Paket Konseling</h2>
       <p class="text-sub-mb">Pilihan paket konsultasi yang transparan sesuai kebutuhan Anda:</p>
@@ -151,7 +161,7 @@
             <li><i class="fa-solid fa-check"></i> Rahasia Terjamin</li>
             <li><i class="fa-solid fa-check"></i> Lembar Evaluasi Diri</li>
           </ul>
-          <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20booking%20Paket%20Sesi%20Tunggal." class="btn-pricing" target="_blank">Pilih Paket</a>
+          <button class="btn-pricing open-booking-btn" data-package="Sesi Tunggal (Rp 250rb)">Pilih Paket</button>
         </div>
 
         <div class="pricing-card featured">
@@ -167,7 +177,7 @@
             <li><i class="fa-solid fa-check"></i> Latihan Regulasi Diri (Worksheet)</li>
             <li><i class="fa-solid fa-check"></i> Hemat Rp 100.000</li>
           </ul>
-          <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20booking%20Paket%20Intensif%203%20Sesi." class="btn-pricing btn-featured" target="_blank">Pilih Paket</a>
+          <button class="btn-pricing btn-featured open-booking-btn" data-package="Paket Intensif 3 Sesi (Rp 650rb)">Pilih Paket</button>
         </div>
 
         <div class="pricing-card">
@@ -181,7 +191,31 @@
             <li><i class="fa-solid fa-check"></i> Sesi Feedback Psikolog</li>
             <li><i class="fa-solid fa-check"></i> Laporan Hasil Resmi (PDF)</li>
           </ul>
-          <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20bertanya%20mengenai%20Paket%20Tes%20Psikologi." class="btn-pricing" target="_blank">Pilih Paket</a>
+          <button class="btn-pricing open-booking-btn" data-package="Asesmen / Tes Psikologi (Rp 450rb)">Pilih Paket</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fitur: Testimoni Klien Slider -->
+    <div class="card">
+      <h2><i class="fa-solid fa-quote-left icon-accent"></i> Kata Mereka (Testimoni Anonim)</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-item active">
+          <p class="testimonial-text">"Sangat bersyukur bisa konseling di Kalih Aksa. Psikolognya sangat mendengarkan tanpa menghakimi. Rasa cemas dan kelelahan kerja saya berangsur membaik."</p>
+          <span class="testimonial-author">- Klien A, Karyawan Swasta (28 thn)</span>
+        </div>
+        <div class="testimonial-item">
+          <p class="testimonial-text">"Sesi konseling pasangan benar-benar membuka jalan komunikasi kami yang sempat buntu. Sekarang hubungan dengan suami jauh lebih harmonis."</p>
+          <span class="testimonial-author">- Klien M, Ibu Rumah Tangga (34 thn)</span>
+        </div>
+        <div class="testimonial-item">
+          <p class="testimonial-text">"Hasil tes minat bakat anak saya sangat detail dan penjelasannya mudah dipahami. Kami jadi tahu mengarahkan potensi terbaik anak ke mana."</p>
+          <span class="testimonial-author">- Klien R, Orang Tua Klien</span>
+        </div>
+        <div class="testimonial-nav">
+          <button id="prev-testi" aria-label="Previous Testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="dots-container" id="dots-container"></div>
+          <button id="next-testi" aria-label="Next Testimonial"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </div>
     </div>
@@ -225,7 +259,7 @@
       
       <details>
         <summary>Bagaimana cara membuat janji konseling?</summary>
-        <p>Anda bisa langsung menekan tombol "Hubungi via WhatsApp" di bawah. Admin akan mengirimkan jadwal konselor yang tersedia.</p>
+        <p>Anda bisa langsung menekan tombol "Hubungi via WhatsApp" atau tombol booking di pilihan paket untuk memilih jadwal.</p>
       </details>
 
       <details>
@@ -252,11 +286,65 @@
     <div class="card text-center">
       <h2 class="justify-center"><i class="fa-solid fa-comments icon-accent"></i> Konsultasi & Booking</h2>
       <p class="text-sub-mb-lg">Terhubung langsung dengan tim admin kami untuk informasi jadwal dan sesi konseling.</p>
-      <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20psikologi." class="btn-wa" target="_blank">
+      <button class="btn-wa open-booking-btn" data-package="Konsultasi Umum">
         <i class="fa-brands fa-whatsapp icon-wa"></i> Hubungi via WhatsApp
-      </a>
+      </button>
     </div>
 
+  </div>
+
+  <!-- Fitur: Floating WhatsApp Widget -->
+  <a href="#" class="floating-wa open-booking-btn" data-package="Konsultasi via Floating WA" aria-label="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-badge">Online</span>
+  </a>
+
+  <!-- Fitur: Modal Booking / Form Cari Jadwal -->
+  <div id="booking-modal" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <button id="close-modal" class="close-modal-btn">&times;</button>
+      <h3><i class="fa-solid fa-calendar-check icon-accent"></i> Form Booking Konseling</h3>
+      <p class="text-sub-small mb-1">Pilih jadwal & psikolog pilihan Anda untuk diteruskan ke WhatsApp Admin:</p>
+      
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="client-name">Nama Lengkap / Inisial:</label>
+          <input type="text" id="client-name" placeholder="Contoh: Budi Prasetyo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="select-package">Layanan / Paket:</label>
+          <input type="text" id="select-package" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="select-doctor">Pilih Psikolog / Konselor:</label>
+          <select id="select-doctor" required>
+            <option value="Bebas / Rekomendasi Admin">Bebas (Rekomendasi Admin)</option>
+            <option value="Dr. Anindya Putri, M.Psi. (Klinis Dewasa)">Dr. Anindya Putri, M.Psi. (Klinis Dewasa)</option>
+            <option value="Bambang Perkasa, M.Psi. (Anak & Remaja)">Bambang Perkasa, M.Psi. (Anak & Remaja)</option>
+            <option value="Citra Lestari, S.Psi. (Pernikahan & Keluarga)">Citra Lestari, S.Psi. (Pernikahan & Keluarga)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-type">Metode Sesi:</label>
+          <select id="select-type" required>
+            <option value="Online (Video Call)">Online (Video Call)</option>
+            <option value="Tatap Muka (Offline di Kantor)">Tatap Muka (Offline di Kantor)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="booking-date">Rencana Tanggal Konseling:</label>
+          <input type="date" id="booking-date" required>
+        </div>
+
+        <button type="submit" class="btn-wa full-width">
+          <i class="fa-brands fa-whatsapp icon-wa"></i> Kirim Jadwal ke WhatsApp
+        </button>
+      </form>
+    </div>
   </div>
 
   <footer>
