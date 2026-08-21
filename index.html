@@ -1,106 +1,130 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalih Aksa - Biro Psikologi</title>
-    <!-- FontAwesome untuk ikon WhatsApp & lainnya -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Kalih Aksa - Biro Psikologi & Konseling</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Bagian Header / Hero Utama -->
-    <header class="hero-section">
-        <div class="container">
-            <h1 class="main-title">Kalih Aksa</h1>
-            <p class="hero-subtitle">Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.</p>
-            <div class="hero-buttons">
-                <a href="#booking" class="btn-primary">Jadwalkan Sesi</a>
-                <a href="#artikel" class="btn-secondary">Lihat Layanan & Edukasi</a>
-            </div>
+    <!-- Header Utama -->
+    <header style="padding: 60px 20px; text-align: center;">
+        <h1>Kalih Aksa</h1>
+        <p style="color: var(--text-sub); max-width: 600px; margin: 10px auto;">Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.</p>
+        <div style="margin-top: 20px;">
+            <a href="#booking" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Jadwalkan Sesi</a>
+            <a href="#konselor" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Kenali Konselor</a>
+            <a href="#faq" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">FAQ</a>
         </div>
     </header>
 
-    <!-- FITUR 1: FORMULIR BOOKING / JANJI TEMU -->
+    <!-- SECTION: PROFIL KONSELOR -->
+    <section id="konselor" class="konselor-section" style="padding: 60px 20px;">
+        <h2 class="section-title">Konselor Profesional Kami</h2>
+        <p class="section-desc">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
+        <div class="konselor-grid">
+            <div class="konselor-card">
+                <div class="konselor-img"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3>Dr. Rina Melati, M.Psi.</h3>
+                <p class="spesialisasi">Psikolog Klinis Dewasa</p>
+                <p>Berpengalaman lebih dari 8 tahun dalam menangani kecemasan, depresi, dan burnout kerja.</p>
+            </div>
+            <div class="konselor-card">
+                <div class="konselor-img"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Ahmad Fauzi, M.Psi., Psikolog</h3>
+                <p class="spesialisasi">Konselor Pernikahan & Keluarga</p>
+                <p>Fokus pada mediasi konflik pasangan, komunikasi keluarga, dan pemulihan trauma relasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FORM BOOKING -->
     <section id="booking" class="booking-section">
-        <div class="container">
-            <h2 class="section-title">Jadwalkan Sesi Konseling</h2>
-            <p class="section-desc">Isi formulir di bawah ini, dan kami akan langsung menghubungkan Anda via WhatsApp.</p>
+        <h2 class="section-title">Jadwalkan Sesi Konseling</h2>
+        <p class="section-desc">Isi formulir di bawah ini, dan kami akan langsung menghubungkan Anda via WhatsApp.</p>
+        
+        <form id="bookingForm" class="booking-form">
+            <div class="form-group">
+                <label for="clientName">Nama Lengkap</label>
+                <input type="text" id="clientName" placeholder="Masukkan nama Anda" required>
+            </div>
             
-            <form id="bookingForm" class="booking-form">
-                <div class="form-group">
-                    <label for="clientName">Nama Lengkap</label>
-                    <input type="text" id="clientName" required placeholder="Masukkan nama Anda">
-                </div>
-                
-                <div class="form-group">
-                    <label for="serviceType">Pilih Layanan</label>
-                    <select id="serviceType" required>
-                        <option value="">-- Pilih Layanan Konseling --</option>
-                        <option value="Konseling Individu">Konseling Individu</option>
-                        <option value="Konseling Pasangan/Keluarga">Konseling Pasangan / Keluarga</option>
-                        <option value="Konseling Anak & Remaja">Konseling Anak & Remaja</option>
-                        <option value="Tes Psikologi / Assessment">Tes Psikologi / Assessment</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="bookingDate">Rencana Tanggal & Waktu Sesi</label>
-                    <input type="datetime-local" id="bookingDate" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="clientNotes">Catatan Tambahan (Opsional)</label>
-                    <textarea id="clientNotes" rows="3" placeholder="Ceritakan sedikit keluhan atau kebutuhan Anda..."></textarea>
-                </div>
-                
-                <button type="submit" class="btn-submit-wa">
-                    <i class="fab fa-whatsapp"></i> Kirim Permintaan ke WhatsApp
-                </button>
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="serviceType">Pilih Layanan</label>
+                <select id="serviceType" required>
+                    <option value="">-- Pilih Layanan Konseling --</option>
+                    <option value="Konseling Individu (Burnout/Stress)">Konseling Individu (Burnout/Stress)</option>
+                    <option value="Konseling Pasangan / Pernikahan">Konseling Pasangan / Pernikahan</option>
+                    <option value="Konseling Remaja & Keluarga">Konseling Remaja & Keluarga</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="bookingDate">Rencana Tanggal & Waktu Sesi</label>
+                <input type="datetime-local" id="bookingDate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="clientNotes">Catatan Tambahan (Opsional)</label>
+                <textarea id="clientNotes" rows="3" placeholder="Ceritakan sedikit keluhan atau kebutuhan Anda..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit-wa">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Kirim Permintaan ke WhatsApp
+            </button>
+        </form>
     </section>
 
-    <!-- FITUR 2: TESTIMONI KLIEN (GLASSMORPHISM) -->
-    <section id="testimoni" class="testimoni-section">
-        <div class="container">
-            <h2 class="section-title">Apa Kata Mereka?</h2>
-            <div class="testimoni-grid">
-                <div class="testimoni-card">
-                    <p class="testimoni-text">"Sangat membantu saya keluar dari fase burnout kerja. Konselornya sangat mendengarkan tanpa menghakimi. Ruang amannya benar-benar terasa."</p>
-                    <h4 class="testimoni-name">— R., Karyawan Swasta</h4>
-                </div>
-                <div class="testimoni-card">
-                    <p class="testimoni-text">"Sesi konseling pasangan di Kalih Aksa membuka cara komunikasi baru dengan suami. Terima kasih banyak atas bimbingannya!"</p>
-                    <h4 class="testimoni-name">— D & A, Pasangan Menikah</h4>
-                </div>
+    <!-- SECTION: FAQ (TANYA JAWAB) -->
+    <section id="faq" class="faq-section" style="padding: 80px 20px; max-width: 800px; margin: 0 auto;">
+        <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
+        <p class="section-desc">Informasi penting seputar layanan konseling di Kalih Aksa.</p>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">Apakah kerahasiaan data dan cerita saya terjamin? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Sangat terjamin. Seluruh isi sesi konseling dilindungi oleh kode etik psikologi yang ketat terkait kerahasiaan klien.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Berapa durasi untuk setiap sesi konseling? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Setiap sesi reguler berdurasi sekitar 60 menit, baik untuk sesi tatap muka maupun online.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Bagaimana cara melakukan pembayaran sesi? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Setelah Anda mengirim form booking via WhatsApp, admin kami akan mengirimkan detail instruksi pembayaran transfer bank atau e-wallet.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- FITUR 3: POJOK ARTIKEL / MENTAL HEALTH TIPS -->
-    <section id="artikel" class="artikel-section">
-        <div class="container">
-            <h2 class="section-title">Pojok Edukasi Mental Health</h2>
-            <p class="section-desc">Baca tips ringan seputar kesehatan mental untuk menjaga kestabilan emosi sehari-hari.</p>
-            
-            <div class="artikel-grid">
-                <div class="artikel-card">
-                    <h3>Mengenal Gejala Burnout dan Cara Mengatasinya</h3>
-                    <p>Merasa lelah mental yang berkepanjangan? Kenali tanda-tanda awal sebelum berdampak buruk pada produktivitas.</p>
-                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
-                </div>
-                <div class="artikel-card">
-                    <h3>Pentingnya Validasi Emosi Diri Sendiri</h3>
-                    <p>Belajar menerima perasaan sedih atau marah tanpa harus merasa bersalah adalah langkah awal penyembuhan.</p>
-                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
-                </div>
+    <!-- SECTION: TESTIMONI -->
+    <section class="testimoni-section">
+        <h2 class="section-title">Apa Kata Mereka?</h2>
+        <p class="section-desc">Cerita dari mereka yang telah mengambil langkah awal pemulihan.</p>
+        <div class="testimoni-grid">
+            <div class="testimoni-card">
+                <p class="testimoni-text">"Sangat membantu saya keluar dari fase burnout kerja. Konselornya sangat mendengarkan tanpa menghakimi. Ruang amannya benar-benar terasa."</p>
+                <span class="testimoni-name">— R., Karyawan Swasta</span>
+            </div>
+            <div class="testimoni-card">
+                <p class="testimoni-text">"Sesi konseling pasangan di Kalih Aksa membuka cara komunikasi baru dengan suami. Terima kasih banyak atas bimbingannya!"</p>
+                <span class="testimoni-name">— D & A, Pasangan Menikah</span>
             </div>
         </div>
     </section>
 
-    <!-- Script Utama -->
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20konseling." class="floating-wa" target="_blank" title="Hubungi Admin via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px; color: var(--text-sub); border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 Kalih Aksa Biro Psikologi. Seluruh hak cipta dilindungi.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
