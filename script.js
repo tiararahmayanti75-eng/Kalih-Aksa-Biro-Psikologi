@@ -1,5 +1,126 @@
+/* ================================================= */
+/* SCRIPT UTAMA KALIH AKSA (FULL INTEGRATED)        */
+/* ================================================= */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. WhatsApp Booking Form Handler
+    
+    // =================================================
+    // 1. SCRIPT: TOMBOL BACK TO TOP & SCROLL BEHAVIOR
+    // =================================================
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            if (backToTopBtn) backToTopBtn.classList.add('show');
+        } else {
+            if (backToTopBtn) backToTopBtn.classList.remove('show');
+        }
+    });
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // =================================================
+    // 2. SCRIPT: LATIHAN PERNAPASAN 4-7-8
+    // =================================================
+    let breathInterval;
+    let isBreathing = false;
+
+    // Membuat fungsi toggleBreathing bisa diakses secara global oleh atribut onclick di HTML
+    window.toggleBreathing = function() {
+        const circle = document.getElementById('breathingCircle');
+        const instruction = document.getElementById('breathingInstruction');
+        const btn = document.getElementById('btnStartBreath');
+
+        if (!circle || !instruction || !btn) return;
+
+        if (isBreathing) {
+            clearInterval(breathInterval);
+            isBreathing = false;
+            circle.className = "";
+            circle.style.transform = "scale(1)";
+            instruction.innerText = "Tekan tombol di bawah untuk memulai panduan.";
+            btn.innerText = "Mulai Latihan";
+            return;
+        }
+
+        isBreathing = true;
+        btn.innerText = "Berhenti";
+        runBreathingCycle(circle, instruction);
+        
+        // Siklus berulang setiap 19 detik (4 tarik + 7 tahan + 8 hembus)
+        breathInterval = setInterval(() => {
+            runBreathingCycle(circle, instruction);
+        }, 19000);
+    };
+
+    function runBreathingCycle(circle, instruction) {
+        // Tarik Napas (4 Detik)
+        instruction.innerText = "Tarik Napas Pelan-pelan... (4 detik)";
+        circle.className = "breathing-animate-in";
+
+        // Tahan Napas (7 Detik)
+        setTimeout(() => {
+            if (!isBreathing) return;
+            instruction.innerText = "Tahan Napas Anda... (7 detik)";
+            circle.className = "breathing-animate-hold";
+        }, 4000);
+
+        // Hembuskan Napas (8 Detik)
+        setTimeout(() => {
+            if (!isBreathing) return;
+            instruction.innerText = "Hembuskan Perlahan... (8 detik)";
+            circle.className = "breathing-animate-out";
+        }, 11000);
+    }
+
+    // =================================================
+    // 3. SCRIPT: JURNAL & VENTING LOKAL
+    // =================================================
+    window.saveJournal = function() {
+        const journalInput = document.getElementById('journalInput');
+        const resultBox = document.getElementById('journalResultBox');
+        const savedText = document.getElementById('savedJournalText');
+
+        if (!journalInput || !resultBox || !savedText) return;
+
+        const text = journalInput.value.trim();
+
+        if (text === "") {
+            alert("Catatan masih kosong. Silakan tuliskan perasaan Anda terlebih dahulu.");
+            return;
+        }
+
+        // Simpan ke localStorage browser agar aman di perangkat pengguna
+        localStorage.setItem('kalih_aksa_journal', text);
+        
+        savedText.innerText = text;
+        resultBox.style.display = "block";
+        alert("Catatan berhasil disimpan secara lokal dan aman di perangkat Anda.");
+    };
+
+    // Muat catatan otomatis jika halaman dibuka kembali
+    const saved = localStorage.getItem('kalih_aksa_journal');
+    const journalInput = document.getElementById('journalInput');
+    const savedText = document.getElementById('savedJournalText');
+    const resultBox = document.getElementById('journalResultBox');
+
+    if (saved && journalInput && savedText && resultBox) {
+        journalInput.value = saved;
+        savedText.innerText = saved;
+        resultBox.style.display = "block";
+    }
+
+    // =================================================
+    // 4. SCRIPT: WHATSAPP BOOKING FORM HANDLER
+    // =================================================
     const waForm = document.getElementById('waForm');
     if(waForm) {
         waForm.addEventListener('submit', function(e) {
@@ -16,7 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. Kalkulator Stres
+    // =================================================
+    // 5. SCRIPT: KALKULATOR STRES
+    // =================================================
     const btnHitungStres = document.getElementById('btnHitungStres');
     if(btnHitungStres) {
         btnHitungStres.addEventListener('click', function() {
@@ -43,7 +166,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 3. Skrining Kecemasan
+    // =================================================
+    // 6. SCRIPT: SKRINING KECEMASAN
+    // =================================================
     const btnHitungCemas = document.getElementById('btnHitungCemas');
     if(btnHitungCemas) {
         btnHitungCemas.addEventListener('click', function() {
@@ -69,7 +194,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 4. Tracker Emosi Mingguan
+    // =================================================
+    // 7. SCRIPT: TRACKER EMOSI MINGGUAN
+    // =================================================
     let emosiData = {};
     const btnSimpanTracker = document.getElementById('btnSimpanTracker');
     if(btnSimpanTracker) {
@@ -101,7 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     renderRekapTracker();
 
-    // 5. Self-Care Checklist
+    // =================================================
+    // 8. SCRIPT: SELF-CARE CHECKLIST
+    // =================================================
     const checkboxes = document.querySelectorAll('.self-care-check');
     checkboxes.forEach(chk => {
         chk.addEventListener('change', updateProgress);
@@ -118,7 +247,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 6. Jurnal Syukur Harian
+    // =================================================
+    // 9. SCRIPT: JURNAL SYUKUR HARIAN
+    // =================================================
     const btnSimpanSyukur = document.getElementById('btnSimpanSyukur');
     if(btnSimpanSyukur) {
         btnSimpanSyukur.addEventListener('click', function() {
@@ -131,7 +262,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 7. Ruang Curhat Anonim
+    // =================================================
+    // 10. SCRIPT: RUANG CURHAT ANONIM
+    // =================================================
     const btnKirimCurhat = document.getElementById('btnKirimCurhat');
     if(btnKirimCurhat) {
         btnKirimCurhat.addEventListener('click', function() {
@@ -146,7 +279,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 8. Afirmasi Positif Acak
+    // =================================================
+    // 11. SCRIPT: AFIRMASI POSITIF ACAK
+    // =================================================
     const daftarAfirmasi = [
         "\"Aku berhak merasa tenang dan bahagia dengan caraku sendiri.\"",
         "\"Setiap hari adalah kesempatan baru untuk tumbuh dan berproses.\"",
@@ -162,7 +297,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 9. Grounding Interaktif 5-4-3-2-1
+    // =================================================
+    // 12. SCRIPT: GROUNDING INTERAKTIF 5-4-3-2-1
+    // =================================================
     let stepGrounding = 1;
     const gTitle = document.getElementById('groundingTitle');
     const gDesc = document.getElementById('groundingDesc');
@@ -204,7 +341,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 10. Mood Tracker Instan
+    // =================================================
+    // 13. SCRIPT: MOOD TRACKER INSTAN
+    // =================================================
     const moodButtons = document.querySelectorAll('.mood-btn');
     const moodResponses = {
         senang: "Senang mendengarnya! Pertahankan energi positif ini dan sebarkan kebaikan ke sekitarmu.",
@@ -221,13 +360,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const responseTitle = document.getElementById('moodResponseTitle');
             const responseDesc = document.getElementById('moodResponseDesc');
 
-            responseBox.style.display = "block";
-            responseTitle.textContent = `Respon untuk suasana hati: ${this.textContent}`;
-            responseDesc.textContent = moodResponses[mood] || "Terima kasih telah berbagi perasaanmu hari ini.";
+            if(responseBox && responseTitle && responseDesc) {
+                responseBox.style.display = "block";
+                responseTitle.textContent = `Respon untuk suasana hati: ${this.textContent}`;
+                responseDesc.textContent = moodResponses[mood] || "Terima kasih telah berbagi perasaanmu hari ini.";
+            }
         });
     });
 
-    // 11. Pesan untuk Diri Sendiri
+    // =================================================
+    // 14. SCRIPT: PESAN UNTUK DIRI SENDIRI
+    // =================================================
     const btnSimpanSurat = document.getElementById('btnSimpanSurat');
     if(btnSimpanSurat) {
         btnSimpanSurat.addEventListener('click', function() {
@@ -240,12 +383,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 12. FAQ Accordion
+    // =================================================
+    // 15. SCRIPT: FAQ ACCORDION
+    // =================================================
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
             const answer = this.nextElementSibling;
-            const icon = this.querySelector('fa-chevron-down, i');
+            const icon = this.querySelector('i');
             
             if(answer.style.display === "block") {
                 answer.style.display = "none";
@@ -257,7 +402,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 13. Widget Musik Floating
+    // =================================================
+    // 16. SCRIPT: WIDGET MUSIK FLOATING
+    // =================================================
     const bgMusic = document.getElementById('bgMusic');
     const musicToggleBtn = document.getElementById('musicToggleBtn');
     let isPlaying = false;
@@ -276,9 +423,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     isPlaying = true;
                 }).catch(error => {
                     console.log("Audio play error: ", error);
-                    alert("Pastikan file 'Musik Tenang.mp3' tersedia di direktori yang sama.");
+                    alert("Pastikan file audio tersedia di direktori yang sama.");
                 });
             }
         });
     }
+
 });
