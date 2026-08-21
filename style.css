@@ -29,6 +29,36 @@ body {
     margin-bottom: 40px;
 }
 
+/* Badge Status Admin Online */
+.admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(74, 222, 128, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
 /* 1. Profil Konselor */
 .konselor-grid {
     display: grid;
@@ -137,7 +167,51 @@ body {
     transform: translateY(-2px);
 }
 
-/* 3. FAQ Accordion */
+/* 3. Artikel Grid */
+.artikel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.artikel-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s;
+}
+
+.artikel-card:hover {
+    transform: translateY(-8px);
+}
+
+.artikel-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.artikel-card p {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.read-more {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* 4. FAQ Accordion */
 .faq-container {
     max-width: 700px;
     margin: 0 auto;
@@ -176,7 +250,7 @@ body {
     transition: max-height 0.3s ease, padding 0.3s ease;
     padding: 0 20px;
     color: var(--text-sub);
-    font-size: 0.95kr;
+    font-size: 0.95rem;
     line-height: 1.5;
 }
 
@@ -189,7 +263,7 @@ body {
     transform: rotate(180deg);
 }
 
-/* 4. Testimoni Grid */
+/* 5. Testimoni Grid */
 .testimoni-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -218,7 +292,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* 5. Floating WhatsApp Button */
+/* 6. Floating WhatsApp Button */
 .floating-wa {
     position: fixed;
     bottom: 30px;

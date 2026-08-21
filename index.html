@@ -10,19 +10,23 @@
 </head>
 <body>
 
-    <!-- Header Utama -->
-    <header style="padding: 60px 20px; text-align: center;">
+    <!-- Header Utama dengan Status Operasional -->
+    <header style="padding: 50px 20px 30px 20px; text-align: center;">
+        <div class="admin-badge">
+            <span class="pulse-dot"></span> Admin Online & Siap Melayani
+        </div>
         <h1>Kalih Aksa</h1>
         <p style="color: var(--text-sub); max-width: 600px; margin: 10px auto;">Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.</p>
         <div style="margin-top: 20px;">
-            <a href="#booking" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Jadwalkan Sesi</a>
-            <a href="#konselor" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Kenali Konselor</a>
-            <a href="#faq" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">FAQ</a>
+            <a href="#konselor" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Konselor</a>
+            <a href="#booking" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Jadwal Sesi</a>
+            <a href="#artikel" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Artikel</a>
+            <a href="#faq" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">FAQ</a>
         </div>
     </header>
 
     <!-- SECTION: PROFIL KONSELOR -->
-    <section id="konselor" class="konselor-section" style="padding: 60px 20px;">
+    <section id="konselor" class="konselor-section" style="padding: 50px 20px;">
         <h2 class="section-title">Konselor Profesional Kami</h2>
         <p class="section-desc">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
         <div class="konselor-grid">
@@ -78,8 +82,26 @@
         </form>
     </section>
 
+    <!-- SECTION: ARTIKEL & TIPS KESEHATAN MENTAL -->
+    <section id="artikel" class="artikel-section" style="padding: 60px 20px;">
+        <h2 class="section-title">Pojok Edukasi & Artikel</h2>
+        <p class="section-desc">Baca tips ringan seputar kesehatan mental untuk menjaga kestabilan emosi sehari-hari.</p>
+        <div class="artikel-grid">
+            <div class="artikel-card">
+                <h3>Mengenal Gejala Burnout dan Cara Mengatasinya</h3>
+                <p>Merasa lelah mental yang berkepanjangan? Kenali tanda-tanda awal sebelum berdampak buruk pada produktivitas.</p>
+                <a href="https://www.halodoc.com/kesehatan/burnout" target="_blank" class="read-more">Baca Selengkapnya &rarr;</a>
+            </div>
+            <div class="artikel-card">
+                <h3>Pentingnya Validasi Emosi Diri Sendiri</h3>
+                <p>Belajar menerima perasaan sedih atau marah tanpa harus merasa bersalah adalah langkah awal penyembuhan.</p>
+                <a href="https://www.alodokter.com/validasi-emosi" target="_blank" class="read-more">Baca Selengkapnya &rarr;</a>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION: FAQ (TANYA JAWAB) -->
-    <section id="faq" class="faq-section" style="padding: 80px 20px; max-width: 800px; margin: 0 auto;">
+    <section id="faq" class="faq-section" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
         <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
         <p class="section-desc">Informasi penting seputar layanan konseling di Kalih Aksa.</p>
         
@@ -99,11 +121,12 @@
         </div>
     </section>
 
-    <!-- SECTION: TESTIMONI -->
+    <!-- SECTION: TESTIMONI & FORM KIRIM TESTIMONI -->
     <section class="testimoni-section">
         <h2 class="section-title">Apa Kata Mereka?</h2>
         <p class="section-desc">Cerita dari mereka yang telah mengambil langkah awal pemulihan.</p>
-        <div class="testimoni-grid">
+        
+        <div class="testimoni-grid" id="testimoniContainer">
             <div class="testimoni-card">
                 <p class="testimoni-text">"Sangat membantu saya keluar dari fase burnout kerja. Konselornya sangat mendengarkan tanpa menghakimi. Ruang amannya benar-benar terasa."</p>
                 <span class="testimoni-name">— R., Karyawan Swasta</span>
@@ -112,6 +135,20 @@
                 <p class="testimoni-text">"Sesi konseling pasangan di Kalih Aksa membuka cara komunikasi baru dengan suami. Terima kasih banyak atas bimbingannya!"</p>
                 <span class="testimoni-name">— D & A, Pasangan Menikah</span>
             </div>
+        </div>
+
+        <!-- Form Tambah Testimoni Baru -->
+        <div style="max-width: 600px; margin: 50px auto 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+            <h3 style="margin-bottom: 15px; text-align: center; font-size: 1.2rem;">Bagikan Pengalaman Anda</h3>
+            <form id="testiForm">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="text" id="testiName" placeholder="Nama / Inisial Anda" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <textarea id="testiMsg" rows="3" placeholder="Tuliskan ulasan atau kesan Anda..." required></textarea>
+                </div>
+                <button type="submit" style="width: 100%; background: var(--accent-color); color: #0f172a; border: none; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer;">Kirim Ulasan</button>
+            </form>
         </div>
     </section>
 
@@ -122,7 +159,10 @@
 
     <!-- Footer -->
     <footer style="text-align: center; padding: 40px; color: var(--text-sub); border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>&copy; 2026 Kalih Aksa Biro Psikologi. Seluruh hak cipta dilindungi.</p>
+        <p>Jam Operasional: Senin - Sabtu (08.00 - 20.00 WIB)</p>
+        <p style="margin-top: 10px;">&copy; 2026 Kalih Aksa Biro Psikologi. Seluruh hak cipta dilindungi.</p>
+        <!-- Tautan Khusus Akses Admin -->
+        <p style="margin-top: 15px;"><a href="admin.html" style="color: var(--text-sub); font-size: 0.85rem; text-decoration: underline;">Login Panel Admin</a></p>
     </footer>
 
     <script src="script.js"></script>

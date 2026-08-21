@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kalih Aksa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="padding: 40px 20px;">
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Header Admin Panel -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
+            <div>
+                <h1 style="font-size: 1.8rem; margin-bottom: 5px;">Panel Kontrol Admin</h1>
+                <p style="color: var(--text-sub); font-size: 0.95rem;">Kelola data dan status operasional Biro Psikologi Kalih Aksa.</p>
+            </div>
+            <a href="index.html" style="background: var(--card-bg); color: var(--text-main); padding: 10px 20px; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); font-weight: 600;">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Web
+            </a>
+        </div>
+
+        <!-- Statistik Singkat / Quick Info -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px;">
+            <div style="background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                <p style="color: var(--text-sub); font-size: 0.9rem;">Status Layanan</p>
+                <h3 style="color: #4ade80; margin-top: 5px; font-size: 1.3rem;"><i class="fa-solid fa-circle" style="font-size: 0.7rem;"></i> Online</h3>
+            </div>
+            <div style="background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                <p style="color: var(--text-sub); font-size: 0.9rem;">Nomor WhatsApp Aktif</p>
+                <h3 style="color: var(--accent-color); margin-top: 5px; font-size: 1.1rem;">+62 895-8067-00908</h3>
+            </div>
+        </div>
+
+        <!-- Menu Kontrol Pengaturan Admin -->
+        <div style="background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+            <h3 style="margin-bottom: 20px; font-size: 1.2rem;"><i class="fa-solid fa-gear"></i> Pengaturan Cepat</h3>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Ubah Status Admin di Header Utama</label>
+                <select id="statusSelect" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: #fff;">
+                    <option value="online">Admin Online & Siap Melayani</option>
+                    <option value="istirahat">Admin Sedang Istirahat / Offline</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Pengumuman / Catatan Internal Admin</label>
+                <textarea rows="3" placeholder="Tulis catatan atau jadwal piket konselor..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: #fff;"></textarea>
+            </div>
+
+            <button onclick="alert('Pengaturan berhasil disimpan!')" style="background: var(--accent-color); color: #0f172a; border: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; cursor: pointer;">
+                Simpan Perubahan
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
