@@ -12,50 +12,48 @@
 <body>
 
     <!-- Header / Navigasi Utama -->
-    <header style="padding: 30px 20px; text-align: center;">
-        <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
-            <!-- Badge Admin Online -->
+    <header class="main-header">
+        <div class="header-badge-container">
             <div class="admin-badge">
                 <div class="pulse-dot"></div>
                 Admin Online & Siap Melayani
             </div>
-
-            <!-- Slot Info Badge -->
             <div class="slot-info-badge">
                 <i class="fas fa-clock"></i> Slot Konseling Hari Ini: <span id="slot-count">Tersedia 3 Sesi</span>
             </div>
         </div>
 
-        <h1 style="font-size: 2.5rem; margin-bottom: 15px; font-weight: 700;">Kalih Aksa</h1>
-        <p style="max-width: 600px; margin: 0 auto 20px auto; font-size: 1rem;">
+        <h1 class="main-title">Kalih Aksa</h1>
+        <p class="main-subtitle">
             Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.
         </p>
 
-        <!-- Menu Navigasi Sederhana -->
-        <nav style="display: flex; justify-content: center; gap: 15px; font-weight: 600; font-size: 0.9rem; flex-wrap: wrap;">
-            <a href="#konselor" style="color: var(--accent-color); text-decoration: none;">Konselor</a>
-            <a href="#booking" style="color: var(--accent-color); text-decoration: none;">Jadwal Sesi</a>
-            <a href="#kalkulator" style="color: var(--accent-color); text-decoration: none;">Cek Stres</a>
-            <a href="#kecemasan" style="color: var(--accent-color); text-decoration: none;">Tes Cemas</a>
-            <a href="#jurnal" style="color: var(--accent-color); text-decoration: none;">Jurnal Syukur</a>
-            <a href="#curhat" style="color: var(--accent-color); text-decoration: none;">Ruang Curhat</a>
-            <a href="#afirmasi" style="color: var(--accent-color); text-decoration: none;">Afirmasi</a>
-            <a href="#grounding" style="color: var(--accent-color); text-decoration: none;">Grounding</a>
-            <a href="#moodtracker" style="color: var(--accent-color); text-decoration: none;">Mood</a>
-            <a href="#surat" style="color: var(--accent-color); text-decoration: none;">Pesan Diri</a>
-            <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
-            <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
+        <!-- Menu Navigasi -->
+        <nav class="main-nav">
+            <a href="#konselor">Konselor</a>
+            <a href="#booking">Jadwal Sesi</a>
+            <a href="#kalkulator">Cek Stres</a>
+            <a href="#kecemasan">Tes Cemas</a>
+            <a href="#tracker">Tracker</a>
+            <a href="#checklist">Self-Care</a>
+            <a href="#jurnal">Jurnal</a>
+            <a href="#curhat">Curhat</a>
+            <a href="#afirmasi">Afirmasi</a>
+            <a href="#grounding">Grounding</a>
+            <a href="#moodtracker">Mood</a>
+            <a href="#surat">Pesan Diri</a>
+            <a href="#artikel">Artikel</a>
+            <a href="#faq">FAQ</a>
         </nav>
     </header>
 
     <main>
-        <!-- Bagian Pengantar / Sub Judul -->
-        <section style="padding: 20px 20px 40px 20px; text-align: center;">
-            <p style="font-size: 0.95rem; color: var(--text-sub);">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
+        <section class="intro-section">
+            <p class="intro-text">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
         </section>
 
         <!-- 1. Profil Konselor -->
-        <section id="konselor" style="padding: 20px 20px 60px 20px;">
+        <section id="konselor" class="content-section">
             <h2 class="section-title">Konselor Profesional Kami</h2>
             <p class="section-desc">Pilih konselor yang sesuai dengan kebutuhan dan kenyamanan Anda.</p>
             
@@ -76,8 +74,8 @@
             </div>
         </section>
 
-        <!-- 2. Form Booking -->
-        <section id="booking" class="booking-section">
+        <!-- 2. Form Booking WhatsApp -->
+        <section id="booking" class="booking-section-wrapper">
             <h2 class="section-title">Jadwalkan Sesi Konseling</h2>
             <p class="section-desc">Isi formulir di bawah ini, dan kami akan langsung menghubungkan Anda via WhatsApp.</p>
             
@@ -114,12 +112,12 @@
             </div>
         </section>
 
-        <!-- 6. Kalkulator Stres Mandiri -->
-        <section id="kalkulator" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+        <!-- 3. Kalkulator Stres Mandiri -->
+        <section id="kalkulator" class="calculator-section">
             <h2 class="section-title">Cek Tingkat Stres Anda</h2>
             <p class="section-desc">Jawab 3 pertanyaan singkat ini untuk mengetahui gambaran tingkat stres Anda hari ini.</p>
             
-            <div class="booking-form" style="text-align: left;">
+            <div class="booking-form text-left">
                 <div class="form-group">
                     <label>1. Seberapa sering Anda merasa cemas atau khawatir berlebihan minggu ini?</label>
                     <select id="soal1">
@@ -147,24 +145,23 @@
                     </select>
                 </div>
 
-                <button type="button" id="btnHitungStres" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                <button type="button" id="btnHitungStres" class="btn-submit-wa accent-bg">
                     <i class="fas fa-calculator"></i> Lihat Hasil Analisis
                 </button>
 
-                <!-- Kotak Hasil Tes -->
-                <div id="hasilStres" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
-                    <h3 id="judulHasil" style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"></h3>
-                    <p id="teksHasil" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.5;"></p>
+                <div id="hasilStres" class="result-box" style="display: none;">
+                    <h3 id="judulHasil" class="result-title"></h3>
+                    <p id="teksHasil" class="result-desc"></p>
                 </div>
             </div>
         </section>
 
-        <!-- FITUR BARU 1: Tes Kecemasan Sederhana (GAD-2/GAD-7 Ringkas) -->
-        <section id="kecemasan" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+        <!-- 4. Skrining Kecemasan -->
+        <section id="kecemasan" class="calculator-section">
             <h2 class="section-title">Skrining Kecemasan Mandiri</h2>
             <p class="section-desc">Evaluasi seberapa sering Anda terganggu oleh rasa cemas atau gelisah dalam 2 minggu terakhir.</p>
             
-            <div class="booking-form" style="text-align: left;">
+            <div class="booking-form text-left">
                 <div class="form-group">
                     <label>1. Merasa gugup, cemas, atau berada di ujung tanduk?</label>
                     <select id="cemas1">
@@ -185,164 +182,215 @@
                     </select>
                 </div>
 
-                <button type="button" id="btnHitungCemas" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                <button type="button" id="btnHitungCemas" class="btn-submit-wa accent-bg">
                     <i class="fas fa-heart-pulse"></i> Analisis Tingkat Kecemasan
                 </button>
 
-                <!-- Kotak Hasil Tes Cemas -->
-                <div id="hasilCemas" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
-                    <h3 id="judulHasilCemas" style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"></h3>
-                    <p id="teksHasilCemas" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.5;"></p>
+                <div id="hasilCemas" class="result-box" style="display: none;">
+                    <h3 id="judulHasilCemas" class="result-title"></h3>
+                    <p id="teksHasilCemas" class="result-desc"></p>
                 </div>
             </div>
         </section>
 
-        <!-- FITUR BARU 2: Jurnal Syukur Harian (Gratitude Journal) -->
-        <section id="jurnal" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+        <!-- 5. Tracker Emosi Mingguan -->
+        <section id="tracker" class="calculator-section center-text">
+            <h2 class="section-title">Tracker Emosi Mingguan</h2>
+            <p class="section-desc">Pilih bagaimana perasaanmu hari ini untuk mencatatnya ke dalam rekam jejak emosimu.</p>
+            
+            <div class="booking-form inline-block-form text-left">
+                <div class="form-group">
+                    <label for="pilihHari">Pilih Hari:</label>
+                    <select id="pilihHari">
+                        <option value="Senin">Senin</option>
+                        <option value="Selasa">Selasa</option>
+                        <option value="Rabu">Rabu</option>
+                        <option value="Kamis">Kamis</option>
+                        <option value="Jumat">Jumat</option>
+                        <option value="Sabtu">Sabtu</option>
+                        <option value="Minggu">Minggu</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pilihEmosiHarian">Suasana Hati:</label>
+                    <select id="pilihEmosiHarian">
+                        <option value="😊 Senang">😊 Senang / Produktif</option>
+                        <option value="😌 Tenang">😌 Tenang / Damai</option>
+                        <option value="🥱 Lelah">🥱 Lelah / Butuh Istirahat</option>
+                        <option value="😰 Cemas">😰 Cemas / Khawatir</option>
+                        <option value="😢 Sedih">😢 Sedih / Berat</option>
+                    </select>
+                </div>
+
+                <button type="button" id="btnSimpanTracker" class="btn-submit-wa accent-bg">
+                    <i class="fas fa-calendar-check"></i> Catat ke Tracker
+                </button>
+
+                <div class="tracker-rekap-wrapper">
+                    <h3 class="sub-section-title">Rekap Emosi Minggu Ini</h3>
+                    <div id="rekapTrackerContainer" class="rekap-grid">
+                        <!-- Data Render via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Self-Care Checklist Harian -->
+        <section id="checklist" class="calculator-section">
+            <h2 class="section-title">Self-Care Checklist Harian</h2>
+            <p class="section-desc center-text">Centang kebiasaan kecil perawatan diri yang sudah kamu lakukan hari ini.</p>
+            
+            <div class="booking-form text-left">
+                <div class="checklist-group">
+                    <label class="checklist-label">
+                        <input type="checkbox" class="self-care-check" data-id="1"> Minum cukup air putih (minimal 8 gelas)
+                    </label>
+                    <label class="checklist-label">
+                        <input type="checkbox" class="self-care-check" data-id="2"> Melakukan peregangan tubuh atau jalan kaki 10 menit
+                    </label>
+                    <label class="checklist-label">
+                        <input type="checkbox" class="self-care-check" data-id="3"> Mengambil jeda tanpa layar gadget selama 30 menit
+                    </label>
+                    <label class="checklist-label">
+                        <input type="checkbox" class="self-care-check" data-id="4"> Tidur malam nyenyak 7-8 jam
+                    </label>
+                </div>
+                <div id="progressSelfCare" class="progress-text">
+                    Progress Hari Ini: 0 / 4 Selesai
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Jurnal Syukur Harian -->
+        <section id="jurnal" class="calculator-section center-text">
             <h2 class="section-title">Jurnal Syukur Harian</h2>
             <p class="section-desc">Melatih pikiran untuk fokus pada hal baik. Tuliskan 3 hal kecil yang kamu syukuri hari ini.</p>
             
-            <div class="booking-form" style="display: inline-block; width: 100%; text-align: left;">
+            <div class="booking-form inline-block-form text-left">
                 <div class="form-group">
                     <label for="inputSyukur">Apa 3 hal yang kamu syukuri hari ini?</label>
-                    <textarea id="inputSyukur" rows="4" placeholder="Contoh: 1. Bisa minum teh hangat pagi ini, 2. Cuaca cerah, 3. Menyelesaikan tugas dengan baik..."></textarea>
+                    <textarea id="inputSyukur" rows="4" placeholder="Contoh: 1. Bisa minum teh hangat pagi ini, 2. Cuaca cerah..."></textarea>
                 </div>
 
-                <button type="button" id="btnSimpanSyukur" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                <button type="button" id="btnSimpanSyukur" class="btn-submit-wa accent-bg">
                     <i class="fas fa-book-open"></i> Simpan Catatan Syukur
                 </button>
 
-                <!-- Riwayat Syukur Tersimpan -->
-                <div id="riwayatSyukurBox" style="margin-top: 25px; display: none;">
-                    <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 10px;">Catatan Syukur Terbaru:</h3>
-                    <div id="tampilSyukur" style="padding: 15px; border-radius: 8px; background: var(--bg-color); border: 1px dashed var(--accent-color); color: var(--text-sub); font-size: 0.95rem; line-height: 1.6; white-space: pre-line;"></div>
+                <div id="riwayatSyukurBox" class="hidden-box" style="display: none;">
+                    <h3 class="sub-section-title">Catatan Syukur Terbaru:</h3>
+                    <div id="tampilSyukur" class="dash-box"></div>
                 </div>
             </div>
         </section>
 
-        <!-- 7. Ruang Curhat Anonim -->
-        <section id="curhat" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+        <!-- 8. Ruang Curhat Anonim -->
+        <section id="curhat" class="calculator-section">
             <h2 class="section-title">Ruang Curhat Anonim</h2>
             <p class="section-desc">Punya unek-unek yang ingin dikeluarkan tanpa takut dihakimi? Tulis di sini secara anonim.</p>
             
-            <div class="booking-form" style="text-align: left;">
+            <div class="booking-form text-left">
                 <div class="form-group">
                     <label for="pesanCurhat">Tuliskan isi hati atau keluh kesahmu di sini:</label>
                     <textarea id="pesanCurhat" rows="4" placeholder="Ceritakan apa saja yang sedang mengganjal di pikiranmu..." required></textarea>
                 </div>
 
-                <button type="button" id="btnKirimCurhat" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                <button type="button" id="btnKirimCurhat" class="btn-submit-wa accent-bg">
                     <i class="fas fa-paper-plane"></i> Lepaskan Beban & Kirim
                 </button>
 
-                <!-- Respon Penenang Otomatis -->
-                <div id="responCurhat" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
-                    <h3 style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"><i class="fas fa-heart"></i> Pesan Untukmu</h3>
-                    <p id="teksResponCurhat" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.5;"></p>
+                <div id="responCurhat" class="result-box" style="display: none;">
+                    <h3 class="result-title"><i class="fas fa-heart"></i> Pesan Untukmu</h3>
+                    <p id="teksResponCurhat" class="result-desc"></p>
                 </div>
             </div>
         </section>
 
-        <!-- 8. Afirmasi Positif Harian -->
-        <section id="afirmasi" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+        <!-- 9. Afirmasi Positif -->
+        <section id="afirmasi" class="calculator-section center-text">
             <h2 class="section-title">Afirmasi Positif Hari Ini</h2>
             <p class="section-desc">Butuh suntikan energi positif? Klik tombol di bawah untuk mendapatkan kalimat afirmasi khusus untukmu.</p>
             
-            <div class="booking-form" style="display: inline-block; width: 100%;">
-                <!-- Kotak Tampil Afirmasi -->
-                <div id="kotakAfirmasi" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px dashed var(--accent-color); margin-bottom: 20px; min-height: 90px; display: flex; align-items: center; justify-content: center;">
-                    <p id="teksAfirmasi" style="font-size: 1.05rem; color: var(--accent-color); font-weight: 500; line-height: 1.5; font-style: italic;">
+            <div class="booking-form inline-block-form">
+                <div id="kotakAfirmasi" class="affirmation-box">
+                    <p id="teksAfirmasi" class="affirmation-text">
                         "Klik tombol di bawah untuk memunculkan afirmasi positifmu hari ini."
                     </p>
                 </div>
 
-                <button type="button" id="btnAcakAfirmasi" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                <button type="button" id="btnAcakAfirmasi" class="btn-submit-wa accent-bg">
                     <i class="fas fa-sparkles"></i> Ambil Afirmasi Baru
                 </button>
             </div>
         </section>
 
-        <!-- 9. Teknik Grounding Instan -->
-        <section id="grounding" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+        <!-- 10. Grounding Instan -->
+        <section id="grounding" class="calculator-section center-text">
             <h2 class="section-title">Pereda Cemas Instan (Grounding)</h2>
             <p class="section-desc">Merasa cemas atau panik mendadak? Ikuti panduan interaktif 5-4-3-2-1 ini untuk kembali tenang.</p>
             
-            <div class="booking-form" style="display: inline-block; width: 100%; text-align: left;">
-                <div id="groundingBox" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px solid var(--accent-color); margin-bottom: 20px;">
-                    <h3 id="groundingTitle" style="color: var(--accent-color); margin-bottom: 10px; font-size: 1.2rem;">Langkah 1: Penglihatan (5)</h3>
-                    <p id="groundingDesc" style="color: var(--text-sub); line-height: 1.6; font-size: 1rem;">
+            <div class="booking-form inline-block-form text-left">
+                <div id="groundingBox" class="grounding-box">
+                    <h3 id="groundingTitle" class="grounding-title">Langkah 1: Penglihatan (5)</h3>
+                    <p id="groundingDesc" class="grounding-desc">
                         Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara <strong>5 benda</strong> yang bisa kamu lihat saat ini (contoh: lampu, meja, dinding, botol minum, jendela).
                     </p>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; gap: 10px;">
-                    <button type="button" id="btnResetGrounding" class="btn-submit-wa" style="background-color: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); width: 35%; display: none;">
-                        Ulangi Dari Awal
-                    </button>
-                    <button type="button" id="btnNextGrounding" class="btn-submit-wa" style="background-color: var(--accent-color); width: 100%;">
+                <div class="grounding-btn-group">
+                    <button type="button" id="btnResetGrounding" class="btn-submit-wa reset-btn" style="display: none;">Ulangi</button>
+                    <button type="button" id="btnNextGrounding" class="btn-submit-wa accent-bg full-width">
                         Lanjut ke Langkah Berikutnya <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- 10. Pencatat Mood Harian -->
-        <section id="moodtracker" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+        <!-- 11. Mood Tracker Instan -->
+        <section id="moodtracker" class="calculator-section center-text">
             <h2 class="section-title">Bagaimana Perasaanmu Hari Ini?</h2>
             <p class="section-desc">Pilih ekspresi yang paling mewakili suasana hatimu sekarang untuk mendapatkan pesan hangat.</p>
             
-            <div class="booking-form" style="display: inline-block; width: 100%;">
-                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;">
-                    <button type="button" class="mood-btn" data-mood="senang" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
-                        😊 Senang
-                    </button>
-                    <button type="button" class="mood-btn" data-mood="tenang" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
-                        😌 Tenang
-                    </button>
-                    <button type="button" class="mood-btn" data-mood="lelah" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
-                        🥱 Lelah
-                    </button>
-                    <button type="button" class="mood-btn" data-mood="cemas" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
-                        😰 Cemas
-                    </button>
-                    <button type="button" class="mood-btn" data-mood="sedih" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
-                        😢 Sedih
-                    </button>
+            <div class="booking-form inline-block-form">
+                <div class="mood-btn-group">
+                    <button type="button" class="mood-btn" data-mood="senang">😊 Senang</button>
+                    <button type="button" class="mood-btn" data-mood="tenang">😌 Tenang</button>
+                    <button type="button" class="mood-btn" data-mood="lelah">🥱 Lelah</button>
+                    <button type="button" class="mood-btn" data-mood="cemas">😰 Cemas</button>
+                    <button type="button" class="mood-btn" data-mood="sedih">😢 Sedih</button>
                 </div>
 
-                <!-- Kotak Respon Mood -->
-                <div id="moodResponseBox" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px dashed var(--accent-color); display: none; text-align: left;">
-                    <h3 id="moodResponseTitle" style="color: var(--accent-color); margin-bottom: 8px; font-size: 1.1rem;">Respon Untukmu</h3>
-                    <p id="moodResponseDesc" style="color: var(--text-sub); line-height: 1.6; font-size: 0.95rem;"></p>
+                <div id="moodResponseBox" class="mood-response-box" style="display: none;">
+                    <h3 id="moodResponseTitle" class="mood-response-title">Respon Untukmu</h3>
+                    <p id="moodResponseDesc" class="mood-response-desc"></p>
                 </div>
             </div>
         </section>
 
-        <!-- FITUR BARU 3: Kotak Pesan untuk Diri Sendiri di Masa Depan -->
-        <section id="surat" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+        <!-- 12. Pesan untuk Diri Sendiri -->
+        <section id="surat" class="calculator-section center-text">
             <h2 class="section-title">Pesan untuk Diri Sendiri</h2>
             <p class="section-desc">Tuliskan surat pendek berisi kata-kata penyemangat untuk dibaca ulang saat kamu merasa lelah nanti.</p>
             
-            <div class="booking-form" style="display: inline-block; width: 100%; text-align: left;">
+            <div class="booking-form inline-block-form text-left">
                 <div class="form-group">
                     <label for="inputSurat">Tulis pesan hangat untuk dirimu:</label>
-                    <textarea id="inputSurat" rows="4" placeholder="Hai diriku, terima kasih sudah bertahan sejauh ini. Apapun yang terjadi, kamu hebat..."></textarea>
+                    <textarea id="inputSurat" rows="4" placeholder="Hai diriku, terima kasih sudah bertahan sejauh ini..."></textarea>
                 </div>
 
-                <button type="button" id="btnSimpanSurat" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                <button type="button" id="btnSimpanSurat" class="btn-submit-wa accent-bg">
                     <i class="fas fa-envelope-open-text"></i> Simpan Pesan Ini
                 </button>
 
-                <!-- Kotak Tampil Pesan Tersimpan -->
-                <div id="kotakTampilSurat" style="margin-top: 25px; padding: 20px; border-radius: 12px; background: var(--bg-color); border: 1px solid var(--accent-color); display: none;">
-                    <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 8px;"><i class="fas fa-heart"></i> Pesan Tersimpan untuk Dirimu:</h3>
-                    <p id="teksSuratTersimpan" style="color: var(--text-sub); line-height: 1.6; font-size: 0.95rem; font-style: italic; white-space: pre-line;"></p>
+                <div id="kotakTampilSurat" class="saved-letter-box" style="display: none;">
+                    <h3 class="saved-letter-title"><i class="fas fa-heart"></i> Pesan Tersimpan untuk Dirimu:</h3>
+                    <p id="teksSuratTersimpan" class="saved-letter-desc"></p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. Artikel Grid -->
-        <section id="artikel" style="padding: 60px 20px;">
+        <!-- Artikel Grid -->
+        <section id="artikel" class="content-section">
             <h2 class="section-title">Artikel & Wawasan</h2>
             <p class="section-desc">Baca artikel pilihan seputar kesehatan mental dan pengembangan diri.</p>
             
@@ -360,10 +408,10 @@
             </div>
         </section>
 
-        <!-- 4. FAQ Accordion -->
-        <section id="faq" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+        <!-- FAQ Accordion -->
+        <section id="faq" class="calculator-section">
             <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
-            <p class="section-desc">Hal-hal yang sering ditanyakan seputar layanan kami.</p>
+            <p class="section-desc center-text">Hal-hal yang sering ditanyakan seputar layanan kami.</p>
             
             <div class="faq-container">
                 <div class="faq-item">
@@ -371,7 +419,7 @@
                         <span>Apakah kerahasiaan sesi konseling terjamin?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" style="display: none;">
                         <p>Ya, seluruh informasi, cerita, dan data klien dijamin kerahasiaannya sesuai dengan kode etik psikologi.</p>
                     </div>
                 </div>
@@ -380,14 +428,14 @@
                         <span>Berapa durasi untuk satu sesi konseling?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" style="display: none;">
                         <p>Setiap sesi konseling standar berdurasi sekitar 60 menit per pertemuan.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. Testimoni Grid -->
+        <!-- Testimoni Grid -->
         <section class="testimoni-section">
             <h2 class="section-title">Cerita Klien</h2>
             <p class="section-desc">Pengalaman mereka yang telah berkonsultasi di Kalih Aksa.</p>
@@ -405,29 +453,18 @@
         </section>
     </main>
 
-    <!-- Fitur Pemutar Musik Relaksasi -->
-    <div class="music-player-widget" id="musicWidget">
+    <!-- Widget Musik Floating -->
+    <div class="music-player-widget">
         <audio id="bgMusic" loop>
             <source src="Musik Tenang.mp3" type="audio/mpeg">
             Browser Anda tidak mendukung elemen audio.
         </audio>
         <button class="music-toggle-btn" id="musicToggleBtn" title="Putar Musik Relaksasi">
-            <i class="fas fa-music" id="musicIcon"></i>
-            <span class="music-text" id="musicText">Musik Tenang</span>
+            <i class="fas fa-music"></i>
         </button>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6281234567890" target="_blank" class="floating-wa" title="Chat WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Tombol Back to Top -->
-    <a href="#" class="back-to-top" id="backToTop" title="Kembali ke atas">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
-    <!-- Hubungkan ke file JavaScript -->
+    <!-- Hubungkan ke file JavaScript eksternal -->
     <script src="script.js"></script>
 </body>
 </html>
