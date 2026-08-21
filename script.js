@@ -1,118 +1,95 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Sinkronisasi status admin & pengumuman dari LocalStorage
-    const savedStatus = localStorage.getItem('adminStatus');
-    if (savedStatus) {
-        const displayStatus = document.getElementById('displayAdminStatus');
-        if (displayStatus) displayStatus.innerText = savedStatus;
-    }
+// ========================================== */
+// 1. FORM BOOKING KE WHATSAPP                 */
+// ========================================== */
+const waForm = document.getElementById('waForm');
 
-    const savedNotice = localStorage.getItem('adminNotice');
-    if (savedNotice) {
-        const noticeBox = document.getElementById('displayAdminNotice');
-        if (noticeBox) {
-            noticeBox.innerText = savedNotice;
-            noticeBox.style.display = 'block';
+if (waForm) {
+    waForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Ambil nilai dari form
+        const nama = document.getElementById('nama').value.trim();
+        const konselor = document.getElementById('konselorPilihan').value;
+        const tanggal = document.getElementById('tanggal').value;
+        const keluhan = document.getElementById('keluhan').value.trim();
+
+        // Nomor WhatsApp Admin (Ganti dengan nomor tujuan Anda, awali dengan kode negara misal 628...)
+        const nomorAdmin = "6281234567890"; 
+
+        // Susun pesan teks yang rapi
+        let pesan = `Halo Admin Kalih Aksa, saya ingin menjadwalkan sesi konseling.\n\n` +
+                    `*Nama:* ${nama}\n` +
+                    `*Pilihan Konselor:* ${konselor}\n` +
+                    `*Tanggal:* ${tanggal}\n`;
+        
+        if (keluhan) {
+            pesan += `*Keluhan/Catatan:* ${keluhan}\n`;
+        }
+
+        pesan += `\nMohon konfirmasi ketersediaannya. Terima kasih.`;
+
+        // Encode pesan agar aman untuk URL WhatsApp
+        const encodedPesan = encodeURIComponent(pesan);
+
+        // Buka WhatsApp
+        const urlWhatsApp = `https://wa.me/${nomorAdmin}?text=${encodedPesan}`;
+        window.open(urlWhatsApp, '_blank');
+    });
+}
+
+// ========================================== */
+// 2. FAQ ACCORDION INTERAKTIF                */
+// ========================================== */
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    
+    questionBtn.addEventListener('click', () => {
+        // Cek apakah item ini sudah aktif
+        const isActive = item.classList.contains('active');
+
+        // Tutup semua FAQ item terlebih dahulu (opsional, jika ingin satu terbuka bergantian)
+        faqItems.itemsList = faqItems.forEach(i => i.classList.remove('active'));
+
+        // Jika sebelumnya belum aktif, buka yang diklik
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// ========================================== */
+// 3. FITUR BACK TO TOP & DYNAMIC SLOT        */
+// ========================================== */
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (backToTopButton) {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
         }
     }
+});
 
-    // 2. Dark/Light Mode Handler (Perbaikan Utama)
-    const themeBtn = document.getElementById('themeToggleBtn');
-    const themeIcon = document.getElementById('themeIcon');
-    
-    // Cek preferensi tema yang tersimpan sebelumnya
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-mode');
-        if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-    }
-
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            // Toggle class light-mode pada body
-            document.body.classList.toggle('light-mode');
-            
-            // Ubah ikon dan simpan preferensi ke LocalStorage
-            if (document.body.classList.contains('light-mode')) {
-                localStorage.setItem('theme', 'light');
-                if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-            } else {
-                localStorage.setItem('theme', 'dark');
-                if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-            }
-        });
-    }
-
-    // 3. FAQ Accordion Logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const questionBtn = item.querySelector('.faq-question');
-        questionBtn.addEventListener('click', () => {
-            faqItems.forEach(other => {
-                if (other !== item) other.classList.remove('active');
-            });
-            item.classList.toggle('active');
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
+}
 
-    // 4. Booking Form WhatsApp Handler
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('clientName').value;
-            const service = document.getElementById('serviceType').value;
-            const date = document.getElementById('bookingDate').value;
-            const notes = document.getElementById('clientNotes').value;
-
-            const formattedDate = new Date(date).toLocaleString('id-ID', {
-                dateStyle: 'full',
-                timeStyle: 'short'
-            });
-
-            const phoneAdmin = "62895806700908";
-            const text = `Halo Admin Kalih Aksa, saya ingin menjadwalkan sesi konseling.\n\n` +
-                         `*Nama:* ${name}\n` +
-                         `*Layanan:* ${service}\n` +
-                         `*Waktu:* ${formattedDate}\n` +
-                         `*Catatan:* ${notes || '-'}`;
-
-            const encodedText = encodeURIComponent(text);
-            window.open(`https://wa.me/${phoneAdmin}?text=${encodedText}`, '_blank');
-        });
-    }
-
-    // 5. Testimoni Dinamis Handler
-    const testiForm = document.getElementById('testiForm');
-    const testimoniContainer = document.getElementById('testimoniContainer');
-
-    const savedTestimonials = JSON.parse(localStorage.getItem('testimonials')) || [];
-    savedTestimonials.forEach(t => {
-        appendTestimonialCard(t.name, t.msg);
-    });
-
-    if (testiForm) {
-        testiForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('testiName').value;
-            const msg = document.getElementById('testiMsg').value;
-
-            appendTestimonialCard(name, msg);
-
-            savedTestimonials.push({ name, msg });
-            localStorage.setItem('testimonials', JSON.stringify(savedTestimonials));
-
-            testiForm.reset();
-            alert('Terima kasih! Ulasan Anda berhasil dibagikan.');
-        });
-    }
-
-    function appendTestimonialCard(name, msg) {
-        if (!testimoniContainer) return;
-        const card = document.createElement('div');
-        card.className = 'testimoni-card';
-        card.innerHTML = `
-            <p class="testimoni-text">"${msg}"</p>
-            <span class="testimoni-name">— ${name}</span>
-        `;
-        testimoniContainer.appendChild(card);
+// --- Script Simulasi Slot Real-Time ---
+window.addEventListener('DOMContentLoaded', () => {
+    const slotSpan = document.getElementById('slot-count');
+    // Mengacak sisa slot antara 2 sampai 4 agar terlihat dinamis
+    const randomSlots = Math.floor(Math.random() * 3) + 2; 
+    if(slotSpan) {
+        slotSpan.textContent = `Tersedia ${randomSlots} Sesi`;
     }
 });

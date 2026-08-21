@@ -3,182 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalih Aksa - Biro Psikologi & Konseling</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome untuk ikon -->
+    <title>Kalih Aksa - Biro Psikologi & Kesehatan Mental</title>
+    <!-- FontAwesome untuk Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Utama dengan Status Operasional, Tombol Tema, & Tombol Admin -->
-    <header style="padding: 40px 20px 30px 20px; text-align: center; position: relative;">
-        <!-- Tombol Pintasan di Pojok Kanan Atas -->
-        <div style="position: absolute; top: 20px; right: 20px; display: flex; gap: 8px;">
-            <button id="themeToggleBtn" title="Ganti Mode Gelap/Terang" style="background: var(--card-bg); color: var(--accent-color); padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;">
-                <i class="fa-solid fa-moon" id="themeIcon"></i>
-            </button>
-            <a href="admin.html" style="background: var(--card-bg); color: var(--accent-color); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px;">
-                <i class="fa-solid fa-lock"></i> Admin
-            </a>
+    <!-- Header / Navigasi Utama -->
+    <header style="padding: 30px 20px; text-align: center;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <!-- Badge Admin Online -->
+            <div class="admin-badge">
+                <div class="pulse-dot"></div>
+                Admin Online & Siap Melayani
+            </div>
+
+            <!-- Tambahan: Slot Info Badge -->
+            <div class="slot-info-badge">
+                <i class="fas fa-clock"></i> Slot Konseling Hari Ini: <span id="slot-count">Tersedia 3 Sesi</span>
+            </div>
         </div>
 
-        <div class="admin-badge">
-            <span class="pulse-dot"></span> <span id="displayAdminStatus">Admin Online & Siap Melayani</span>
-        </div>
-        <h1>Kalih Aksa</h1>
-        <p style="color: var(--text-sub); max-width: 600px; margin: 10px auto;">Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.</p>
-        
-        <!-- Pengumuman Dinamis dari Admin -->
-        <div id="displayAdminNotice" style="display: none; max-width: 500px; margin: 15px auto; background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.3); padding: 10px 15px; border-radius: 10px; font-size: 0.9rem; color: #4ade80;">
-        </div>
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px; font-weight: 700;">Kalih Aksa</h1>
+        <p style="max-width: 600px; margin: 0 auto 20px auto; font-size: 1rem;">
+            Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.
+        </p>
 
-        <div style="margin-top: 20px;">
-            <a href="#konselor" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Konselor</a>
-            <a href="#booking" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Jadwal Sesi</a>
-            <a href="#artikel" style="color: var(--accent-color); margin-right: 15px; text-decoration: none; font-weight: 600;">Artikel</a>
-            <a href="#faq" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">FAQ</a>
-        </div>
+        <!-- Menu Navigasi Sederhana -->
+        <nav style="display: flex; justify-content: center; gap: 20px; font-weight: 600; font-size: 0.95rem;">
+            <a href="#konselor" style="color: var(--accent-color); text-decoration: none;">Konselor</a>
+            <a href="#booking" style="color: var(--accent-color); text-decoration: none;">Jadwal Sesi</a>
+            <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
+            <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
+        </nav>
     </header>
 
-    <!-- SECTION: PROFIL KONSELOR -->
-    <section id="konselor" class="konselor-section" style="padding: 50px 20px;">
-        <h2 class="section-title">Konselor Profesional Kami</h2>
-        <p class="section-desc">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
-        <div class="konselor-grid">
-            <div class="konselor-card">
-                <div class="konselor-img"><i class="fa-solid fa-user-doctor"></i></div>
-                <h3>Dr. Rina Melati, M.Psi.</h3>
-                <p class="spesialisasi">Psikolog Klinis Dewasa</p>
-                <p>Berpengalaman lebih dari 8 tahun dalam menangani kecemasan, depresi, dan burnout kerja.</p>
-            </div>
-            <div class="konselor-card">
-                <div class="konselor-img"><i class="fa-solid fa-user-tie"></i></div>
-                <h3>Ahmad Fauzi, M.Psi., Psikolog</h3>
-                <p class="spesialisasi">Konselor Pernikahan & Keluarga</p>
-                <p>Fokus pada mediasi konflik pasangan, komunikasi keluarga, dan pemulihan trauma relasi.</p>
-            </div>
-        </div>
-    </section>
+    <main>
+        <!-- Bagian Pengantar / Sub Judul -->
+        <section style="padding: 20px 20px 40px 20px; text-align: center;">
+            <p style="font-size: 0.95rem; color: var(--text-sub);">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
+        </section>
 
-    <!-- SECTION: FORM BOOKING -->
-    <section id="booking" class="booking-section">
-        <h2 class="section-title">Jadwalkan Sesi Konseling</h2>
-        <p class="section-desc">Isi formulir di bawah ini, dan kami akan langsung menghubungkan Anda via WhatsApp.</p>
-        
-        <form id="bookingForm" class="booking-form">
-            <div class="form-group">
-                <label for="clientName">Nama Lengkap</label>
-                <input type="text" id="clientName" placeholder="Masukkan nama Anda" required>
-            </div>
+        <!-- 1. Profil Konselor -->
+        <section id="konselor" style="padding: 20px 20px 60px 20px;">
+            <h2 class="section-title">Konselor Profesional Kami</h2>
+            <p class="section-desc">Pilih konselor yang sesuai dengan kebutuhan dan kenyamanan Anda.</p>
             
-            <div class="form-group">
-                <label for="serviceType">Pilih Layanan</label>
-                <select id="serviceType" required>
-                    <option value="">-- Pilih Layanan Konseling --</option>
-                    <option value="Konseling Individu (Burnout/Stress)">Konseling Individu (Burnout/Stress)</option>
-                    <option value="Konseling Pasangan / Pernikahan">Konseling Pasangan / Pernikahan</option>
-                    <option value="Konseling Remaja & Keluarga">Konseling Remaja & Keluarga</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="bookingDate">Rencana Tanggal & Waktu Sesi</label>
-                <input type="datetime-local" id="bookingDate" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="clientNotes">Catatan Tambahan (Opsional)</label>
-                <textarea id="clientNotes" rows="3" placeholder="Ceritakan sedikit keluhan atau kebutuhan Anda..."></textarea>
-            </div>
-            
-            <button type="submit" class="btn-submit-wa">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Kirim Permintaan ke WhatsApp
-            </button>
-        </form>
-    </section>
-
-    <!-- SECTION: ARTIKEL & TIPS KESEHATAN MENTAL -->
-    <section id="artikel" class="artikel-section" style="padding: 60px 20px;">
-        <h2 class="section-title">Pojok Edukasi & Artikel</h2>
-        <p class="section-desc">Baca tips ringan seputar kesehatan mental untuk menjaga kestabilan emosi sehari-hari.</p>
-        <div class="artikel-grid">
-            <div class="artikel-card">
-                <h3>Mengenal Gejala Burnout dan Cara Mengatasinya</h3>
-                <p>Merasa lelah mental yang berkepanjangan? Kenali tanda-tanda awal sebelum berdampak buruk pada produktivitas.</p>
-                <a href="https://www.halodoc.com/kesehatan/burnout" target="_blank" class="read-more">Baca Selengkapnya &rarr;</a>
-            </div>
-            <div class="artikel-card">
-                <h3>Pentingnya Validasi Emosi Diri Sendiri</h3>
-                <p>Belajar menerima perasaan sedih atau marah tanpa harus merasa bersalah adalah langkah awal penyembuhan.</p>
-                <a href="https://www.alodokter.com/validasi-emosi" target="_blank" class="read-more">Baca Selengkapnya &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: FAQ (TANYA JAWAB) -->
-    <section id="faq" class="faq-section" style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-        <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
-        <p class="section-desc">Informasi penting seputar layanan konseling di Kalih Aksa.</p>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">Apakah kerahasiaan data dan cerita saya terjamin? <i class="fa-solid fa-chevron-down"></i></button>
-                <div class="faq-answer"><p>Sangat terjamin. Seluruh isi sesi konseling dilindungi oleh kode etik psikologi yang ketat terkait kerahasiaan klien.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Berapa durasi untuk setiap sesi konseling? <i class="fa-solid fa-chevron-down"></i></button>
-                <div class="faq-answer"><p>Setiap sesi reguler berdurasi sekitar 60 menit, baik untuk sesi tatap muka maupun online.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Bagaimana cara melakukan pembayaran sesi? <i class="fa-solid fa-chevron-down"></i></button>
-                <div class="faq-answer"><p>Setelah Anda mengirim form booking via WhatsApp, admin kami akan mengirimkan detail instruksi pembayaran transfer bank atau e-wallet.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: TESTIMONI & FORM KIRIM TESTIMONI -->
-    <section class="testimoni-section">
-        <h2 class="section-title">Apa Kata Mereka?</h2>
-        <p class="section-desc">Cerita dari mereka yang telah mengambil langkah awal pemulihan.</p>
-        
-        <div class="testimoni-grid" id="testimoniContainer">
-            <div class="testimoni-card">
-                <p class="testimoni-text">"Sangat membantu saya keluar dari fase burnout kerja. Konselornya sangat mendengarkan tanpa menghakimi. Ruang amannya benar-benar terasa."</p>
-                <span class="testimoni-name">— R., Karyawan Swasta</span>
-            </div>
-            <div class="testimoni-card">
-                <p class="testimoni-text">"Sesi konseling pasangan di Kalih Aksa membuka cara komunikasi baru dengan suami. Terima kasih banyak atas bimbingannya!"</p>
-                <span class="testimoni-name">— D & A, Pasangan Menikah</span>
-            </div>
-        </div>
-
-        <!-- Form Tambah Testimoni Baru -->
-        <div style="max-width: 600px; margin: 50px auto 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
-            <h3 style="margin-bottom: 15px; text-align: center; font-size: 1.2rem;">Bagikan Pengalaman Anda</h3>
-            <form id="testiForm">
-                <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="text" id="testiName" placeholder="Nama / Inisial Anda" required>
+            <div class="konselor-grid">
+                <div class="konselor-card">
+                    <div class="konselor-img"><i class="fas fa-user-doctor"></i></div>
+                    <h3>Dr. Rina Melati, M.Psi.</h3>
+                    <div class="spesialisasi">Psikolog Klinis Dewasa</div>
+                    <p>Berpengalaman lebih dari 8 tahun dalam menangani kecemasan, depresi, dan burnout kerja.</p>
                 </div>
-                <div class="form-group" style="margin-bottom: 15px;">
-                    <textarea id="testiMsg" rows="3" placeholder="Tuliskan ulasan atau kesan Anda..." required></textarea>
-                </div>
-                <button type="submit" style="width: 100%; background: var(--accent-color); color: #0f172a; border: none; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer;">Kirim Ulasan</button>
-            </form>
-        </div>
-    </section>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/62895806700908?text=Halo%20Kalih%20Aksa,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20konseling." class="floating-wa" target="_blank" title="Hubungi Admin via WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
+                <div class="konselor-card">
+                    <div class="konselor-img"><i class="fas fa-user-doctor"></i></div>
+                    <h3>Ahmad Fauzi, M.Psi., Psikolog</h3>
+                    <div class="spesialisasi">Konselor Pernikahan & Keluarga</div>
+                    <p>Fokus pada mediasi konflik pasangan, komunikasi keluarga, dan pemulihan trauma relasi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Form Booking -->
+        <section id="booking" class="booking-section">
+            <h2 class="section-title">Jadwalkan Sesi Konseling</h2>
+            <p class="section-desc">Isi formulir di bawah ini, dan kami akan langsung menghubungkan Anda via WhatsApp.</p>
+            
+            <div class="booking-form">
+                <form id="waForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="konselorPilihan">Pilih Konselor</label>
+                        <select id="konselorPilihan" required>
+                            <option value="">-- Pilih Konselor --</option>
+                            <option value="Dr. Rina Melati, M.Psi.">Dr. Rina Melati, M.Psi.</option>
+                            <option value="Ahmad Fauzi, M.Psi., Psikolog">Ahmad Fauzi, M.Psi., Psikolog</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Konseling</label>
+                        <input type="date" id="tanggal" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keluhan">Keluhan / Catatan Singkat (Opsional)</label>
+                        <textarea id="keluhan" rows="3" placeholder="Ceritakan sedikit secara singkat..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-wa">
+                        <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Hubungkan via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 3. Artikel Grid -->
+        <section id="artikel" style="padding: 60px 20px;">
+            <h2 class="section-title">Artikel & Wawasan</h2>
+            <p class="section-desc">Baca artikel pilihan seputar kesehatan mental dan pengembangan diri.</p>
+            
+            <div class="artikel-grid">
+                <div class="artikel-card">
+                    <h3>Mengenal Gejala Burnout dan Cara Mengatasinya</h3>
+                    <p>Kelelahan fisik dan mental akibat pekerjaan dapat dicegah dengan batasan yang sehat.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                </div>
+                <div class="artikel-card">
+                    <h3>Pentingnya Validasi Emosi dalam Hubungan</h3>
+                    <p>Belajar mendengarkan dan menerima perasaan pasangan tanpa buru-buru menghakimi.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FAQ Accordion -->
+        <section id="faq" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+            <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+            <p class="section-desc">Hal-hal yang sering ditanyakan seputar layanan kami.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Apakah kerahasiaan sesi konseling terjamin?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya, seluruh informasi, cerita, dan data klien dijamin kerahasiaannya sesuai dengan kode etik psikologi.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Berapa durasi untuk satu sesi konseling?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Setiap sesi konseling standar berdurasi sekitar 60 menit per pertemuan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Testimoni Grid -->
+        <section class="testimoni-section">
+            <h2 class="section-title">Cerita Klien</h2>
+            <p class="section-desc">Pengalaman mereka yang telah berkonsultasi di Kalih Aksa.</p>
+            
+            <div class="testimoni-grid">
+                <div class="testimoni-card">
+                    <p class="testimoni-text">"Sangat membantu saya keluar dari fase kecemasan terburuk. Konselornya sangat sabar dan mendengarkan tanpa menghakimi."</p>
+                    <div class="testimoni-name">- Klien A, Karyawan Swasta</div>
+                </div>
+                <div class="testimoni-card">
+                    <p class="testimoni-text">"Komunikasi dengan pasangan jadi jauh lebih baik setelah sesi konseling keluarga di sini. Terima kasih Kalih Aksa."</p>
+                    <div class="testimoni-name">- Klien B, Wiraswasta</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="floating-wa" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 40px; color: var(--text-sub); border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>Jam Operasional: Senin - Sabtu (08.00 - 20.00 WIB)</p>
-        <p style="margin-top: 10px;">&copy; 2026 Kalih Aksa Biro Psikologi. Seluruh hak cipta dilindungi.</p>
-    </footer>
+    <!-- Tombol Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
-    <!-- Script Utama (External) -->
-    <script src="script.js"></script>
 </body>
 </html>
