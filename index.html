@@ -3,468 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalih Aksa - Biro Psikologi & Kesehatan Mental</title>
+    <title>Kalih Aksa - Ruang Aman & Konseling Kesehatan Mental</title>
     <!-- FontAwesome untuk Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Hubungkan ke file CSS -->
+    <!-- Hubungkan ke file CSS utama Anda -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header / Navigasi Utama -->
-    <header class="main-header">
-        <div class="header-badge-container">
-            <div class="admin-badge">
-                <div class="pulse-dot"></div>
-                Admin Online & Siap Melayani
-            </div>
-            <div class="slot-info-badge">
-                <i class="fas fa-clock"></i> Slot Konseling Hari Ini: <span id="slot-count">Tersedia 3 Sesi</span>
-            </div>
+    <!-- ================================================= -->
+    <!-- 1. BANNER DARURAT / EMERGENCY HELPLINE -->
+    <!-- ================================================= -->
+    <div class="emergency-banner" id="emergencyBanner">
+        <div class="emergency-content">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span><strong>Butuh Bantuan Krisis Mendesak?</strong> Jangan hadapi sendirian. Hubungi layanan darurat jiwa resmi Kemenkes di <a href="tel:119" class="emergency-link">119 (Ext. 8)</a> atau layanan psikologis profesional terdekat.</span>
         </div>
+        <button class="emergency-close" id="closeEmergency">&times;</button>
+    </div>
 
-        <h1 class="main-title">Kalih Aksa</h1>
-        <p class="main-subtitle">
-            Ruang aman profesional untuk mendengarkan, membimbing, dan merawat kesehatan mental Anda dengan penuh empati.
-        </p>
+    <!-- Header / Navbar Utama bisa ditaruh di sini jika ada -->
 
-        <!-- Menu Navigasi -->
-        <nav class="main-nav">
-            <a href="#konselor">Konselor</a>
-            <a href="#booking">Jadwal Sesi</a>
-            <a href="#kalkulator">Cek Stres</a>
-            <a href="#kecemasan">Tes Cemas</a>
-            <a href="#tracker">Tracker</a>
-            <a href="#checklist">Self-Care</a>
-            <a href="#jurnal">Jurnal</a>
-            <a href="#curhat">Curhat</a>
-            <a href="#afirmasi">Afirmasi</a>
-            <a href="#grounding">Grounding</a>
-            <a href="#moodtracker">Mood</a>
-            <a href="#surat">Pesan Diri</a>
-            <a href="#artikel">Artikel</a>
-            <a href="#faq">FAQ</a>
-        </nav>
-    </header>
+    <main class="container">
 
-    <main>
-        <section class="intro-section">
-            <p class="intro-text">Ditangani langsung oleh tenaga ahli bersertifikasi dan berpengalaman.</p>
-        </section>
-
-        <!-- 1. Profil Konselor -->
-        <section id="konselor" class="content-section">
-            <h2 class="section-title">Konselor Profesional Kami</h2>
-            <p class="section-desc">Pilih konselor yang sesuai dengan kebutuhan dan kenyamanan Anda.</p>
+        <!-- ================================================= -->
+        <!-- 2. SECTION: PESAN SEMANGAT HARIAN (DAILY QUOTE) -->
+        <!-- ================================================= -->
+        <section class="content-section">
+            <h2 class="section-title">Pesan Semangat Hari Ini 💡</h2>
+            <p class="section-desc">Suntikan validasi emosi dan motivasi instan untuk menemanimu berproses.</p>
             
-            <div class="konselor-grid">
-                <div class="konselor-card">
-                    <div class="konselor-img"><i class="fas fa-user-doctor"></i></div>
-                    <h3>Dr. Rina Melati, M.Psi.</h3>
-                    <div class="spesialisasi">Psikolog Klinis Dewasa</div>
-                    <p>Berpengalaman lebih dari 8 tahun dalam menangani kecemasan, depresi, dan burnout kerja.</p>
-                </div>
-
-                <div class="konselor-card">
-                    <div class="konselor-img"><i class="fas fa-user-doctor"></i></div>
-                    <h3>Ahmad Fauzi, M.Psi., Psikolog</h3>
-                    <div class="spesialisasi">Konselor Pernikahan & Keluarga</div>
-                    <p>Fokus pada mediasi konflik pasangan, komunikasi keluarga, dan pemulihan trauma relasi.</p>
-                </div>
+            <div class="quote-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="quote-text" id="dailyQuoteText">"Memvalidasi perasaanmu hari ini adalah langkah awal menuju pemulihan yang tulus."</p>
+                <span class="quote-author" id="dailyQuoteAuthor">— Kalih Aksa</span>
+                <button class="reset-btn full-width" id="btnAcakQuote" style="margin-top: 20px;">Ambil Kutipan Lainnya 🔄</button>
             </div>
         </section>
 
-        <!-- 2. Form Booking WhatsApp -->
-        <section id="booking" class="booking-section-wrapper">
-            <h2 class="section-title">Jadwalkan Sesi Konseling</h2>
-            <p class="section-desc">Isi formulir di bawah ini, dan kami akan langsung menghubungkan Anda via WhatsApp.</p>
+        <!-- ================================================= -->
+        <!-- 3. SECTION: MINI GAME BUBBLE WRAP DIGITAL -->
+        <!-- ================================================= -->
+        <section class="content-section">
+            <h2 class="section-title">Bubble Wrap Digital 🫧</h2>
+            <p class="section-desc">Pecahkan gelembung-gelembung ini untuk mengalihkan pikiran dan meredakan ketegangan sesaat.</p>
             
-            <div class="booking-form">
-                <form id="waForm">
-                    <div class="form-group">
-                        <label for="nama">Nama Lengkap</label>
-                        <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="konselorPilihan">Pilih Konselor</label>
-                        <select id="konselorPilihan" required>
-                            <option value="">-- Pilih Konselor --</option>
-                            <option value="Dr. Rina Melati, M.Psi.">Dr. Rina Melati, M.Psi.</option>
-                            <option value="Ahmad Fauzi, M.Psi., Psikolog">Ahmad Fauzi, M.Psi., Psikolog</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal Konseling</label>
-                        <input type="date" id="tanggal" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="keluhan">Keluhan / Catatan Singkat (Opsional)</label>
-                        <textarea id="keluhan" rows="3" placeholder="Ceritakan sedikit secara singkat..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit-wa">
-                        <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Hubungkan via WhatsApp
-                    </button>
-                </form>
+            <div class="bubble-game-wrapper">
+                <div class="bubble-score">Gelembung pecah: <span id="bubbleCount">0</span></div>
+                <div class="bubble-grid" id="bubbleGrid"></div>
+                <button class="reset-btn full-width" id="resetBubbleBtn" style="margin-top: 15px;">Muat Ulang Gelembung</button>
             </div>
         </section>
 
-        <!-- 3. Kalkulator Stres Mandiri -->
-        <section id="kalkulator" class="calculator-section">
-            <h2 class="section-title">Cek Tingkat Stres Anda</h2>
-            <p class="section-desc">Jawab 3 pertanyaan singkat ini untuk mengetahui gambaran tingkat stres Anda hari ini.</p>
-            
-            <div class="booking-form text-left">
-                <div class="form-group">
-                    <label>1. Seberapa sering Anda merasa cemas atau khawatir berlebihan minggu ini?</label>
-                    <select id="soal1">
-                        <option value="1">Jarang / Tidak Pernah</option>
-                        <option value="2">Kadang-kadang</option>
-                        <option value="3">Sering / Hampir Setiap Hari</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>2. Apakah Anda mengalami kesulitan tidur atau istirahat akhir-akhir ini?</label>
-                    <select id="soal2">
-                        <option value="1">Tidak, tidur saya nyenyak</option>
-                        <option value="2">Kadang susah tidur</option>
-                        <option value="3">Sangat sering mengalami insomnia</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>3. Seberapa besar beban pikiran atau pekerjaan mempengaruhi aktivitas harian Anda?</label>
-                    <select id="soal3">
-                        <option value="1">Tidak terlalu berpengaruh</option>
-                        <option value="2">Cukup mengganggu</option>
-                        <option value="3">Sangat mengganggu dan melelahkan</option>
-                    </select>
-                </div>
-
-                <button type="button" id="btnHitungStres" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-calculator"></i> Lihat Hasil Analisis
-                </button>
-
-                <div id="hasilStres" class="result-box" style="display: none;">
-                    <h3 id="judulHasil" class="result-title"></h3>
-                    <p id="teksHasil" class="result-desc"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Skrining Kecemasan -->
-        <section id="kecemasan" class="calculator-section">
-            <h2 class="section-title">Skrining Kecemasan Mandiri</h2>
-            <p class="section-desc">Evaluasi seberapa sering Anda terganggu oleh rasa cemas atau gelisah dalam 2 minggu terakhir.</p>
-            
-            <div class="booking-form text-left">
-                <div class="form-group">
-                    <label>1. Merasa gugup, cemas, atau berada di ujung tanduk?</label>
-                    <select id="cemas1">
-                        <option value="0">Tidak Pernah</option>
-                        <option value="1">Beberapa Hari</option>
-                        <option value="2">Lebih dari Separuh Hari</option>
-                        <option value="3">Hampir Setiap Hari</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>2. Tidak mampu menghentikan atau mengendalikan rasa khawatir?</label>
-                    <select id="cemas2">
-                        <option value="0">Tidak Pernah</option>
-                        <option value="1">Beberapa Hari</option>
-                        <option value="2">Lebih dari Separuh Hari</option>
-                        <option value="3">Hampir Setiap Hari</option>
-                    </select>
-                </div>
-
-                <button type="button" id="btnHitungCemas" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-heart-pulse"></i> Analisis Tingkat Kecemasan
-                </button>
-
-                <div id="hasilCemas" class="result-box" style="display: none;">
-                    <h3 id="judulHasilCemas" class="result-title"></h3>
-                    <p id="teksHasilCemas" class="result-desc"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Tracker Emosi Mingguan -->
-        <section id="tracker" class="calculator-section center-text">
-            <h2 class="section-title">Tracker Emosi Mingguan</h2>
-            <p class="section-desc">Pilih bagaimana perasaanmu hari ini untuk mencatatnya ke dalam rekam jejak emosimu.</p>
-            
-            <div class="booking-form inline-block-form text-left">
-                <div class="form-group">
-                    <label for="pilihHari">Pilih Hari:</label>
-                    <select id="pilihHari">
-                        <option value="Senin">Senin</option>
-                        <option value="Selasa">Selasa</option>
-                        <option value="Rabu">Rabu</option>
-                        <option value="Kamis">Kamis</option>
-                        <option value="Jumat">Jumat</option>
-                        <option value="Sabtu">Sabtu</option>
-                        <option value="Minggu">Minggu</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="pilihEmosiHarian">Suasana Hati:</label>
-                    <select id="pilihEmosiHarian">
-                        <option value="😊 Senang">😊 Senang / Produktif</option>
-                        <option value="😌 Tenang">😌 Tenang / Damai</option>
-                        <option value="🥱 Lelah">🥱 Lelah / Butuh Istirahat</option>
-                        <option value="😰 Cemas">😰 Cemas / Khawatir</option>
-                        <option value="😢 Sedih">😢 Sedih / Berat</option>
-                    </select>
-                </div>
-
-                <button type="button" id="btnSimpanTracker" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-calendar-check"></i> Catat ke Tracker
-                </button>
-
-                <div class="tracker-rekap-wrapper">
-                    <h3 class="sub-section-title">Rekap Emosi Minggu Ini</h3>
-                    <div id="rekapTrackerContainer" class="rekap-grid">
-                        <!-- Data Render via JS -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Self-Care Checklist Harian -->
-        <section id="checklist" class="calculator-section">
-            <h2 class="section-title">Self-Care Checklist Harian</h2>
-            <p class="section-desc center-text">Centang kebiasaan kecil perawatan diri yang sudah kamu lakukan hari ini.</p>
-            
-            <div class="booking-form text-left">
-                <div class="checklist-group">
-                    <label class="checklist-label">
-                        <input type="checkbox" class="self-care-check" data-id="1"> Minum cukup air putih (minimal 8 gelas)
-                    </label>
-                    <label class="checklist-label">
-                        <input type="checkbox" class="self-care-check" data-id="2"> Melakukan peregangan tubuh atau jalan kaki 10 menit
-                    </label>
-                    <label class="checklist-label">
-                        <input type="checkbox" class="self-care-check" data-id="3"> Mengambil jeda tanpa layar gadget selama 30 menit
-                    </label>
-                    <label class="checklist-label">
-                        <input type="checkbox" class="self-care-check" data-id="4"> Tidur malam nyenyak 7-8 jam
-                    </label>
-                </div>
-                <div id="progressSelfCare" class="progress-text">
-                    Progress Hari Ini: 0 / 4 Selesai
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. Jurnal Syukur Harian -->
-        <section id="jurnal" class="calculator-section center-text">
-            <h2 class="section-title">Jurnal Syukur Harian</h2>
-            <p class="section-desc">Melatih pikiran untuk fokus pada hal baik. Tuliskan 3 hal kecil yang kamu syukuri hari ini.</p>
-            
-            <div class="booking-form inline-block-form text-left">
-                <div class="form-group">
-                    <label for="inputSyukur">Apa 3 hal yang kamu syukuri hari ini?</label>
-                    <textarea id="inputSyukur" rows="4" placeholder="Contoh: 1. Bisa minum teh hangat pagi ini, 2. Cuaca cerah..."></textarea>
-                </div>
-
-                <button type="button" id="btnSimpanSyukur" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-book-open"></i> Simpan Catatan Syukur
-                </button>
-
-                <div id="riwayatSyukurBox" class="hidden-box" style="display: none;">
-                    <h3 class="sub-section-title">Catatan Syukur Terbaru:</h3>
-                    <div id="tampilSyukur" class="dash-box"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. Ruang Curhat Anonim -->
-        <section id="curhat" class="calculator-section">
-            <h2 class="section-title">Ruang Curhat Anonim</h2>
-            <p class="section-desc">Punya unek-unek yang ingin dikeluarkan tanpa takut dihakimi? Tulis di sini secara anonim.</p>
-            
-            <div class="booking-form text-left">
-                <div class="form-group">
-                    <label for="pesanCurhat">Tuliskan isi hati atau keluh kesahmu di sini:</label>
-                    <textarea id="pesanCurhat" rows="4" placeholder="Ceritakan apa saja yang sedang mengganjal di pikiranmu..." required></textarea>
-                </div>
-
-                <button type="button" id="btnKirimCurhat" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-paper-plane"></i> Lepaskan Beban & Kirim
-                </button>
-
-                <div id="responCurhat" class="result-box" style="display: none;">
-                    <h3 class="result-title"><i class="fas fa-heart"></i> Pesan Untukmu</h3>
-                    <p id="teksResponCurhat" class="result-desc"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. Afirmasi Positif -->
-        <section id="afirmasi" class="calculator-section center-text">
-            <h2 class="section-title">Afirmasi Positif Hari Ini</h2>
-            <p class="section-desc">Butuh suntikan energi positif? Klik tombol di bawah untuk mendapatkan kalimat afirmasi khusus untukmu.</p>
-            
-            <div class="booking-form inline-block-form">
-                <div id="kotakAfirmasi" class="affirmation-box">
-                    <p id="teksAfirmasi" class="affirmation-text">
-                        "Klik tombol di bawah untuk memunculkan afirmasi positifmu hari ini."
-                    </p>
-                </div>
-
-                <button type="button" id="btnAcakAfirmasi" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-sparkles"></i> Ambil Afirmasi Baru
-                </button>
-            </div>
-        </section>
-
-        <!-- 10. Grounding Instan -->
-        <section id="grounding" class="calculator-section center-text">
-            <h2 class="section-title">Pereda Cemas Instan (Grounding)</h2>
-            <p class="section-desc">Merasa cemas atau panik mendadak? Ikuti panduan interaktif 5-4-3-2-1 ini untuk kembali tenang.</p>
-            
-            <div class="booking-form inline-block-form text-left">
-                <div id="groundingBox" class="grounding-box">
-                    <h3 id="groundingTitle" class="grounding-title">Langkah 1: Penglihatan (5)</h3>
-                    <p id="groundingDesc" class="grounding-desc">
-                        Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara <strong>5 benda</strong> yang bisa kamu lihat saat ini (contoh: lampu, meja, dinding, botol minum, jendela).
-                    </p>
-                </div>
-
-                <div class="grounding-btn-group">
-                    <button type="button" id="btnResetGrounding" class="btn-submit-wa reset-btn" style="display: none;">Ulangi</button>
-                    <button type="button" id="btnNextGrounding" class="btn-submit-wa accent-bg full-width">
-                        Lanjut ke Langkah Berikutnya <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 11. Mood Tracker Instan -->
-        <section id="moodtracker" class="calculator-section center-text">
-            <h2 class="section-title">Bagaimana Perasaanmu Hari Ini?</h2>
-            <p class="section-desc">Pilih ekspresi yang paling mewakili suasana hatimu sekarang untuk mendapatkan pesan hangat.</p>
-            
-            <div class="booking-form inline-block-form">
-                <div class="mood-btn-group">
-                    <button type="button" class="mood-btn" data-mood="senang">😊 Senang</button>
-                    <button type="button" class="mood-btn" data-mood="tenang">😌 Tenang</button>
-                    <button type="button" class="mood-btn" data-mood="lelah">🥱 Lelah</button>
-                    <button type="button" class="mood-btn" data-mood="cemas">😰 Cemas</button>
-                    <button type="button" class="mood-btn" data-mood="sedih">😢 Sedih</button>
-                </div>
-
-                <div id="moodResponseBox" class="mood-response-box" style="display: none;">
-                    <h3 id="moodResponseTitle" class="mood-response-title">Respon Untukmu</h3>
-                    <p id="moodResponseDesc" class="mood-response-desc"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 12. Pesan untuk Diri Sendiri -->
-        <section id="surat" class="calculator-section center-text">
-            <h2 class="section-title">Pesan untuk Diri Sendiri</h2>
-            <p class="section-desc">Tuliskan surat pendek berisi kata-kata penyemangat untuk dibaca ulang saat kamu merasa lelah nanti.</p>
-            
-            <div class="booking-form inline-block-form text-left">
-                <div class="form-group">
-                    <label for="inputSurat">Tulis pesan hangat untuk dirimu:</label>
-                    <textarea id="inputSurat" rows="4" placeholder="Hai diriku, terima kasih sudah bertahan sejauh ini..."></textarea>
-                </div>
-
-                <button type="button" id="btnSimpanSurat" class="btn-submit-wa accent-bg">
-                    <i class="fas fa-envelope-open-text"></i> Simpan Pesan Ini
-                </button>
-
-                <div id="kotakTampilSurat" class="saved-letter-box" style="display: none;">
-                    <h3 class="saved-letter-title"><i class="fas fa-heart"></i> Pesan Tersimpan untuk Dirimu:</h3>
-                    <p id="teksSuratTersimpan" class="saved-letter-desc"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Artikel Grid -->
-        <section id="artikel" class="content-section">
-            <h2 class="section-title">Artikel & Wawasan</h2>
-            <p class="section-desc">Baca artikel pilihan seputar kesehatan mental dan pengembangan diri.</p>
+        <!-- ================================================= -->
+        <!-- 4. SECTION: BLOG MINI (TIPS RELAKSASI & EDUKASI) -->
+        <!-- ================================================= -->
+        <section class="content-section">
+            <h2 class="section-title">Wawasan & Tips Relaksasi 🌿</h2>
+            <p class="section-desc">Artikel ringkas untuk membantumu merawat pikiran dan emosi sehari-hari.</p>
             
             <div class="artikel-grid">
                 <div class="artikel-card">
-                    <h3>Mengenal Gejala Burnout dan Cara Mengatasinya</h3>
-                    <p>Kelelahan fisik dan mental akibat pekerjaan dapat dicegah dengan batasan yang sehat.</p>
-                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                    <h3>Mengatasi Overthinking Sebelum Tidur</h3>
+                    <p class="spesialisasi">Manajemen Pikiran</p>
+                    <p>Kenali teknik *Brain Dump* atau menuliskan beban pikiran di atas kertas agar otak bisa beristirahat lebih tenang di malam hari.</p>
                 </div>
                 <div class="artikel-card">
-                    <h3>Pentingnya Validasi Emosi dalam Hubungan</h3>
-                    <p>Belajar mendengarkan dan menerima perasaan pasangan tanpa buru-buru menghakimi.</p>
-                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                    <h3>Pentingnya Mengenali Batasan Diri (Boundaries)</h3>
+                    <p class="spesialisasi">Kesehatan Mental</p>
+                    <p>Belajar mengatakan "tidak" bukan berarti egois. Ini adalah bentuk perlindungan energi agar terhindar dari *burnout* mental.</p>
+                </div>
+                <div class="artikel-card">
+                    <h3>Teknologi Grounding untuk Redakan Cemas</h3>
+                    <p class="spesialisasi">Pertolongan Pertama Emosi</p>
+                    <p>Panduan menggunakan metode panca indra (5-4-3-2-1) untuk mengembalikan fokus kesadaran ke dunia nyata saat cemas menyerang.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Accordion -->
-        <section id="faq" class="calculator-section">
-            <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
-            <p class="section-desc center-text">Hal-hal yang sering ditanyakan seputar layanan kami.</p>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Apakah kerahasiaan sesi konseling terjamin?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer" style="display: none;">
-                        <p>Ya, seluruh informasi, cerita, dan data klien dijamin kerahasiaannya sesuai dengan kode etik psikologi.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Berapa durasi untuk satu sesi konseling?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer" style="display: none;">
-                        <p>Setiap sesi konseling standar berdurasi sekitar 60 menit per pertemuan.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimoni Grid -->
-        <section class="testimoni-section">
-            <h2 class="section-title">Cerita Klien</h2>
-            <p class="section-desc">Pengalaman mereka yang telah berkonsultasi di Kalih Aksa.</p>
-            
-            <div class="testimoni-grid">
-                <div class="testimoni-card">
-                    <p class="testimoni-text">"Sangat membantu saya keluar dari fase kecemasan terburuk. Konselornya sangat sabar dan mendengarkan tanpa menghakimi."</p>
-                    <div class="testimoni-name">- Klien A, Karyawan Swasta</div>
-                </div>
-                <div class="testimoni-card">
-                    <p class="testimoni-text">"Komunikasi dengan pasangan jadi jauh lebih baik setelah sesi konseling keluarga di sini. Terima kasih Kalih Aksa."</p>
-                    <div class="testimoni-name">- Klien B, Wiraswasta</div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Widget Musik Floating -->
-    <div class="music-player-widget">
-        <audio id="bgMusic" loop>
-            <source src="Musik Tenang.mp3" type="audio/mpeg">
-            Browser Anda tidak mendukung elemen audio.
-        </audio>
-        <button class="music-toggle-btn" id="musicToggleBtn" title="Putar Musik Relaksasi">
-            <i class="fas fa-music"></i>
-        </button>
-    </div>
-
-    <!-- Hubungkan ke file JavaScript eksternal -->
+    <!-- Hubungkan ke file JavaScript utama Anda -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,11 +1,85 @@
-/* ================================================= */
-/* SCRIPT UTAMA KALIH AKSA (FULL INTEGRATED)        */
-/* ================================================= */
+// =================================================
+// SCRIPT UTAMA KALIH AKSA (FULL INTEGRATED)
+// =================================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // =================================================
-    // 1. SCRIPT: TOMBOL BACK TO TOP & SCROLL BEHAVIOR
+    // 1. SCRIPT: BANNER DARURAT (EMERGENCY HELPLINE)
+    // =================================================
+    const emergencyBanner = document.getElementById('emergencyBanner');
+    const closeEmergency = document.getElementById('closeEmergency');
+
+    if (emergencyBanner && closeEmergency) {
+        closeEmergency.addEventListener('click', () => {
+            emergencyBanner.style.display = 'none';
+        });
+    }
+
+    // =================================================
+    // 2. SCRIPT: DAILY MENTAL HEALTH QUOTE (PESAN SEMANGAT)
+    // =================================================
+    const daftarQuote = [
+        { teks: "Memvalidasi perasaanmu hari ini adalah langkah awal menuju pemulihan yang tulus.", author: "Kalih Aksa" },
+        { teks: "Tidak apa-apa jika hari ini kamu hanya bisa bertahan. Istirahatlah, kamu sudah berjuang sejauh ini.", author: "Catatan Hati" },
+        { teks: "Proses penyembuhan tidak selalu linear. Naik turun adalah bagian dari perjalananmu.", author: "Refleksi Diri" },
+        { teks: "Perasaan cemas atau sedih hanyalah tamu yang lewat, bukan identitas utamamu.", author: "Kalih Aksa" },
+        { teks: "Kamu berhak mendapatkan kedamaian batin, terlepas dari seberapa sibuk dunia di sekitarmu.", author: "Ruang Tenang" }
+    ];
+
+    const dailyQuoteText = document.getElementById('dailyQuoteText');
+    const dailyQuoteAuthor = document.getElementById('dailyQuoteAuthor');
+    const btnAcakQuote = document.getElementById('btnAcakQuote');
+
+    if (btnAcakQuote && dailyQuoteText && dailyQuoteAuthor) {
+        btnAcakQuote.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * daftarQuote.length);
+            dailyQuoteText.textContent = `"${daftarQuote[randomIndex].teks}"`;
+            dailyQuoteAuthor.textContent = `— ${daftarQuote[randomIndex].author}`;
+        });
+    }
+
+    // =================================================
+    // 3. SCRIPT: MINI GAME BUBBLE WRAP DIGITAL
+    // =================================================
+    const bubbleGrid = document.getElementById('bubbleGrid');
+    const bubbleCountEl = document.getElementById('bubbleCount');
+    const resetBubbleBtn = document.getElementById('resetBubbleBtn');
+    let poppedCount = 0;
+    const totalBubbles = 24;
+
+    function createBubbles() {
+        if (!bubbleGrid) return;
+        bubbleGrid.innerHTML = "";
+        poppedCount = 0;
+        if (bubbleCountEl) bubbleCountEl.textContent = poppedCount;
+
+        for (let i = 0; i < totalBubbles; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            bubble.addEventListener('click', function() {
+                if (!this.classList.contains('popped')) {
+                    this.classList.add('popped');
+                    poppedCount++;
+                    if (bubbleCountEl) bubbleCountEl.textContent = poppedCount;
+                }
+            });
+
+            bubbleGrid.appendChild(bubble);
+        }
+    }
+
+    if (bubbleGrid) {
+        createBubbles();
+    }
+
+    if (resetBubbleBtn) {
+        resetBubbleBtn.addEventListener('click', createBubbles);
+    }
+
+    // =================================================
+    // 4. SCRIPT: TOMBOL BACK TO TOP & SCROLL BEHAVIOR
     // =================================================
     const backToTopBtn = document.getElementById('backToTopBtn');
 
@@ -28,12 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 2. SCRIPT: LATIHAN PERNAPASAN 4-7-8
+    // 5. SCRIPT: LATIHAN PERNAPASAN 4-7-8
     // =================================================
     let breathInterval;
     let isBreathing = false;
 
-    // Membuat fungsi toggleBreathing bisa diakses secara global oleh atribut onclick di HTML
     window.toggleBreathing = function() {
         const circle = document.getElementById('breathingCircle');
         const instruction = document.getElementById('breathingInstruction');
@@ -55,25 +128,21 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.innerText = "Berhenti";
         runBreathingCycle(circle, instruction);
         
-        // Siklus berulang setiap 19 detik (4 tarik + 7 tahan + 8 hembus)
         breathInterval = setInterval(() => {
             runBreathingCycle(circle, instruction);
         }, 19000);
     };
 
     function runBreathingCycle(circle, instruction) {
-        // Tarik Napas (4 Detik)
         instruction.innerText = "Tarik Napas Pelan-pelan... (4 detik)";
         circle.className = "breathing-animate-in";
 
-        // Tahan Napas (7 Detik)
         setTimeout(() => {
             if (!isBreathing) return;
             instruction.innerText = "Tahan Napas Anda... (7 detik)";
             circle.className = "breathing-animate-hold";
         }, 4000);
 
-        // Hembuskan Napas (8 Detik)
         setTimeout(() => {
             if (!isBreathing) return;
             instruction.innerText = "Hembuskan Perlahan... (8 detik)";
@@ -82,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 3. SCRIPT: JURNAL & VENTING LOKAL
+    // 6. SCRIPT: JURNAL & VENTING LOKAL
     // =================================================
     window.saveJournal = function() {
         const journalInput = document.getElementById('journalInput');
@@ -98,15 +167,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Simpan ke localStorage browser agar aman di perangkat pengguna
         localStorage.setItem('kalih_aksa_journal', text);
-        
         savedText.innerText = text;
         resultBox.style.display = "block";
         alert("Catatan berhasil disimpan secara lokal dan aman di perangkat Anda.");
     };
 
-    // Muat catatan otomatis jika halaman dibuka kembali
     const saved = localStorage.getItem('kalih_aksa_journal');
     const journalInput = document.getElementById('journalInput');
     const savedText = document.getElementById('savedJournalText');
@@ -119,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 4. SCRIPT: WHATSAPP BOOKING FORM HANDLER
+    // 7. SCRIPT: WHATSAPP BOOKING FORM HANDLER
     // =================================================
     const waForm = document.getElementById('waForm');
     if(waForm) {
@@ -130,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const tanggal = document.getElementById('tanggal').value;
             const keluhan = document.getElementById('keluhan').value;
 
-            const nomorAdmin = "6281234567890"; // Ganti dengan nomor WhatsApp tujuan
+            const nomorAdmin = "6281234567890";
             const pesan = `Halo Admin Kalih Aksa, saya ingin mendaftarkan sesi konseling.%0A%0A*Nama:* ${nama}%0A*Konselor:* ${konselor}%0A*Tanggal:* ${tanggal}%0A*Keluhan:* ${keluhan || '-'}`;
             
             window.open(`https://wa.me/${nomorAdmin}?text=${pesan}`, '_blank');
@@ -138,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 5. SCRIPT: KALKULATOR STRES
+    // 8. SCRIPT: KALKULATOR STRES
     // =================================================
     const btnHitungStres = document.getElementById('btnHitungStres');
     if(btnHitungStres) {
@@ -167,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 6. SCRIPT: SKRINING KECEMASAN
+    // 9. SCRIPT: SKRINING KECEMASAN
     // =================================================
     const btnHitungCemas = document.getElementById('btnHitungCemas');
     if(btnHitungCemas) {
@@ -195,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 7. SCRIPT: TRACKER EMOSI MINGGUAN
+    // 10. SCRIPT: TRACKER EMOSI MINGGUAN
     // =================================================
     let emosiData = {};
     const btnSimpanTracker = document.getElementById('btnSimpanTracker');
@@ -229,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderRekapTracker();
 
     // =================================================
-    // 8. SCRIPT: SELF-CARE CHECKLIST
+    // 11. SCRIPT: SELF-CARE CHECKLIST
     // =================================================
     const checkboxes = document.querySelectorAll('.self-care-check');
     checkboxes.forEach(chk => {
@@ -248,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 9. SCRIPT: JURNAL SYUKUR HARIAN
+    // 12. SCRIPT: JURNAL SYUKUR HARIAN
     // =================================================
     const btnSimpanSyukur = document.getElementById('btnSimpanSyukur');
     if(btnSimpanSyukur) {
@@ -263,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 10. SCRIPT: RUANG CURHAT ANONIM
+    // 13. SCRIPT: RUANG CURHAT ANONIM
     // =================================================
     const btnKirimCurhat = document.getElementById('btnKirimCurhat');
     if(btnKirimCurhat) {
@@ -280,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 11. SCRIPT: AFIRMASI POSITIF ACAK
+    // 14. SCRIPT: AFIRMASI POSITIF ACAK
     // =================================================
     const daftarAfirmasi = [
         "\"Aku berhak merasa tenang dan bahagia dengan caraku sendiri.\"",
@@ -298,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 12. SCRIPT: GROUNDING INTERAKTIF 5-4-3-2-1
+    // 15. SCRIPT: GROUNDING INTERAKTIF 5-4-3-2-1
     // =================================================
     let stepGrounding = 1;
     const gTitle = document.getElementById('groundingTitle');
@@ -342,7 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 13. SCRIPT: MOOD TRACKER INSTAN
+    // 16. SCRIPT: MOOD TRACKER INSTAN
     // =================================================
     const moodButtons = document.querySelectorAll('.mood-btn');
     const moodResponses = {
@@ -369,7 +435,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =================================================
-    // 14. SCRIPT: PESAN UNTUK DIRI SENDIRI
+    // 17. SCRIPT: PESAN UNTUK DIRI SENDIRI
     // =================================================
     const btnSimpanSurat = document.getElementById('btnSimpanSurat');
     if(btnSimpanSurat) {
@@ -384,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =================================================
-    // 15. SCRIPT: FAQ ACCORDION
+    // 18. SCRIPT: FAQ ACCORDION
     // =================================================
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
@@ -403,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =================================================
-    // 16. SCRIPT: WIDGET MUSIK FLOATING
+    // 19. SCRIPT: WIDGET MUSIK FLOATING
     // =================================================
     const bgMusic = document.getElementById('bgMusic');
     const musicToggleBtn = document.getElementById('musicToggleBtn');
