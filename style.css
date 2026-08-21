@@ -1,13 +1,22 @@
-/* ========================================== */
-/* 1. VARIABEL WARNA & GLOBAL RESET           */
-/* ========================================== */
+/* ================================================= */
+/* 1. VARIABEL WARNA & GLOBAL RESET */
+/* ================================================= */
 :root {
-    --bg-color: #0f172a;      
-    --card-bg: #1e293b;        
-    --text-main: #f8fafc;      
-    --text-sub: #94a3b8;       
-    --accent-color: #38bdf8;   
-    --border-color: rgba(255, 255, 255, 0.05);
+    --bg-color: #0c1017;
+    --card-bg: #161e2e;
+    --text-main: #f8fafc;
+    --text-sub: #94a3b8;
+    --accent-color: #34d399;
+    --border-color: #1f2937;
+}
+
+body.light-mode {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-sub: #475569;
+    --accent-color: #0284c7;
+    --border-color: #cbd5e1;
 }
 
 * {
@@ -16,205 +25,484 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
+    padding-bottom: 80px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ========================================== */
-/* 2. TIPOGRAFI & SECTION UTAMA               */
-/* ========================================== */
+/* ================================================= */
+/* 2. HEADER & NAVIGASI */
+/* ================================================= */
+.main-header {
+    background: linear-gradient(135deg, #111827 0%, #0c1017 100%);
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.admin-badge, .slot-info-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.slot-info-badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(52, 211, 153, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    }
+}
+
+.main-title {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.main-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-sub);
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+}
+
+/* Navigasi Menu */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-nav a {
+    color: var(--text-sub);
+    background: var(--card-bg);
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.main-nav a:hover {
+    background: var(--accent-color);
+    color: #0c1017;
+    border-color: var(--accent-color);
+}
+
+/* ================================================= */
+/* 3. SECTION & LAYOUT UMUM */
+/* ================================================= */
+.intro-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.intro-text {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+}
+
+.content-section, .calculator-section, .testimoni-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
 .section-title {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    font-size: 2rem;
     color: var(--text-main);
+    margin-bottom: 8px;
     font-weight: 700;
 }
 
 .section-desc {
     text-align: center;
     color: var(--text-sub);
-    margin-bottom: 40px;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
 }
 
-/* Badge Status Admin Online */
-.admin-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(34, 197, 94, 0.1);
-    color: #4ade80;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    border: 1px solid rgba(34, 197, 94, 0.2);
-}
-
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #4ade80;
-    border-radius: 50%;
-    box-shadow: 0 0 0 rgba(74, 222, 128, 0.4);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
-}
-
-/* ========================================== */
-/* 3. KOMPONEN KARTU & GRID (Konselor/Artikel)*/
-/* ========================================== */
-.konselor-grid, .artikel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.konselor-card, .artikel-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s;
-}
-
-.konselor-card {
+.center-text {
     text-align: center;
 }
 
-.konselor-card:hover, .artikel-card:hover {
-    transform: translateY(-8px);
+.sub-section-title {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* ================================================= */
+/* 4. KOMPONEN KARTU (Konselor, Artikel, Testimoni) */
+/* ================================================= */
+.konselor-grid, .artikel-grid, .testimoni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.konselor-card, .artikel-card, .testimoni-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.konselor-card:hover, .artikel-card:hover, .testimoni-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
 }
 
 .konselor-img {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--accent-color);
     margin-bottom: 15px;
 }
 
 .konselor-card h3, .artikel-card h3 {
-    margin-bottom: 10px;
     font-size: 1.2rem;
     color: var(--text-main);
+    margin-bottom: 5px;
 }
 
 .spesialisasi {
+    font-size: 0.85rem;
     color: var(--accent-color);
-    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-.konselor-card p, .artikel-card p {
-    color: var(--text-sub);
+.konselor-card p, .artikel-card p, .testimoni-text {
     font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    color: var(--text-sub);
 }
 
 .read-more {
+    display: inline-block;
+    margin-top: 15px;
     color: var(--accent-color);
     text-decoration: none;
+    font-size: 0.85rem;
     font-weight: 600;
-    font-size: 0.9rem;
 }
 
 .read-more:hover {
     text-decoration: underline;
 }
 
-/* ========================================== */
-/* 4. FORM BOOKING & INPUT                    */
-/* ========================================== */
-.booking-section, .testimoni-section {
-    padding: 60px 20px;
+/* ================================================= */
+/* 5. FORM & INTERAKTIF (Booking, Kalkulator) */
+/* ================================================= */
+.booking-section-wrapper, .calculator-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 35px 25px;
 }
 
 .booking-form {
-    max-width: 600px;
+    max-width: 550px;
     margin: 0 auto;
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 1px solid var(--border-color);
+}
+
+.inline-block-form {
+    max-width: 600px;
+}
+
+.text-left {
+    text-align: left;
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--text-main);
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-.form-group input, .form-group select, .form-group textarea {
+.form-group input, 
+.form-group select, 
+.form-group textarea {
     width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
+    padding: 12px 15px;
     background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     color: var(--text-main);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    outline: none;
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
     border-color: var(--accent-color);
 }
 
 .btn-submit-wa {
     width: 100%;
-    background-color: #25d366;
-    color: white;
+    background: #25d366;
+    color: #ffffff;
     border: none;
-    padding: 16px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    transition: background 0.3s ease;
 }
 
 .btn-submit-wa:hover {
-    background-color: #22bf5b;
-    transform: translateY(-2px);
+    background: #20ba5a;
 }
 
-/* ========================================== */
-/* 5. FAQ ACCORDION                           */
-/* ========================================== */
+.accent-bg {
+    background: var(--accent-color);
+    color: #0c1017;
+}
+
+.accent-bg:hover {
+    background: #10b981;
+    color: #ffffff;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* ================================================= */
+/* 6. HASIL & KOTAK INFORMASI KHUSUS */
+/* ================================================= */
+.result-box, .dash-box, .affirmation-box, .grounding-box, .mood-response-box, .saved-letter-box {
+    margin-top: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.result-title, .mood-response-title, .saved-letter-title {
+    font-size: 1.05rem;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.result-desc, .mood-response-desc, .saved-letter-desc, .affirmation-text {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+/* ================================================= */
+/* 7. TRACKER EMOSI MINGGUAN (KOTAK REKAP) */
+/* ================================================= */
+.tracker-rekap-wrapper {
+    margin-top: 25px;
+}
+
+.rekap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#rekapTrackerContainer > div {
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #333333;
+}
+
+#rekapTrackerContainer strong {
+    color: #111111;
+    font-size: 0.9rem;
+}
+
+#rekapTrackerContainer span {
+    color: #555555 !important;
+}
+
+/* ================================================= */
+/* 8. CHECKLIST SELF-CARE, AFIRMASI & GROUNDING */
+/* ================================================= */
+.checklist-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.checklist-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    cursor: pointer;
+}
+
+.checklist-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-align: center;
+}
+
+.affirmation-box {
+    margin-bottom: 20px;
+    border-color: var(--accent-color);
+    background: rgba(52, 211, 153, 0.05);
+}
+
+.affirmation-text {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-main);
+}
+
+.grounding-box {
+    margin-bottom: 20px;
+}
+
+.grounding-title {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.grounding-desc {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+.grounding-btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.reset-btn {
+    background: #334155;
+    color: #ffffff;
+    width: auto;
+    padding: 12px 20px;
+}
+
+.reset-btn:hover {
+    background: #475569;
+}
+
+/* ================================================= */
+/* 9. MOOD TRACKER INSTAN */
+/* ================================================= */
+.mood-btn-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mood-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mood-btn:hover {
+    background: var(--accent-color);
+    color: #0c1017;
+    border-color: var(--accent-color);
+}
+
+/* ================================================= */
+/* 10. FAQ ACCORDION */
+/* ================================================= */
 .faq-container {
     max-width: 700px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .faq-item {
     background: var(--card-bg);
-    margin-bottom: 15px;
-    border-radius: 12px;
-    overflow: hidden;
     border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .faq-question {
@@ -222,90 +510,30 @@ body {
     background: none;
     border: none;
     color: var(--text-main);
-    padding: 20px;
+    padding: 15px 20px;
     text-align: left;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 .faq-question i {
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
 }
 
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 20px;
+    padding: 0 20px 15px 20px;
     color: var(--text-sub);
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
 }
 
-.faq-item.active .faq-answer {
-    max-height: 150px;
-    padding: 0 20px 20px 20px;
-}
-
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
-}
-
-/* ========================================== */
-/* 6. TESTIMONI GRID                          */
-/* ========================================== */
-.testimoni-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.testimoni-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 20px;
-}
-
-.testimoni-text {
-    font-style: italic;
-    color: var(--text-main);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.testimoni-name {
-    color: var(--accent-color);
-    font-size: 0.95rem;
-}
-
-/* ========================================== */
-/* 7. WIDGET & TOMBOL MELAYANG (FLOATING)     */
-/* ========================================== */
-.slot-info-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--card-bg);
-    color: var(--text-sub);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    border: 1px solid var(--border-color);
-    margin-left: 10px;
-    margin-bottom: 15px;
-}
-
-.slot-info-badge i {
-    color: var(--accent-color);
-}
-
+/* ================================================= */
+/* 11. WIDGET & TOMBOL FLOATING */
+/* ================================================= */
 .floating-wa {
     position: fixed;
     bottom: 30px;
@@ -365,51 +593,40 @@ body {
 /* Music Player Widget */
 .music-player-widget {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    bottom: 25px;
+    left: 25px;
     z-index: 999;
 }
 
 .music-toggle-btn {
-    background: var(--card-bg);
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
-    padding: 10px 16px;
-    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: #0c1017;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.4);
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
 
 .music-toggle-btn:hover {
-    background: var(--accent-color);
-    color: #fff;
-    transform: translateY(-2px);
+    transform: scale(1.1);
 }
 
-.music-toggle-btn.playing #musicIcon {
-    animation: spin 3s linear infinite;
-    color: #4ade80;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* ========================================== */
-/* 8. LIGHT MODE CONFIGURATION                */
-/* ========================================== */
-body.light-mode {
-    --bg-color: #f8fafc;
-    --card-bg: #ffffff;
-    --text-main: #0f172a;
-    --text-sub: #475569;
-    --accent-color: #0284c7;
-    --border-color: #cbd5e1;
+/* ================================================= */
+/* 12. RESPONSIVE DESIGN */
+/* ================================================= */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .booking-section-wrapper, .calculator-section {
+        padding: 25px 15px;
+    }
 }
