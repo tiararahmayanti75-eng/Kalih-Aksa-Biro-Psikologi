@@ -32,14 +32,17 @@
         </p>
 
         <!-- Menu Navigasi Sederhana -->
-        <nav style="display: flex; justify-content: center; gap: 20px; font-weight: 600; font-size: 0.95rem; flex-wrap: wrap;">
+        <nav style="display: flex; justify-content: center; gap: 15px; font-weight: 600; font-size: 0.9rem; flex-wrap: wrap;">
             <a href="#konselor" style="color: var(--accent-color); text-decoration: none;">Konselor</a>
             <a href="#booking" style="color: var(--accent-color); text-decoration: none;">Jadwal Sesi</a>
             <a href="#kalkulator" style="color: var(--accent-color); text-decoration: none;">Cek Stres</a>
+            <a href="#kecemasan" style="color: var(--accent-color); text-decoration: none;">Tes Cemas</a>
+            <a href="#jurnal" style="color: var(--accent-color); text-decoration: none;">Jurnal Syukur</a>
             <a href="#curhat" style="color: var(--accent-color); text-decoration: none;">Ruang Curhat</a>
             <a href="#afirmasi" style="color: var(--accent-color); text-decoration: none;">Afirmasi</a>
             <a href="#grounding" style="color: var(--accent-color); text-decoration: none;">Grounding</a>
             <a href="#moodtracker" style="color: var(--accent-color); text-decoration: none;">Mood</a>
+            <a href="#surat" style="color: var(--accent-color); text-decoration: none;">Pesan Diri</a>
             <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
             <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
         </nav>
@@ -151,7 +154,68 @@
                 <!-- Kotak Hasil Tes -->
                 <div id="hasilStres" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
                     <h3 id="judulHasil" style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"></h3>
-                    <p id="teksHasil" style="font-size: 0.950rem; color: var(--text-sub); line-height: 1.5;"></p>
+                    <p id="teksHasil" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.5;"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR BARU 1: Tes Kecemasan Sederhana (GAD-2/GAD-7 Ringkas) -->
+        <section id="kecemasan" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+            <h2 class="section-title">Skrining Kecemasan Mandiri</h2>
+            <p class="section-desc">Evaluasi seberapa sering Anda terganggu oleh rasa cemas atau gelisah dalam 2 minggu terakhir.</p>
+            
+            <div class="booking-form" style="text-align: left;">
+                <div class="form-group">
+                    <label>1. Merasa gugup, cemas, atau berada di ujung tanduk?</label>
+                    <select id="cemas1">
+                        <option value="0">Tidak Pernah</option>
+                        <option value="1">Beberapa Hari</option>
+                        <option value="2">Lebih dari Separuh Hari</option>
+                        <option value="3">Hampir Setiap Hari</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Tidak mampu menghentikan atau mengendalikan rasa khawatir?</label>
+                    <select id="cemas2">
+                        <option value="0">Tidak Pernah</option>
+                        <option value="1">Beberapa Hari</option>
+                        <option value="2">Lebih dari Separuh Hari</option>
+                        <option value="3">Hampir Setiap Hari</option>
+                    </select>
+                </div>
+
+                <button type="button" id="btnHitungCemas" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                    <i class="fas fa-heart-pulse"></i> Analisis Tingkat Kecemasan
+                </button>
+
+                <!-- Kotak Hasil Tes Cemas -->
+                <div id="hasilCemas" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
+                    <h3 id="judulHasilCemas" style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"></h3>
+                    <p id="teksHasilCemas" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.5;"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR BARU 2: Jurnal Syukur Harian (Gratitude Journal) -->
+        <section id="jurnal" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Jurnal Syukur Harian</h2>
+            <p class="section-desc">Melatih pikiran untuk fokus pada hal baik. Tuliskan 3 hal kecil yang kamu syukuri hari ini.</p>
+            
+            <div class="booking-form" style="display: inline-block; width: 100%; text-align: left;">
+                <div class="form-group">
+                    <label for="inputSyukur">Apa 3 hal yang kamu syukuri hari ini?</label>
+                    <textarea id="inputSyukur" rows="4" placeholder="Contoh: 1. Bisa minum teh hangat pagi ini, 2. Cuaca cerah, 3. Menyelesaikan tugas dengan baik..."></textarea>
+                </div>
+
+                <button type="button" id="btnSimpanSyukur" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                    <i class="fas fa-book-open"></i> Simpan Catatan Syukur
+                </button>
+
+                <!-- Riwayat Syukur Tersimpan -->
+                <div id="riwayatSyukurBox" style="margin-top: 25px; display: none;">
+                    <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 10px;">Catatan Syukur Terbaru:</h3>
+                    <div id="tampilSyukur" style="padding: 15px; border-radius: 8px; background: var(--bg-color); border: 1px dashed var(--accent-color); color: var(--text-sub); font-size: 0.95rem; line-height: 1.6; white-space: pre-line;"></div>
                 </div>
             </div>
         </section>
@@ -174,7 +238,7 @@
                 <!-- Respon Penenang Otomatis -->
                 <div id="responCurhat" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
                     <h3 style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"><i class="fas fa-heart"></i> Pesan Untukmu</h3>
-                    <p id="teksResponCurhat" style="font-size: 0.950rem; color: var(--text-sub); line-height: 1.5;"></p>
+                    <p id="teksResponCurhat" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.5;"></p>
                 </div>
             </div>
         </section>
@@ -222,7 +286,7 @@
             </div>
         </section>
 
-        <!-- 10. Pencatat Mood Harian (Fitur Baru) -->
+        <!-- 10. Pencatat Mood Harian -->
         <section id="moodtracker" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
             <h2 class="section-title">Bagaimana Perasaanmu Hari Ini?</h2>
             <p class="section-desc">Pilih ekspresi yang paling mewakili suasana hatimu sekarang untuk mendapatkan pesan hangat.</p>
@@ -250,6 +314,29 @@
                 <div id="moodResponseBox" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px dashed var(--accent-color); display: none; text-align: left;">
                     <h3 id="moodResponseTitle" style="color: var(--accent-color); margin-bottom: 8px; font-size: 1.1rem;">Respon Untukmu</h3>
                     <p id="moodResponseDesc" style="color: var(--text-sub); line-height: 1.6; font-size: 0.95rem;"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR BARU 3: Kotak Pesan untuk Diri Sendiri di Masa Depan -->
+        <section id="surat" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Pesan untuk Diri Sendiri</h2>
+            <p class="section-desc">Tuliskan surat pendek berisi kata-kata penyemangat untuk dibaca ulang saat kamu merasa lelah nanti.</p>
+            
+            <div class="booking-form" style="display: inline-block; width: 100%; text-align: left;">
+                <div class="form-group">
+                    <label for="inputSurat">Tulis pesan hangat untuk dirimu:</label>
+                    <textarea id="inputSurat" rows="4" placeholder="Hai diriku, terima kasih sudah bertahan sejauh ini. Apapun yang terjadi, kamu hebat..."></textarea>
+                </div>
+
+                <button type="button" id="btnSimpanSurat" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                    <i class="fas fa-envelope-open-text"></i> Simpan Pesan Ini
+                </button>
+
+                <!-- Kotak Tampil Pesan Tersimpan -->
+                <div id="kotakTampilSurat" style="margin-top: 25px; padding: 20px; border-radius: 12px; background: var(--bg-color); border: 1px solid var(--accent-color); display: none;">
+                    <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 8px;"><i class="fas fa-heart"></i> Pesan Tersimpan untuk Dirimu:</h3>
+                    <p id="teksSuratTersimpan" style="color: var(--text-sub); line-height: 1.6; font-size: 0.95rem; font-style: italic; white-space: pre-line;"></p>
                 </div>
             </div>
         </section>

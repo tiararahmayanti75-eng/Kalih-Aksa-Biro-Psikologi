@@ -7,16 +7,12 @@ if (waForm) {
     waForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Ambil nilai dari form
         const nama = document.getElementById('nama').value.trim();
         const konselor = document.getElementById('konselorPilihan').value;
         const tanggal = document.getElementById('tanggal').value;
         const keluhan = document.getElementById('keluhan').value.trim();
-
-        // Nomor WhatsApp Admin (Ganti dengan nomor tujuan Anda, awali dengan kode negara misal 628...)
         const nomorAdmin = "6281234567890"; 
 
-        // Susun pesan teks yang rapi
         let pesan = `Halo Admin Kalih Aksa, saya ingin menjadwalkan sesi konseling.\n\n` +
                     `*Nama:* ${nama}\n` +
                     `*Pilihan Konselor:* ${konselor}\n` +
@@ -27,13 +23,8 @@ if (waForm) {
         }
 
         pesan += `\nMohon konfirmasi ketersediaannya. Terima kasih.`;
-
-        // Encode pesan agar aman untuk URL WhatsApp
         const encodedPesan = encodeURIComponent(pesan);
-
-        // Buka WhatsApp
-        const urlWhatsApp = `https://wa.me/${nomorAdmin}?text=${encodedPesan}`;
-        window.open(urlWhatsApp, '_blank');
+        window.open(`https://wa.me/${nomorAdmin}?text=${encodedPesan}`, '_blank');
     });
 }
 
@@ -44,18 +35,10 @@ const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
-    
     questionBtn.addEventListener('click', () => {
-        // Cek apakah item ini sudah aktif
         const isActive = item.classList.contains('active');
-
-        // Tutup semua FAQ item terlebih dahulu
         faqItems.forEach(i => i.classList.remove('active'));
-
-        // Jika sebelumnya belum aktif, buka yang diklik
-        if (!isActive) {
-            item.classList.add('active');
-        }
+        if (!isActive) item.classList.add('active');
     });
 });
 
@@ -77,20 +60,29 @@ window.addEventListener('scroll', () => {
 if (backToTopButton) {
     backToTopButton.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
-// --- Script Simulasi Slot Real-Time ---
 window.addEventListener('DOMContentLoaded', () => {
     const slotSpan = document.getElementById('slot-count');
-    // Mengacak sisa slot antara 2 sampai 4 agar terlihat dinamis
     const randomSlots = Math.floor(Math.random() * 3) + 2; 
     if(slotSpan) {
         slotSpan.textContent = `Tersedia ${randomSlots} Sesi`;
+    }
+
+    // Load saved gratitude journal if any
+    const savedSyukur = localStorage.getItem('kalih_aksa_syukur');
+    if (savedSyukur) {
+        document.getElementById('riwayatSyukurBox').style.display = 'block';
+        document.getElementById('tampilSyukur').textContent = savedSyukur;
+    }
+
+    // Load saved letter if any
+    const savedSurat = localStorage.getItem('kalih_aksa_surat');
+    if (savedSurat) {
+        document.getElementById('kotakTampilSurat').style.display = 'block';
+        document.getElementById('teksSuratTersimpan').textContent = savedSurat;
     }
 });
 
@@ -103,7 +95,6 @@ const musicText = document.getElementById('musicText');
 
 if (musicToggleBtn && bgMusic) {
     let isPlaying = false;
-
     musicToggleBtn.addEventListener('click', () => {
         if (!isPlaying) {
             bgMusic.play().then(() => {
@@ -132,7 +123,6 @@ if (btnHitungStres) {
         const val1 = parseInt(document.getElementById('soal1').value);
         const val2 = parseInt(document.getElementById('soal2').value);
         const val3 = parseInt(document.getElementById('soal3').value);
-
         const totalSkor = val1 + val2 + val3;
         
         const divHasil = document.getElementById('hasilStres');
@@ -143,14 +133,65 @@ if (btnHitungStres) {
 
         if (totalSkor <= 4) {
             judulHasil.textContent = "Hasil: Tingkat Stres Rendah (Kondisi Aman)";
-            teksHasil.textContent = "Kondisi mental Anda tampaknya cukup stabil minggu ini. Tetap pertahankan pola hidup sehat, istirahat cukup, dan luangkan waktu untuk relaksasi.";
+            teksHasil.textContent = "Kondisi mental Anda tampaknya cukup stabil minggu ini. Tetap pertahankan pola hidup sehat dan istirahat cukup.";
         } else if (totalSkor <= 7) {
             judulHasil.textContent = "Hasil: Tingkat Stres Sedang (Butuh Perhatian)";
-            teksHasil.textContent = "Anda mulai merasakan tekanan yang cukup berarti. Disarankan untuk mulai mendengarkan musik relaksasi, melakukan hobi, atau mencoba sesi konseling ringan agar tidak menumpuk.";
+            teksHasil.textContent = "Anda mulai merasakan tekanan yang cukup berarti. Disarankan mendengarkan musik relaksasi atau melakukan hobi.";
         } else {
             judulHasil.textContent = "Hasil: Tingkat Stres Tinggi (Sangat Disarankan Konseling)";
-            teksHasil.textContent = "Beban pikiran Anda terlihat cukup berat dan mengganggu istirahat. Sangat disarankan untuk segera menjadwalkan sesi konsultasi profesional dengan psikolog kami di Kalih Aksa.";
+            teksHasil.textContent = "Beban pikiran Anda terlihat cukup berat. Sangat disarankan segera menjadwalkan sesi konsultasi dengan psikolog kami.";
         }
+    });
+}
+
+// ========================================== */
+// 5.1 FITUR BARU: SKRINING KECEMASAN         */
+// ========================================== */
+const btnHitungCemas = document.getElementById('btnHitungCemas');
+
+if (btnHitungCemas) {
+    btnHitungCemas.addEventListener('click', () => {
+        const c1 = parseInt(document.getElementById('cemas1').value);
+        const c2 = parseInt(document.getElementById('cemas2').value);
+        const totalCemas = c1 + c2;
+
+        const hasilCemas = document.getElementById('hasilCemas');
+        const judulHasilCemas = document.getElementById('judulHasilCemas');
+        const teksHasilCemas = document.getElementById('teksHasilCemas');
+
+        hasilCemas.style.display = 'block';
+
+        if (totalCemas <= 1) {
+            judulHasilCemas.textContent = "Hasil: Tingkat Kecemasan Minimal 🌿";
+            teksHasilCemas.textContent = "Kecemasan Anda berada pada batas normal. Tetap jaga keseimbangan pikiran dan kelola aktivitas harian dengan baik.";
+        } else if (totalCemas <= 3) {
+            judulHasilCemas.textContent = "Hasil: Tingkat Kecemasan Ringan hingga Sedang ⚠️";
+            teksHasilCemas.textContent = "Anda tampak mengalami ketegangan emosional. Coba gunakan fitur Grounding 5-4-3-2-1 di atas untuk membantu meredakan rasa cemas.";
+        } else {
+            judulHasilCemas.textContent = "Hasil: Indikasi Kecemasan Cukup Tinggi 🫂";
+            teksHasilCemas.textContent = "Rasa khawatir yang berlebihan berpotensi mengganggu aktivitas harian. Jangan ragu untuk berbicara dengan profesional di Kalih Aksa.";
+        }
+    });
+}
+
+// ========================================== */
+// 5.2 FITUR BARU: JURNAL SYUKUR HARIAN       */
+// ========================================== */
+const btnSimpanSyukur = document.getElementById('btnSimpanSyukur');
+
+if (btnSimpanSyukur) {
+    btnSimpanSyukur.addEventListener('click', () => {
+        const inputSyukur = document.getElementById('inputSyukur').value.trim();
+        if (inputSyukur === "") {
+            alert("Silakan tuliskan hal yang kamu syukuri terlebih dahulu.");
+            return;
+        }
+
+        localStorage.setItem('kalih_aksa_syukur', inputSyukur);
+        document.getElementById('riwayatSyukurBox').style.display = 'block';
+        document.getElementById('tampilSyukur').textContent = inputSyukur;
+        alert("Catatan syukur berhasil disimpan! Terima kasih sudah melatih pikiran positif hari ini ✨");
+        document.getElementById('inputSyukur').value = "";
     });
 }
 
@@ -170,21 +211,15 @@ if (btnKirimCurhat) {
             return;
         }
 
-        // Daftar kumpulan kata-kata penenang empati acak
         const kumpulanPenenang = [
-            "Terima kasih sudah berani menuliskannya dan melepaskan sedikit bebanmu hari ini. Kamu sudah berjuang dengan sangat baik sampai detik ini. Ingat, tidak apa-apa untuk beristirahat sebentar.",
-            "Perasaan berat yang kamu rasakan saat ini valid. Jangan memikul semuanya sendirian; kamu berhak mendapatkan ruang untuk bernapas dan bahagia.",
-            "Apa pun yang sedang kamu hadapi di luar sana, percayalah bahwa badai pasti berlalu. Kamu lebih kuat dari yang kamu bayangkan.",
-            "Mengekspresikan apa yang kamu rasakan adalah langkah awal pemulihan yang hebat. Tetaplah berbaik hati pada dirimu sendiri ya."
+            "Terima kasih sudah berani menuliskannya dan melepaskan sedikit bebanmu hari ini. Kamu sudah berjuang dengan sangat baik.",
+            "Perasaan berat yang kamu rasakan saat ini valid. Jangan memikul semuanya sendirian; kamu berhak mendapatkan ruang untuk bernapas.",
+            "Apa pun yang sedang kamu hadapi, percayalah bahwa badai pasti berlalu. Kamu lebih kuat dari yang kamu bayangkan."
         ];
 
-        // Ambil kalimat penenang secara acak
         const randomPenenang = kumpulanPenenang[Math.floor(Math.random() * kumpulanPenenang.length)];
-
         divRespon.style.display = 'block';
         teksRespon.textContent = randomPenenang;
-
-        // Kosongkan textarea setelah dikirim
         document.getElementById('pesanCurhat').value = "";
     });
 }
@@ -197,21 +232,13 @@ const btnAcakAfirmasi = document.getElementById('btnAcakAfirmasi');
 if (btnAcakAfirmasi) {
     btnAcakAfirmasi.addEventListener('click', () => {
         const teksAfirmasi = document.getElementById('teksAfirmasi');
-
-        // Daftar kalimat afirmasi menenangkan
         const daftarAfirmasi = [
             "\"Aku berhak merasa tenang, dan aku melepaskan segala hal yang tidak bisa aku kendalikan.\"",
             "\"Setiap langkah kecil yang aku ambil hari ini sudah lebih dari cukup. Aku bangga pada diriku sendiri.\"",
-            "\"Pikiran dan perasaanku valid. Aku memaafkan diriku atas kesalahan di masa lalu dan memilih bertumbuh.\"",
-            "\"Kekuatanku jauh lebih besar daripada ketakutan atau kecemasan yang sedang kurasakan saat ini.\"",
-            "\"Aku dikelilingi oleh potensi kebaikan, dan hari ini aku membuka diri untuk kedamaian batin.\"",
-            "\"Tidak apa-apa untuk merasa lelah. Tubuh dan pikiranku berhak mendapatkan waktu untuk beristirahat.\""
+            "\"Kekuatanku jauh lebih besar daripada ketakutan atau kecemasan yang sedang kurasakan saat ini.\""
         ];
-
-        // Pilih kalimat secara acak
         const afirmasiAcak = daftarAfirmasi[Math.floor(Math.random() * daftarAfirmasi.length)];
 
-        // Efek transisi sederhana
         teksAfirmasi.style.opacity = 0;
         setTimeout(() => {
             teksAfirmasi.textContent = afirmasiAcak;
@@ -227,27 +254,27 @@ if (btnAcakAfirmasi) {
 const groundingSteps = [
     {
         title: "Langkah 1: Penglihatan (5)",
-        desc: "Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara <strong>5 benda</strong> yang bisa kamu lihat saat ini (contoh: lampu, meja, dinding, botol minum, jendela)."
+        desc: "Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara <strong>5 benda</strong> yang bisa kamu lihat saat ini."
     },
     {
         title: "Langkah 2: Perabaan (4)",
-        desc: "Fokus pada indra peraba. Sentuh dan rasakan tekstur dari <strong>4 benda</strong> di dekatmu (contoh: permukaan pakaian, tekstur meja, casing HP, helaian kain)."
+        desc: "Fokus pada indra peraba. Sentuh dan rasakan tekstur dari <strong>4 benda</strong> di dekatmu."
     },
     {
         title: "Langkah 3: Pendengaran (3)",
-        desc: "Dengarkan baik-baik lingkungan sekitar. Identifikasi <strong>3 suara</strong> yang bisa kamu dengar saat ini (contoh: suara kipas angin, suara kendaraan di luar, detak jam dinding)."
+        desc: "Dengarkan baik-baik lingkungan sekitar. Identifikasi <strong>3 suara</strong> yang bisa kamu dengar saat ini."
     },
     {
         title: "Langkah 4: Penciuman (2)",
-        desc: "Tarik napas perlahan melalui hidung. Cari atau kenali <strong>2 aroma</strong> yang bisa kamu cium di sekitarmu (contoh: aroma sabun, wangi kopi, atau udara segar)."
+        desc: "Tarik napas perlahan. Cari atau kenali <strong>2 aroma</strong> yang bisa kamu cium di sekitarmu."
     },
     {
         title: "Langkah 5: Pengecapan (1)",
-        desc: "Fokus pada indra pengecapmu. Rasakan <strong>1 rasa</strong> yang tertinggal di mulutmu saat ini (contoh: sisa air minum, rasa manis permen, atau cukup teguk air putih)."
+        desc: "Fokus pada indra pengecapmu. Rasakan <strong>1 rasa</strong> yang tertinggal di mulutmu saat ini."
     },
     {
         title: "Selesai: Kembali Tenang 🌸",
-        desc: "Luar biasa! Kamu telah berhasil kembali terhubung dengan momen saat ini. Tarik napas dalam-dalam, hembuskan perlahan. Tubuh dan pikiranmu kini jauh lebih tenang."
+        desc: "Luar biasa! Kamu telah berhasil kembali terhubung dengan momen saat ini. Tarik napas dalam-dalam, hembuskan perlahan."
     }
 ];
 
@@ -260,17 +287,15 @@ const groundingDesc = document.getElementById('groundingDesc');
 if (btnNextGrounding) {
     btnNextGrounding.addEventListener('click', () => {
         currentGroundingStep++;
-        
         if (currentGroundingStep < groundingSteps.length) {
             groundingTitle.textContent = groundingSteps[currentGroundingStep].title;
-            groundingDesc.innerHTML = groundingSteps[currentGroundingStep].desc; // Gunakan innerHTML agar tag <strong> terbaca
-            
+            groundingDesc.innerHTML = groundingSteps[currentGroundingStep].desc;
             if (currentGroundingStep === groundingSteps.length - 1) {
                 btnNextGrounding.textContent = "Selesai 💖";
             }
         } else {
             groundingTitle.textContent = "Latihan Selesai 🌸";
-            groundingDesc.innerHTML = "Semoga perasaan cemasmu sudah jauh mereda. Jika butuh teman bicara lebih lanjut, jangan ragu jadwalkan sesi bersama konselor profesional kami di Kalih Aksa!";
+            groundingDesc.innerHTML = "Semoga perasaan cemasmu sudah jauh mereda. Jika butuh teman bicara, jangan ragu jadwalkan sesi bersama konselor kami!";
             btnNextGrounding.style.display = 'none';
             btnResetGrounding.style.display = 'block';
         }
@@ -297,37 +322,19 @@ const moodResponseTitle = document.getElementById('moodResponseTitle');
 const moodResponseDesc = document.getElementById('moodResponseDesc');
 
 const moodMessages = {
-    senang: {
-        title: "Ikut senang mendengarnya! ✨",
-        desc: "Energi positifmu hari ini sangat berharga. Nikmati momen bahagianya, dan jangan lupa sebarkan kebaikan kecil ke orang-orang di sekitarmu!"
-    },
-    tenang: {
-        title: "Kondisi batin yang damai 🌿",
-        desc: "Pertahankan ritme yang menenangkan ini. Meluangkan waktu untuk bernapas dan menikmati ketenangan adalah bentuk perawatan diri yang luar biasa."
-    },
-    lelah: {
-        title: "Waktunya beristirahat sebentar 🛋️",
-        desc: "Tubuh dan pikiranmu sudah bekerja keras hari ini. Tidak apa-apa untuk berhenti sejenak, merebahkan diri, atau mendengarkan musik relaksasi di bawah."
-    },
-    cemas: {
-        title: "Tarik napas dalam-dalam, kamu tidak sendiri 🫂",
-        desc: "Perasaan cemas ini valid, tapi ia tidak mendefinisikan dirimu. Coba gunakan fitur Grounding di atas untuk membantumu kembali merasa aman."
-    },
-    sedih: {
-        title: "Peluk hangat untukmu 🌧️",
-        desc: "Air mata dan kesedihan adalah bagian dari proses manusiawi. Izinkan dirimu merasakannya, dan ingat bahwa badai emosi ini pasti akan berlalu."
-    }
+    senang: { title: "Ikut senang mendengarnya! ✨", desc: "Energi positifmu hari ini sangat berharga. Nikmati momen bahagianya!" },
+    tenang: { title: "Kondisi batin yang damai 🌿", desc: "Pertahankan ritme yang menenangkan ini. Meluangkan waktu bernapas adalah bentuk perawatan diri." },
+    lelah: { title: "Waktunya beristirahat sebentar 🛋️", desc: "Tubuh dan pikiranmu sudah bekerja keras. Tidak apa-apa untuk berhenti sejenak." },
+    cemas: { title: "Tarik napas dalam-dalam, kamu tidak sendiri 🫂", desc: "Perasaan cemas ini valid. Coba gunakan fitur Grounding di atas." },
+    sedih: { title: "Peluk hangat untukmu 🌧️", desc: "Air mata adalah bagian dari proses manusiawi. Badai emosi ini pasti akan berlalu." }
 };
 
 moodButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Hantar efek aktif visual pada tombol
         moodButtons.forEach(b => b.style.borderColor = "var(--accent-color)");
         btn.style.borderColor = "#ffffff";
-
         const selectedMood = btn.getAttribute('data-mood');
         const data = moodMessages[selectedMood];
-
         if (data) {
             moodResponseBox.style.display = 'block';
             moodResponseTitle.textContent = data.title;
@@ -335,3 +342,24 @@ moodButtons.forEach(btn => {
         }
     });
 });
+
+// ========================================== */
+// 10. FITUR BARU: PESAN UNTUK DIRI SENDIRI   */
+// ========================================== */
+const btnSimpanSurat = document.getElementById('btnSimpanSurat');
+
+if (btnSimpanSurat) {
+    btnSimpanSurat.addEventListener('click', () => {
+        const inputSurat = document.getElementById('inputSurat').value.trim();
+        if (inputSurat === "") {
+            alert("Silakan tulis pesan hangat untuk dirimu terlebih dahulu.");
+            return;
+        }
+
+        localStorage.setItem('kalih_aksa_surat', inputSurat);
+        document.getElementById('kotakTampilSurat').style.display = 'block';
+        document.getElementById('teksSuratTersimpan').textContent = inputSurat;
+        alert("Pesan berhasil disimpan untuk dirimu! 💌");
+        document.getElementById('inputSurat').value = "";
+    });
+}
