@@ -20,7 +20,7 @@
                 Admin Online & Siap Melayani
             </div>
 
-            <!-- Tambahan: Slot Info Badge -->
+            <!-- Slot Info Badge -->
             <div class="slot-info-badge">
                 <i class="fas fa-clock"></i> Slot Konseling Hari Ini: <span id="slot-count">Tersedia 3 Sesi</span>
             </div>
@@ -170,6 +170,19 @@
         </section>
     </main>
 
+    <!-- Fitur Pemutar Musik Relaksasi -->
+    <div class="music-player-widget" id="musicWidget">
+        <audio id="bgMusic" loop>
+            <!-- Musik instrumen lo-fi/relaksasi -->
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+        <button class="music-toggle-btn" id="musicToggleBtn" title="Putar Musik Relaksasi">
+            <i class="fas fa-music" id="musicIcon"></i>
+            <span class="music-text" id="musicText">Musik Tenang</span>
+        </button>
+    </div>
+
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/6281234567890" target="_blank" class="floating-wa" title="Chat WhatsApp">
         <i class="fab fa-whatsapp"></i>
@@ -180,5 +193,7 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Hubungkan ke file JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

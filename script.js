@@ -49,8 +49,8 @@ faqItems.forEach(item => {
         // Cek apakah item ini sudah aktif
         const isActive = item.classList.contains('active');
 
-        // Tutup semua FAQ item terlebih dahulu (opsional, jika ingin satu terbuka bergantian)
-        faqItems.itemsList = faqItems.forEach(i => i.classList.remove('active'));
+        // Tutup semua FAQ item terlebih dahulu
+        faqItems.forEach(i => i.classList.remove('active'));
 
         // Jika sebelumnya belum aktif, buka yang diklik
         if (!isActive) {
@@ -93,3 +93,31 @@ window.addEventListener('DOMContentLoaded', () => {
         slotSpan.textContent = `Tersedia ${randomSlots} Sesi`;
     }
 });
+
+// ========================================== */
+// 4. FITUR PEMUTAR MUSIK RELAKSASI             */
+// ========================================== */
+const musicToggleBtn = document.getElementById('musicToggleBtn');
+const bgMusic = document.getElementById('bgMusic');
+const musicText = document.getElementById('musicText');
+
+if (musicToggleBtn && bgMusic) {
+    let isPlaying = false;
+
+    musicToggleBtn.addEventListener('click', () => {
+        if (!isPlaying) {
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicToggleBtn.classList.add('playing');
+                musicText.textContent = 'Jeda Musik';
+            }).catch(error => {
+                console.log("Autoplay dicegah browser:", error);
+            });
+        } else {
+            bgMusic.pause();
+            isPlaying = false;
+            musicToggleBtn.classList.remove('playing');
+            musicText.textContent = 'Musik Tenang';
+        }
+    });
+}
