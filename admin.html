@@ -25,7 +25,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px;">
             <div style="background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
                 <p style="color: var(--text-sub); font-size: 0.9rem;">Status Layanan</p>
-                <h3 style="color: #4ade80; margin-top: 5px; font-size: 1.3rem;"><i class="fa-solid fa-circle" style="font-size: 0.7rem;"></i> Online</h3>
+                <h3 id="statusPreview" style="color: #4ade80; margin-top: 5px; font-size: 1.3rem;"><i class="fa-solid fa-circle" style="font-size: 0.7rem;"></i> Online</h3>
             </div>
             <div style="background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
                 <p style="color: var(--text-sub); font-size: 0.9rem;">Nomor WhatsApp Aktif</p>
@@ -35,26 +35,28 @@
 
         <!-- Menu Kontrol Pengaturan Admin -->
         <div style="background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
-            <h3 style="margin-bottom: 20px; font-size: 1.2rem;"><i class="fa-solid fa-gear"></i> Pengaturan Cepat</h3>
+            <h3 style="margin-bottom: 20px; font-size: 1.2rem;"><i class="fa-solid fa-gear"></i> Pengaturan Cepat & Real-Time</h3>
             
             <div style="margin-bottom: 20px;">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600;">Ubah Status Admin di Header Utama</label>
                 <select id="statusSelect" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: #fff;">
-                    <option value="online">Admin Online & Siap Melayani</option>
-                    <option value="istirahat">Admin Sedang Istirahat / Offline</option>
+                    <option value="Admin Online & Siap Melayani">Admin Online & Siap Melayani</option>
+                    <option value="Admin Sedang Istirahat / Offline">Admin Sedang Istirahat / Offline</option>
                 </select>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Pengumuman / Catatan Internal Admin</label>
-                <textarea rows="3" placeholder="Tulis catatan atau jadwal piket konselor..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: #fff;"></textarea>
+                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Pengumuman / Catatan Penting untuk Pengunjung</label>
+                <textarea id="noticeInput" rows="3" placeholder="Tulis pengumuman (misal: Sesi hari ini penuh, silakan booking untuk besok)..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: #fff;"></textarea>
             </div>
 
-            <button onclick="alert('Pengaturan berhasil disimpan!')" style="background: var(--accent-color); color: #0f172a; border: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; cursor: pointer;">
+            <button id="saveAdminBtn" style="background: var(--accent-color); color: #0f172a; border: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; cursor: pointer;">
                 Simpan Perubahan
             </button>
         </div>
     </div>
 
+    <!-- Script Utama (External) -->
+    <script src="admin.js"></script>
 </body>
 </html>

@@ -9,11 +9,19 @@
     --accent-color: #38bdf8;   
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .section-title {
@@ -21,6 +29,7 @@ body {
     font-size: 2.2rem;
     margin-bottom: 10px;
     color: var(--text-main);
+    font-weight: 700;
 }
 
 .section-desc {
@@ -314,4 +323,39 @@ body {
 
 .floating-wa:hover {
     transform: scale(1.1);
+}
+
+/* ========================================== */
+/* TAMBAHAN STYLING UNTUK LIGHT MODE          */
+/* ========================================== */
+body.light-mode {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+}
+
+body.light-mode header,
+body.light-mode .konselor-card,
+body.light-mode .booking-section,
+body.light-mode .artikel-card,
+body.light-mode .faq-item,
+body.light-mode .testimoni-card,
+body.light-mode div[style*="background: var(--card-bg)"] {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #e2e8f0 !important;
+}
+
+body.light-mode p, 
+body.light-mode span, 
+body.light-mode label,
+body.light-mode .section-desc {
+    color: #475569 !important;
+}
+
+body.light-mode input,
+body.light-mode select,
+body.light-mode textarea {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
 }
