@@ -188,3 +188,35 @@ if (btnKirimCurhat) {
         document.getElementById('pesanCurhat').value = "";
     });
 }
+
+// ========================================== */
+// 7. AFIRMASI POSITIF HARIAN                 */
+// ========================================== */
+const btnAcakAfirmasi = document.getElementById('btnAcakAfirmasi');
+
+if (btnAcakAfirmasi) {
+    btnAcakAfirmasi.addEventListener('click', () => {
+        const teksAfirmasi = document.getElementById('teksAfirmasi');
+
+        // Daftar kalimat afirmasi menenangkan
+        const daftarAfirmasi = [
+            "\"Aku berhak merasa tenang, dan aku melepaskan segala hal yang tidak bisa aku kendalikan.\"",
+            "\"Setiap langkah kecil yang aku ambil hari ini sudah lebih dari cukup. Aku bangga pada diriku sendiri.\"",
+            "\"Pikiran dan perasaanku valid. Aku memaafkan diriku atas kesalahan di masa lalu dan memilih bertumbuh.\"",
+            "\"Kekuatanku jauh lebih besar daripada ketakutan atau kecemasan yang sedang kurasakan saat ini.\"",
+            "\"Aku dikelilingi oleh potensi kebaikan, dan hari ini aku membuka diri untuk kedamaian batin.\"",
+            "\"Tidak apa-apa untuk merasa lelah. Tubuh dan pikiranku berhak mendapatkan waktu untuk beristirahat.\""
+        ];
+
+        // Pilih kalimat secara acak
+        const afirmasiAcak = daftarAfirmasi[Math.floor(Math.random() * daftarAfirmasi.length)];
+
+        // Efek transisi sederhana
+        teksAfirmasi.style.opacity = 0;
+        setTimeout(() => {
+            teksAfirmasi.textContent = afirmasiAcak;
+            teksAfirmasi.style.opacity = 1;
+            teksAfirmasi.style.transition = "opacity 0.4s ease-in-out";
+        }, 200);
+    });
+}

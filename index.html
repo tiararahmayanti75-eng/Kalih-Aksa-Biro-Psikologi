@@ -37,6 +37,7 @@
             <a href="#booking" style="color: var(--accent-color); text-decoration: none;">Jadwal Sesi</a>
             <a href="#kalkulator" style="color: var(--accent-color); text-decoration: none;">Cek Stres</a>
             <a href="#curhat" style="color: var(--accent-color); text-decoration: none;">Ruang Curhat</a>
+            <a href="#afirmasi" style="color: var(--accent-color); text-decoration: none;">Afirmasi</a>
             <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
             <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
         </nav>
@@ -153,7 +154,7 @@
             </div>
         </section>
 
-        <!-- 7. Ruang Curhat Anonim (Fitur Baru) -->
+        <!-- 7. Ruang Curhat Anonim -->
         <section id="curhat" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
             <h2 class="section-title">Ruang Curhat Anonim</h2>
             <p class="section-desc">Punya unek-unek yang ingin dikeluarkan tanpa takut dihakimi? Tulis di sini secara anonim.</p>
@@ -173,6 +174,25 @@
                     <h3 style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"><i class="fas fa-heart"></i> Pesan Untukmu</h3>
                     <p id="teksResponCurhat" style="font-size: 0.950rem; color: var(--text-sub); line-height: 1.5;"></p>
                 </div>
+            </div>
+        </section>
+
+        <!-- 8. Afirmasi Positif Harian (Fitur Baru) -->
+        <section id="afirmasi" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Afirmasi Positif Hari Ini</h2>
+            <p class="section-desc">Butuh suntikan energi positif? Klik tombol di bawah untuk mendapatkan kalimat afirmasi khusus untukmu.</p>
+            
+            <div class="booking-form" style="display: inline-block; width: 100%;">
+                <!-- Kotak Tampil Afirmasi -->
+                <div id="kotakAfirmasi" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px dashed var(--accent-color); margin-bottom: 20px; min-height: 90px; display: flex; align-items: center; justify-content: center;">
+                    <p id="teksAfirmasi" style="font-size: 1.05rem; color: var(--accent-color); font-weight: 500; line-height: 1.5; font-style: italic;">
+                        "Klik tombol di bawah untuk memunculkan afirmasi positifmu hari ini."
+                    </p>
+                </div>
+
+                <button type="button" id="btnAcakAfirmasi" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                    <i class="fas fa-sparkles"></i> Ambil Afirmasi Baru
+                </button>
             </div>
         </section>
 
