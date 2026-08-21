@@ -35,6 +35,7 @@
         <nav style="display: flex; justify-content: center; gap: 20px; font-weight: 600; font-size: 0.95rem;">
             <a href="#konselor" style="color: var(--accent-color); text-decoration: none;">Konselor</a>
             <a href="#booking" style="color: var(--accent-color); text-decoration: none;">Jadwal Sesi</a>
+            <a href="#kalkulator" style="color: var(--accent-color); text-decoration: none;">Cek Stres</a>
             <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
             <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
         </nav>
@@ -103,6 +104,51 @@
                         <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Hubungkan via WhatsApp
                     </button>
                 </form>
+            </div>
+        </section>
+
+        <!-- 6. Kalkulator Stres Mandiri (Fitur Baru) -->
+        <section id="kalkulator" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+            <h2 class="section-title">Cek Tingkat Stres Anda</h2>
+            <p class="section-desc">Jawab 3 pertanyaan singkat ini untuk mengetahui gambaran tingkat stres Anda hari ini.</p>
+            
+            <div class="booking-form" style="text-align: left;">
+                <div class="form-group">
+                    <label>1. Seberapa sering Anda merasa cemas atau khawatir berlebihan minggu ini?</label>
+                    <select id="soal1">
+                        <option value="1">Jarang / Tidak Pernah</option>
+                        <option value="2">Kadang-kadang</option>
+                        <option value="3">Sering / Hampir Setiap Hari</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Apakah Anda mengalami kesulitan tidur atau istirahat akhir-akhir ini?</label>
+                    <select id="soal2">
+                        <option value="1">Tidak, tidur saya nyenyak</option>
+                        <option value="2">Kadang susah tidur</option>
+                        <option value="3">Sangat sering mengalami insomnia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Seberapa besar beban pikiran atau pekerjaan mempengaruhi aktivitas harian Anda?</label>
+                    <select id="soal3">
+                        <option value="1">Tidak terlalu berpengaruh</option>
+                        <option value="2">Cukup mengganggu</option>
+                        <option value="3">Sangat mengganggu dan melelahkan</option>
+                    </select>
+                </div>
+
+                <button type="button" id="btnHitungStres" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                    <i class="fas fa-calculator"></i> Lihat Hasil Analisis
+                </button>
+
+                <!-- Kotak Hasil Tes -->
+                <div id="hasilStres" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
+                    <h3 id="judulHasil" style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"></h3>
+                    <p id="teksHasil" style="font-size: 0.950rem; color: var(--text-sub); line-height: 1.5;"></p>
+                </div>
             </div>
         </section>
 

@@ -121,3 +121,35 @@ if (musicToggleBtn && bgMusic) {
         }
     });
 }
+
+// ========================================== */
+// 5. KALKULATOR TINGKAT STRES MANDIRI        */
+// ========================================== */
+const btnHitungStres = document.getElementById('btnHitungStres');
+
+if (btnHitungStres) {
+    btnHitungStres.addEventListener('click', () => {
+        const val1 = parseInt(document.getElementById('soal1').value);
+        const val2 = parseInt(document.getElementById('soal2').value);
+        const val3 = parseInt(document.getElementById('soal3').value);
+
+        const totalSkor = val1 + val2 + val3;
+        
+        const divHasil = document.getElementById('hasilStres');
+        const judulHasil = document.getElementById('judulHasil');
+        const teksHasil = document.getElementById('teksHasil');
+
+        divHasil.style.display = 'block';
+
+        if (totalSkor <= 4) {
+            judulHasil.textContent = "Hasil: Tingkat Stres Rendah (Kondisi Aman)";
+            teksHasil.textContent = "Kondisi mental Anda tampaknya cukup stabil minggu ini. Tetap pertahankan pola hidup sehat, istirahat cukup, dan luangkan waktu untuk relaksasi.";
+        } else if (totalSkor <= 7) {
+            judulHasil.textContent = "Hasil: Tingkat Stres Sedang (Butuh Perhatian)";
+            teksHasil.textContent = "Anda mulai merasakan tekanan yang cukup berarti. Disarankan untuk mulai mendengarkan musik relaksasi, melakukan hobi, atau mencoba sesi konseling ringan agar tidak menumpuk.";
+        } else {
+            judulHasil.textContent = "Hasil: Tingkat Stres Tinggi (Sangat Disarankan Konseling)";
+            teksHasil.textContent = "Beban pikiran Anda terlihat cukup berat dan mengganggu istirahat. Sangat disarankan untuk segera menjadwalkan sesi konsultasi profesional dengan psikolog kami di Kalih Aksa.";
+        }
+    });
+}
