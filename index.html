@@ -32,10 +32,11 @@
         </p>
 
         <!-- Menu Navigasi Sederhana -->
-        <nav style="display: flex; justify-content: center; gap: 20px; font-weight: 600; font-size: 0.95rem;">
+        <nav style="display: flex; justify-content: center; gap: 20px; font-weight: 600; font-size: 0.95rem; flex-wrap: wrap;">
             <a href="#konselor" style="color: var(--accent-color); text-decoration: none;">Konselor</a>
             <a href="#booking" style="color: var(--accent-color); text-decoration: none;">Jadwal Sesi</a>
             <a href="#kalkulator" style="color: var(--accent-color); text-decoration: none;">Cek Stres</a>
+            <a href="#curhat" style="color: var(--accent-color); text-decoration: none;">Ruang Curhat</a>
             <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
             <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
         </nav>
@@ -107,7 +108,7 @@
             </div>
         </section>
 
-        <!-- 6. Kalkulator Stres Mandiri (Fitur Baru) -->
+        <!-- 6. Kalkulator Stres Mandiri -->
         <section id="kalkulator" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
             <h2 class="section-title">Cek Tingkat Stres Anda</h2>
             <p class="section-desc">Jawab 3 pertanyaan singkat ini untuk mengetahui gambaran tingkat stres Anda hari ini.</p>
@@ -148,6 +149,29 @@
                 <div id="hasilStres" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
                     <h3 id="judulHasil" style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"></h3>
                     <p id="teksHasil" style="font-size: 0.950rem; color: var(--text-sub); line-height: 1.5;"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Ruang Curhat Anonim (Fitur Baru) -->
+        <section id="curhat" style="padding: 60px 20px; max-width: 700px; margin: 0 auto;">
+            <h2 class="section-title">Ruang Curhat Anonim</h2>
+            <p class="section-desc">Punya unek-unek yang ingin dikeluarkan tanpa takut dihakimi? Tulis di sini secara anonim.</p>
+            
+            <div class="booking-form" style="text-align: left;">
+                <div class="form-group">
+                    <label for="pesanCurhat">Tuliskan isi hati atau keluh kesahmu di sini:</label>
+                    <textarea id="pesanCurhat" rows="4" placeholder="Ceritakan apa saja yang sedang mengganjal di pikiranmu..." required></textarea>
+                </div>
+
+                <button type="button" id="btnKirimCurhat" class="btn-submit-wa" style="background-color: var(--accent-color);">
+                    <i class="fas fa-paper-plane"></i> Lepaskan Beban & Kirim
+                </button>
+
+                <!-- Respon Penenang Otomatis -->
+                <div id="responCurhat" style="margin-top: 20px; padding: 20px; border-radius: 10px; background: var(--bg-color); display: none; border: 1px solid var(--border-color);">
+                    <h3 style="margin-bottom: 10px; font-size: 1.1rem; color: var(--accent-color);"><i class="fas fa-heart"></i> Pesan Untukmu</h3>
+                    <p id="teksResponCurhat" style="font-size: 0.950rem; color: var(--text-sub); line-height: 1.5;"></p>
                 </div>
             </div>
         </section>
@@ -216,7 +240,7 @@
         </section>
     </main>
 
-    <!-- Fitur Pemutar Musik Relaksasi (Menggunakan file lokal) -->
+    <!-- Fitur Pemutar Musik Relaksasi -->
     <div class="music-player-widget" id="musicWidget">
         <audio id="bgMusic" loop>
             <source src="Musik Tenang.mp3" type="audio/mpeg">

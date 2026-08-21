@@ -153,3 +153,38 @@ if (btnHitungStres) {
         }
     });
 }
+
+// ========================================== */
+// 6. RUANG CURHAT ANONIM                     */
+// ========================================== */
+const btnKirimCurhat = document.getElementById('btnKirimCurhat');
+
+if (btnKirimCurhat) {
+    btnKirimCurhat.addEventListener('click', () => {
+        const inputCurhat = document.getElementById('pesanCurhat').value.trim();
+        const divRespon = document.getElementById('responCurhat');
+        const teksRespon = document.getElementById('teksResponCurhat');
+
+        if (inputCurhat === "") {
+            alert("Silakan tuliskan sesuatu terlebih dahulu.");
+            return;
+        }
+
+        // Daftar kumpulan kata-kata penenang empati acak
+        const kumpulanPenenang = [
+            "Terima kasih sudah berani menuliskannya dan melepaskan sedikit bebanmu hari ini. Kamu sudah berjuang dengan sangat baik sampai detik ini. Ingat, tidak apa-apa untuk beristirahat sebentar.",
+            "Perasaan berat yang kamu rasakan saat ini valid. Jangan memikul semuanya sendirian; kamu berhak mendapatkan ruang untuk bernapas dan bahagia.",
+            "Apa pun yang sedang kamu hadapi di luar sana, percayalah bahwa badai pasti berlalu. Kamu lebih kuat dari yang kamu bayangkan.",
+            "Mengekspresikan apa yang kamu rasakan adalah langkah awal pemulihan yang hebat. Tetaplah berbaik hati pada dirimu sendiri ya."
+        ];
+
+        // Ambil kalimat penenang secara acak
+        const randomPenenang = kumpulanPenenang[Math.floor(Math.random() * kumpulanPenenang.length)];
+
+        divRespon.style.display = 'block';
+        teksRespon.textContent = randomPenenang;
+
+        // Kosongkan textarea setelah dikirim
+        document.getElementById('pesanCurhat').value = "";
+    });
+}
