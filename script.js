@@ -220,3 +220,70 @@ if (btnAcakAfirmasi) {
         }, 200);
     });
 }
+
+// ========================================== */
+// 8. INTERACTIVE GROUNDING TOOL (5-4-3-2-1)  */
+// ========================================== */
+const groundingSteps = [
+    {
+        title: "Langkah 1: Penglihatan (5)",
+        desc: "Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara **5 benda** yang bisa kamu lihat saat ini (contoh: lampu, meja, dinding, botol minum, jendela)."
+    },
+    {
+        title: "Langkah 2: Perabaan (4)",
+        desc: "Fokus pada indra peraba. Sentuh dan rasakan tekstur dari **4 benda** di dekatmu (contoh: permukaan pakaian, tekstur meja, casing HP, helaian kain)."
+    },
+    {
+        title: "Langkah 3: Pendengaran (3)",
+        desc: "Dengarkan baik-baik lingkungan sekitar. Identifikasi **3 suara** yang bisa kamu dengar saat ini (contoh: suara kipas angin, suara kendaraan di luar, detak jam dinding)."
+    },
+    {
+        title: "Langkah 4: Penciuman (2)",
+        desc: "Tarik napas perlahan melalui hidung. Cari atau kenali **2 aroma** yang bisa kamu cium di sekitarmu (contoh: aroma sabun, wangi kopi, atau udara segar)."
+    },
+    {
+        title: "Langkah 5: Pengecapan (1)",
+        desc: "Fokus pada indra pengecapmu. Rasakan **1 rasa** yang tertinggal di mulutmu saat ini (contoh: sisa air minum, rasa manis permen, atau cukup teguk air putih)."
+    },
+    {
+        title: "Selesai: Kembali Tenang 🌸",
+        desc: "Luar biasa! Kamu telah berhasil kembali terhubung dengan momen saat ini. Tarik napas dalam-dalam, hembuskan perlahan. Tubuh dan pikiranmu kini jauh lebih tenang."
+    }
+];
+
+let currentGroundingStep = 0;
+const btnNextGrounding = document.getElementById('btnNextGrounding');
+const btnResetGrounding = document.getElementById('btnResetGrounding');
+const groundingTitle = document.getElementById('groundingTitle');
+const groundingDesc = document.getElementById('groundingDesc');
+
+if (btnNextGrounding) {
+    btnNextGrounding.addEventListener('click', () => {
+        currentGroundingStep++;
+        
+        if (currentGroundingStep < groundingSteps.length) {
+            groundingTitle.textContent = groundingSteps[currentGroundingStep].title;
+            groundingDesc.innerHTML = groundingSteps[currentGroundingStep].desc; // Gunakan innerHTML agar tag <strong> terbaca
+            
+            if (currentGroundingStep === groundingSteps.length - 1) {
+                btnNextGrounding.textContent = "Selesai 💖";
+            }
+        } else {
+            groundingTitle.textContent = "Latihan Selesai 🌸";
+            groundingDesc.innerHTML = "Semoga perasaan cemasmu sudah jauh mereda. Jika butuh teman bicara lebih lanjut, jangan ragu jadwalkan sesi bersama konselor profesional kami di Kalih Aksa!";
+            btnNextGrounding.style.display = 'none';
+            btnResetGrounding.style.display = 'block';
+        }
+    });
+}
+
+if (btnResetGrounding) {
+    btnResetGrounding.addEventListener('click', () => {
+        currentGroundingStep = 0;
+        groundingTitle.textContent = groundingSteps[0].title;
+        groundingDesc.innerHTML = groundingSteps[0].desc;
+        btnNextGrounding.textContent = "Lanjut ke Langkah Berikutnya →";
+        btnNextGrounding.style.display = 'block';
+        btnResetGrounding.style.display = 'none';
+    });
+}
