@@ -10,8 +10,13 @@
 </head>
 <body>
 
-    <!-- Header Utama dengan Status Operasional -->
-    <header style="padding: 50px 20px 30px 20px; text-align: center;">
+    <!-- Header Utama dengan Status Operasional & Tombol Admin -->
+    <header style="padding: 40px 20px 30px 20px; text-align: center; position: relative;">
+        <!-- Tombol Pintasan Admin di Pojok Kanan Atas -->
+        <a href="admin.html" style="position: absolute; top: 20px; right: 20px; background: var(--card-bg); color: var(--accent-color); padding: 8px 15px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-lock"></i> Admin Panel
+        </a>
+
         <div class="admin-badge">
             <span class="pulse-dot"></span> Admin Online & Siap Melayani
         </div>
@@ -161,8 +166,6 @@
     <footer style="text-align: center; padding: 40px; color: var(--text-sub); border-top: 1px solid rgba(255,255,255,0.05);">
         <p>Jam Operasional: Senin - Sabtu (08.00 - 20.00 WIB)</p>
         <p style="margin-top: 10px;">&copy; 2026 Kalih Aksa Biro Psikologi. Seluruh hak cipta dilindungi.</p>
-        <!-- Tautan Khusus Akses Admin -->
-        <p style="margin-top: 15px;"><a href="admin.html" style="color: var(--text-sub); font-size: 0.85rem; text-decoration: underline;">Login Panel Admin</a></p>
     </footer>
 
     <script src="script.js"></script>
