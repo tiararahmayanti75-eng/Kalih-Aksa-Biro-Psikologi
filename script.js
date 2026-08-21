@@ -287,3 +287,51 @@ if (btnResetGrounding) {
         btnResetGrounding.style.display = 'none';
     });
 }
+
+// ========================================== */
+// 9. MOOD TRACKER INTERAKTIF                 */
+// ========================================== */
+const moodButtons = document.querySelectorAll('.mood-btn');
+const moodResponseBox = document.getElementById('moodResponseBox');
+const moodResponseTitle = document.getElementById('moodResponseTitle');
+const moodResponseDesc = document.getElementById('moodResponseDesc');
+
+const moodMessages = {
+    senang: {
+        title: "Ikut senang mendengarnya! ✨",
+        desc: "Energi positifmu hari ini sangat berharga. Nikmati momen bahagianya, dan jangan lupa sebarkan kebaikan kecil ke orang-orang di sekitarmu!"
+    },
+    tenang: {
+        title: "Kondisi batin yang damai 🌿",
+        desc: "Pertahankan ritme yang menenangkan ini. Meluangkan waktu untuk bernapas dan menikmati ketenangan adalah bentuk perawatan diri yang luar biasa."
+    },
+    lelah: {
+        title: "Waktunya beristirahat sebentar 🛋️",
+        desc: "Tubuh dan pikiranmu sudah bekerja keras hari ini. Tidak apa-apa untuk berhenti sejenak, merebahkan diri, atau mendengarkan musik relaksasi di bawah."
+    },
+    cemas: {
+        title: "Tarik napas dalam-dalam, kamu tidak sendiri 🫂",
+        desc: "Perasaan cemas ini valid, tapi ia tidak mendefinisikan dirimu. Coba gunakan fitur Grounding di atas untuk membantumu kembali merasa aman."
+    },
+    sedih: {
+        title: "Peluk hangat untukmu 🌧️",
+        desc: "Air mata dan kesedihan adalah bagian dari proses manusiawi. Izinkan dirimu merasakannya, dan ingat bahwa badai emosi ini pasti akan berlalu."
+    }
+};
+
+moodButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Hantar efek aktif visual pada tombol
+        moodButtons.forEach(b => b.style.borderColor = "var(--accent-color)");
+        btn.style.borderColor = "#ffffff";
+
+        const selectedMood = btn.getAttribute('data-mood');
+        const data = moodMessages[selectedMood];
+
+        if (data) {
+            moodResponseBox.style.display = 'block';
+            moodResponseTitle.textContent = data.title;
+            moodResponseDesc.textContent = data.desc;
+        }
+    });
+});

@@ -39,6 +39,7 @@
             <a href="#curhat" style="color: var(--accent-color); text-decoration: none;">Ruang Curhat</a>
             <a href="#afirmasi" style="color: var(--accent-color); text-decoration: none;">Afirmasi</a>
             <a href="#grounding" style="color: var(--accent-color); text-decoration: none;">Grounding</a>
+            <a href="#moodtracker" style="color: var(--accent-color); text-decoration: none;">Mood</a>
             <a href="#artikel" style="color: var(--accent-color); text-decoration: none;">Artikel</a>
             <a href="#faq" style="color: var(--accent-color); text-decoration: none;">FAQ</a>
         </nav>
@@ -197,7 +198,7 @@
             </div>
         </section>
 
-        <!-- 9. Teknik Grounding Instan (Fitur Baru) -->
+        <!-- 9. Teknik Grounding Instan -->
         <section id="grounding" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
             <h2 class="section-title">Pereda Cemas Instan (Grounding)</h2>
             <p class="section-desc">Merasa cemas atau panik mendadak? Ikuti panduan interaktif 5-4-3-2-1 ini untuk kembali tenang.</p>
@@ -206,7 +207,7 @@
                 <div id="groundingBox" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px solid var(--accent-color); margin-bottom: 20px;">
                     <h3 id="groundingTitle" style="color: var(--accent-color); margin-bottom: 10px; font-size: 1.2rem;">Langkah 1: Penglihatan (5)</h3>
                     <p id="groundingDesc" style="color: var(--text-sub); line-height: 1.6; font-size: 1rem;">
-                        Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara **5 benda** yang bisa kamu lihat saat ini (contoh: lampu, meja, dinding, botol minum, jendela).
+                        Perhatikan sekelilingmu. Sebutkan secara mental atau bersuara <strong>5 benda</strong> yang bisa kamu lihat saat ini (contoh: lampu, meja, dinding, botol minum, jendela).
                     </p>
                 </div>
 
@@ -217,6 +218,38 @@
                     <button type="button" id="btnNextGrounding" class="btn-submit-wa" style="background-color: var(--accent-color); width: 100%;">
                         Lanjut ke Langkah Berikutnya <i class="fas fa-arrow-right"></i>
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Pencatat Mood Harian (Fitur Baru) -->
+        <section id="moodtracker" style="padding: 60px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Bagaimana Perasaanmu Hari Ini?</h2>
+            <p class="section-desc">Pilih ekspresi yang paling mewakili suasana hatimu sekarang untuk mendapatkan pesan hangat.</p>
+            
+            <div class="booking-form" style="display: inline-block; width: 100%;">
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;">
+                    <button type="button" class="mood-btn" data-mood="senang" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
+                        😊 Senang
+                    </button>
+                    <button type="button" class="mood-btn" data-mood="tenang" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
+                        😌 Tenang
+                    </button>
+                    <button type="button" class="mood-btn" data-mood="lelah" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
+                        🥱 Lelah
+                    </button>
+                    <button type="button" class="mood-btn" data-mood="cemas" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
+                        😰 Cemas
+                    </button>
+                    <button type="button" class="mood-btn" data-mood="sedih" style="background: var(--bg-color); border: 1px solid var(--accent-color); padding: 12px 18px; border-radius: 12px; cursor: pointer; color: var(--text-color); font-size: 1.1rem;">
+                        😢 Sedih
+                    </button>
+                </div>
+
+                <!-- Kotak Respon Mood -->
+                <div id="moodResponseBox" style="padding: 25px; border-radius: 12px; background: var(--bg-color); border: 1px dashed var(--accent-color); display: none; text-align: left;">
+                    <h3 id="moodResponseTitle" style="color: var(--accent-color); margin-bottom: 8px; font-size: 1.1rem;">Respon Untukmu</h3>
+                    <p id="moodResponseDesc" style="color: var(--text-sub); line-height: 1.6; font-size: 0.95rem;"></p>
                 </div>
             </div>
         </section>
